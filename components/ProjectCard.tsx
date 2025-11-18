@@ -1,0 +1,60 @@
+import React from 'react';
+import { Project } from '../types';
+import { Folder, Github, ExternalLink } from 'lucide-react';
+
+interface Props {
+  project: Project;
+}
+
+export const ProjectCard: React.FC<Props> = ({ project }) => {
+  return (
+    <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+      
+      {/* Project Icon Column */}
+      <div className="z-10 sm:col-span-2 mt-1">
+        <div className="flex items-center justify-center w-12 h-12 mt-1 rounded bg-slate-800/50 border border-slate-700 text-teal-300 group-hover:border-teal-300/50 transition-colors">
+            <Folder className="w-6 h-6" />
+        </div>
+      </div>
+
+      <div className="z-10 sm:col-span-6">
+        <h3 className="font-medium leading-snug text-slate-200">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+          >
+            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+            <span>
+              {project.title}
+              <span className="inline-block ml-1">
+                 <ExternalLink className="h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+              </span>
+            </span>
+          </a>
+        </h3>
+        <p className="mt-2 text-sm leading-normal text-slate-400">
+          {project.description}
+        </p>
+        <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+          {project.tools.map((tech) => (
+            <li key={tech} className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                {tech}
+              </div>
+            </li>
+          ))}
+        </ul>
+        
+        {project.link && (
+             <div className="mt-4 flex items-center text-sm font-medium text-slate-400 group-hover:text-teal-300 transition-colors w-max relative z-10">
+                <Github className="w-4 h-4 mr-2" />
+                <span>View on GitHub</span>
+             </div>
+        )}
+      </div>
+    </div>
+  );
+};

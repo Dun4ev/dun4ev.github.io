@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Linkedin, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Mail, Phone, ArrowUpRight } from 'lucide-react';
 import { CursorSpotlight } from './components/CursorSpotlight';
 import { Navigation } from './components/Navigation';
 import { ExperienceCard } from './components/ExperienceCard';
+import { ProjectCard } from './components/ProjectCard';
 import { SkillGraph } from './components/SkillGraph';
 import { SkillRadar } from './components/SkillRadar';
-import { JOBS, D3_DATA, SOCIAL_LINKS } from './constants';
+import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS } from './constants';
 
 const TypingEffect = ({ text }: { text: string }) => {
   const [display, setDisplay] = useState('');
@@ -108,7 +109,7 @@ const App: React.FC = () => {
               <FadeIn>
                 <div className="space-y-4 text-lg">
                   <p>
-                    I am a highly qualified energy infrastructure expert based in <span className="text-teal-300 inline-flex items-center gap-1 font-medium"><MapPin className="h-3 w-3"/> Belgrade, Serbia</span>. With over 18 years of experience managing large-scale gas pipeline and compressor station projects, I specialize in bridging the gap between traditional engineering and modern digital solutions.
+                    I am a highly qualified energy infrastructure expert based in <span className="text-teal-300 font-medium">Belgrade, Serbia</span>. With over 18 years of experience managing large-scale gas pipeline and compressor station projects, I specialize in bridging the gap between traditional engineering and modern digital solutions.
                   </p>
                   <p>
                     My professional philosophy isn't just about climbing the ladder—it's about building systems that make complex processes transparent, reliable, and future-ready. I have extensive experience in <span className="text-slate-200 font-medium">FEED documentation</span>, stakeholder negotiations, and regulatory compliance (PED, ATEX, Ex, CE).
@@ -189,7 +190,29 @@ const App: React.FC = () => {
                   </div>
                 </FadeIn>
               </div>
+            </section>
 
+            {/* PROJECTS SECTION */}
+            <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Selected projects">
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Projects</h2>
+              </div>
+              <div className="group/list">
+                {PROJECTS.map((project, idx) => (
+                  <FadeIn key={project.id} delay={idx * 100}>
+                    <div className="mb-12">
+                      <ProjectCard project={project} />
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+              <FadeIn>
+                <div className="mt-12">
+                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="https://github.com/Dun4ev?tab=repositories" target="_blank" rel="noreferrer">
+                    <span>View Full Project Archive <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1"/></span></span>
+                  </a>
+                </div>
+              </FadeIn>
             </section>
 
             {/* FOOTER */}
