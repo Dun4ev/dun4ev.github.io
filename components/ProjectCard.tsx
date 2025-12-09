@@ -2,11 +2,30 @@ import React from 'react';
 import { Project } from '../types';
 import { Folder, Github, ExternalLink } from 'lucide-react';
 
+// Ensure local assets respect the GitHub Pages base path
+const resolveImageSrc = (imagePath?: string) => {
+  if (!imagePath) {
+    return undefined;
+  }
+
+  if (/^https?:\/\//i.test(imagePath)) {
+    return imagePath;
+  }
+
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+
+  return `${normalizedBase}${normalizedPath}`;
+};
+
 interface Props {
   project: Project;
 }
 
 export const ProjectCard: React.FC<Props> = ({ project }) => {
+  const imageSrc = resolveImageSrc(project.image);
+
   return (
     <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
       <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
@@ -14,10 +33,10 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
 
       {/* Project Image Column */}
       <div className="z-10 sm:col-span-2 mt-1">
-        {project.image ? (
+        {imageSrc ? (
           <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-700 group-hover:border-teal-300/50 transition-colors">
             <img
-              src={project.image}
+              src={imageSrc}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
