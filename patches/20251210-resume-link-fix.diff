@@ -1,0 +1,13 @@
+diff --git a/App.tsx b/App.tsx
+index 1b5baed..fed964d 100644
+--- a/App.tsx
++++ b/App.tsx
+@@ -148,7 +148,7 @@ const App: React.FC = () => {
+ 
+               <FadeIn>
+                 <div className="mt-12">
+-                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="/resume.pdf" target="_blank" rel="noreferrer">
++                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href={`${import.meta.env.BASE_URL}resume.pdf`} target="_blank" rel="noreferrer">
+                     <span>View Full Résumé <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
+                   </a>
+                 </div>
