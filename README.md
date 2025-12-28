@@ -7,6 +7,7 @@
 This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1vuATN9flhhq7C751H2MSKuQp__v7S17K
+Live Site: https://dun4ev.github.io/
 
 ## Run Locally
 
