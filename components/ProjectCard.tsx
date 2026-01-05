@@ -84,10 +84,15 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
         </ul>
 
         {project.link && (
-          <div className="mt-4 flex items-center text-sm font-medium text-slate-400 group-hover:text-teal-300 transition-colors w-max relative z-10">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 flex items-center text-sm font-medium text-slate-400 hover:text-teal-300 transition-colors w-max relative z-10"
+          >
             <Github className="w-4 h-4 mr-2" />
             <span>View on GitHub</span>
-          </div>
+          </a>
         )}
       </div>
     </div>
