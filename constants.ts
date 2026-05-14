@@ -1,10 +1,11 @@
-import { Job, Project, GraphData } from './types';
+import { Job, Project, KnowledgeItem, GraphData } from './types';
 
 export const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills & Data', href: '#skills' },
   { name: 'Projects', href: '/projects' },
+  { name: 'Knowledge Base', href: '/knowledge-base' },
 ];
 
 export const SOCIAL_LINKS = {
@@ -153,6 +154,18 @@ export const PROJECTS: Project[] = [
     role: 'Creator',
     status: 'Reusable toolkit',
     impact: 'Converts raw Excel and CSV data into interactive engineering trend views'
+  }
+];
+
+export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
+  {
+    id: 'karpathy-agent-guide',
+    title: 'Software Engineering Agent Guide',
+    description: 'A visual guide to working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and follow-up improvement loops.',
+    category: 'AI Agents',
+    format: 'Interactive HTML',
+    href: '/knowledge-base/karpathy-agent-guide/index.html',
+    tags: ['AI Agents', 'Coding Workflow', 'Delivery', 'Quality Checks']
   }
 ];
 

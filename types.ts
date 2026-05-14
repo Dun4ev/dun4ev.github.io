@@ -21,6 +21,16 @@ export interface Project {
   impact?: string;
 }
 
+export interface KnowledgeItem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  format: string;
+  href: string;
+  tags: string[];
+}
+
 export interface SkillNode {
   id: string;
   group: number; // 1: Engineering, 2: Data/Tech, 3: Management

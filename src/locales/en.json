@@ -3,7 +3,8 @@
         "about": "About",
         "experience": "Experience",
         "skills": "Skills & Data",
-        "projects": "Projects"
+        "projects": "Projects",
+        "knowledge": "Knowledge Base"
     },
     "header": {
         "title": "Andrej Dunaev",
@@ -125,6 +126,27 @@
         "card_tools": "Technologies used",
         "view_project": "Open project",
         "github_archive": "View all repositories on GitHub"
+    },
+    "knowledge": {
+        "eyebrow": "Knowledge Base",
+        "title": "Knowledge Base",
+        "description": "Infographics, AI guides, and working notes that help structure engineering automation, agent workflows, and practical ways of working with AI.",
+        "view_all": "Open knowledge base",
+        "items": {
+            "karpathy-agent-guide": {
+                "title": "Software Engineering Agent Guide",
+                "description": "An interactive infographic about working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and process improvement loops."
+            }
+        }
+    },
+    "knowledgePage": {
+        "back_home": "Back home",
+        "eyebrow": "Knowledge Base",
+        "title": "AI guides and engineering notes",
+        "description": "A dedicated collection for blog materials and personal knowledge work: diagrams, infographics, workflows, and practical notes on AI agents, engineering automation, and documentation workflows.",
+        "grid_label": "Knowledge base materials",
+        "tags_label": "Item tags",
+        "open_item": "Open material"
     },
     "footer": {
         "built_with": "Designed and built with <0>React</0>, <1>Tailwind CSS</1>, and <2>D3.js</2>.",
