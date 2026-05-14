@@ -15,6 +15,10 @@ export interface Project {
   tools: string[];
   link: string;
   image?: string;
+  category?: string;
+  role?: string;
+  status?: string;
+  impact?: string;
 }
 
 export interface SkillNode {

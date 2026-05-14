@@ -9,6 +9,7 @@ import { SkillCloud } from './components/SkillCloud';
 import { SkillRadar } from './components/SkillRadar';
 import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS } from './constants';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { ProjectsPage } from './components/ProjectsPage';
 
 const TypingEffect = ({ text }: { text: string }) => {
   const [display, setDisplay] = useState('');
@@ -61,8 +62,54 @@ const FadeIn = ({ children, delay = 0 }: React.PropsWithChildren<{ delay?: numbe
   );
 };
 
+const getRoutePath = () => {
+  const redirectPath = new URLSearchParams(window.location.search).get('redirect');
+
+  if (redirectPath) {
+    window.history.replaceState(null, '', redirectPath);
+    return redirectPath;
+  }
+
+  return window.location.pathname;
+};
+
 const App: React.FC = () => {
   const { t } = useTranslation();
+  const [routePath, setRoutePath] = useState(getRoutePath);
+
+  useEffect(() => {
+    const handlePopState = () => setRoutePath(window.location.pathname);
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState(null, '', path);
+    setRoutePath(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    navigateTo('/');
+  };
+
+  const handleProjectsClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    navigateTo('/projects');
+  };
+
+  const isProjectsPage = routePath === '/projects';
+
+  if (isProjectsPage) {
+    return (
+      <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
+        <CursorSpotlight />
+        <ProjectsPage onNavigate={navigateTo} />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
@@ -78,7 +125,7 @@ const App: React.FC = () => {
                 <LanguageSwitcher />
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-                <a href="/">{t('header.title')}</a>
+                <a href="/" onClick={handleHomeClick}>{t('header.title')}</a>
               </h1>
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl min-h-[3.5rem] sm:min-h-[2rem]">
                 <TypingEffect text={t('header.subtitle')} />
@@ -86,7 +133,7 @@ const App: React.FC = () => {
               <p className="mt-4 max-w-xs leading-normal text-slate-400">
                 {t('header.description')}
               </p>
-              <Navigation />
+              <Navigation onNavigate={navigateTo} />
             </div>
 
             <div className="ml-1 mt-8 flex flex-col gap-8">
@@ -166,9 +213,14 @@ const App: React.FC = () => {
               </div>
               <FadeIn>
                 <p className="mb-4">
-                  <Trans i18nKey="skills.description">
-                    My expertise lies at the intersection of <span className="text-teal-300">Engineering</span>, <span className="text-teal-300">Project Management</span>, and <span className="text-teal-300">Data Analytics</span>. The interactive graph below illustrates how these domains connect in my daily workflows, from automating checklist generation to managing 3D design integration.
-                  </Trans>
+                  <Trans
+                    i18nKey="skills.description"
+                    components={[
+                      <span className="text-teal-300" />,
+                      <span className="text-teal-300" />,
+                      <span className="text-teal-300" />
+                    ]}
+                  />
                 </p>
               </FadeIn>
 
@@ -205,7 +257,7 @@ const App: React.FC = () => {
                 <div className="mt-8 p-6 bg-slate-800/30 rounded-lg border border-slate-700/50">
                   <h4 className="text-slate-200 font-semibold mb-4 text-center">{t('skills.key_expertise')}</h4>
                   <div className="flex flex-wrap justify-center gap-2">
-                    {['AI Automation', 'Industrial Engineering', 'Data Analytics', 'Digital Transformation', 'Technical Documentation', 'Process Optimization', 'Python', 'Power Query', 'EPC Projects', 'PED/ATEX Compliance', 'Systems Thinking'].map((skill) => (
+                    {['AI Automation', 'Industrial Engineering', 'Data Analytics', 'Technical Documentation', 'RFQ Coordination', 'Vendor Documentation', 'Issue Tracking', 'Planning & Reporting', 'Python', 'Django', 'Power Query', 'UGS', 'EPC Projects', 'PED/ATEX Compliance'].map((skill) => (
                       <span key={skill} className="px-3 py-1 bg-teal-500/10 text-teal-300 border border-teal-500/20 rounded-full text-xs font-medium hover:bg-teal-500/20 transition-colors cursor-default">
                         {skill}
                       </span>
@@ -231,7 +283,7 @@ const App: React.FC = () => {
               </div>
               <FadeIn>
                 <div className="mt-12">
-                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="https://github.com/Dun4ev?tab=repositories" target="_blank" rel="noreferrer">
+                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="/projects" onClick={handleProjectsClick}>
                     <span>{t('projects.view_archive')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
                 </div>
@@ -241,9 +293,14 @@ const App: React.FC = () => {
             {/* FOOTER */}
             <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
               <p>
-                <Trans i18nKey="footer.built_with">
-                  Designed and built with <span className="text-slate-200">React</span>, <span className="text-slate-200">Tailwind CSS</span>, and <span className="text-slate-200">D3.js</span>.
-                </Trans>
+                <Trans
+                  i18nKey="footer.built_with"
+                  components={[
+                    <span className="text-slate-200" />,
+                    <span className="text-slate-200" />,
+                    <span className="text-slate-200" />
+                  ]}
+                />
                 <br />
                 {t('footer.inspired_by')}
               </p>

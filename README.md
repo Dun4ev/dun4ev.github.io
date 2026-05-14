@@ -8,6 +8,7 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1vuATN9flhhq7C751H2MSKuQp__v7S17K
 Live Site: https://dun4ev.github.io/
+Projects: https://dun4ev.github.io/projects
 
 ## 📚 Документация
 
@@ -33,3 +34,10 @@ Live Site: https://dun4ev.github.io/
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Страницы
+
+- `/` — главная страница портфолио.
+- `/projects` — отдельная сетка проектов с фильтрами и карточками.
+
+Для GitHub Pages добавлен `public/404.html`: прямое открытие `/projects` перенаправляется в React-приложение без потери пути.

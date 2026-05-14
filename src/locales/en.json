@@ -8,26 +8,38 @@
     "header": {
         "title": "Andrej Dunaev",
         "subtitle": "Engineering Systems & AI Integration Specialist",
-        "description": "Integrating engineering expertise with AI, data automation, and LLM-based solutions to build transparent and future-ready systems."
+        "description": "Integrating engineering coordination, technical documentation, vendor workflows, and AI-assisted automation to make complex engineering processes traceable, transparent, and scalable."
     },
     "about": {
-        "p1": "I work at the intersection of engineering design, infrastructure operations, and modern AI-driven automation. Since 2006, I have been involved in the full lifecycle of gas pipeline and compressor station projects: from FEED and detailed design to commissioning support, technical documentation control, and regulatory compliance.",
-        "p2": "For me, professional growth is not about climbing a career ladder, but about expanding horizons and applying expertise where it creates the most value. I believe in building systems that make complex processes transparent, reliable, and future-ready.",
-        "p3": "Since 2023, I have been actively integrating into the IT and AI ecosystem, focusing on Large Language Models (LLM) and engineering automation within the infrastructure projects domain. I develop Python- and LLM-powered tools that classify technical documents, detect inconsistencies, generate analytical insights, and simplify complex engineering workflows. My work combines domain expertise with modern digital capabilities.",
-        "p4": "My mission is to bridge traditional engineering with next-generation digital transformation, enabling infrastructure projects to operate with greater clarity, precision, and intelligence."
+        "p1": "I work at the intersection of energy infrastructure, engineering coordination, technical documentation, vendor coordination, and workflow automation. With nearly two decades of experience in gas pipeline, compressor station, and underground gas storage projects, I have worked across FEED, detailed design, construction support, RFQ packages, vendor documentation, as-built updates, and operational coordination.",
+        "p2": "My core strength is bringing structure, traceability, and reliability to complex engineering environments: connecting engineering execution with documentation quality, technical data, change control, interface coordination, vendor inputs, QA, procurement, and operations.",
+        "p3": "Alongside project delivery, I build practical digital solutions for documentation, reporting, action item control, and data analysis. I use Python, Django, Excel Power Query, and AI-assisted methods to reduce manual effort, lower the risk of missed agreements, and support better-informed decisions in documentation-heavy projects.",
+        "p4": "I am interested in roles and collaborations where engineering knowledge can be combined with data, automation, and Industrial AI to make complex processes more structured, transparent, and scalable."
     },
     "experience": {
         "title": "Work Experience",
         "view_resume": "View Full Résumé",
         "jobs": {
+            "comita": {
+                "title": "Chief Engineering Expert (Planning, Monitoring & Reporting)",
+                "description": [
+                    "Coordinate engineering activities, project monitoring, reporting, RFQ documentation, vendor communication, and follow-up control for energy infrastructure projects.",
+                    "Connect clients, design institutes, subcontractors, vendors, and internal teams through structured documentation, planning discipline, and reliable reporting.",
+                    "Prepare and coordinate RFQ packages, support technical clarifications, review vendor inputs, and monitor open issues through closure.",
+                    "Developed a Python/Django-based internal system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.",
+                    "Built tools for maintenance report processing, documentation package preparation, file sorting, Excel-template population, archive generation, and structured logging."
+                ]
+            },
             "idc-2": {
                 "title": "Chief Engineering Expert (Project Management)",
                 "description": [
                     "Provided comprehensive technical support for project and operational documentation, including pre-commissioning for main gas pipelines and compressor stations.",
-                    "Developed automated Python scripts for generating customer comment sheets, analyzing equipment status trends, and automating file distribution within the document management system. Automation reduced routine document distribution time from 29 minutes to 2 seconds, and transmittal generation (Excel filling + archiving + folder creation) from 5 minutes to 2 seconds.",
+                    "Reviewed subcontractor reports, maintained statistics on recurring maintenance issues, and automated comment sheet generation with Python.",
+                    "Developed Python-based graphical tools for big data trend analysis and equipment status monitoring; trained colleagues to use them.",
                     "Created detailed equipment maintenance checklists based on manufacturer documentation.",
                     "Prepared analytical data and technical conclusions for EPC contract documentation to resolve disputes.",
-                    "Produced ~120 visual analytical reports comparing design vs. as-built conditions for legal claims."
+                    "Produced ~120 visual analytical reports comparing design documentation with as-built conditions for claims and counterclaims.",
+                    "Updated ~350 as-built documents, including mechanical drawings, electrical diagrams, instrumentation, automation tables, and settings after identifying discrepancies."
                 ]
             },
             "idc-1": {
@@ -35,8 +47,9 @@
                 "description": [
                     "Coordinated realization of 400km main gas pipeline and compressor station construction.",
                     "Oversaw finalization of FEED, Detailed Design, and As-built documentation.",
-                    "Managed coordination between design institutes (Saipem, Giprogazcentr, etc.), processing over 30,000 documents.",
+                    "Managed coordination between design institutes (Saipem, Giprogazcentr, etc.), processing approximately 20,000 documents across disciplines.",
                     "Implemented MDR/MDI procedures for automated data storage through indexing and data structuring.",
+                    "Coordinated RFQ processes, procurement packages, and vendor relations to ensure manufacturers understood project requirements.",
                     "Participated in HAZOP reviews and ensured compliance with PED, ATEX, Ex, and CE standards (including equipment certification preparation)."
                 ]
             },
@@ -61,7 +74,7 @@
                 "title": "Lead Design Engineer",
                 "description": [
                     "Worked on projects like 'South Stream' and 'Bovanenkovo — Ukhta'.",
-                    "Implemented 3D design solutions that increased productivity by 70%, measured by comparing 3D vs. 2D design time.",
+                    "Implemented 3D design solutions that increased productivity by 50% in terms of design preparation and approval time.",
                     "Optimized design processes by integrating Excel, AutoCAD, and SolidWorks.",
                     "Designed pig receiving/launching traps and valve stations in SolidWorks."
                 ]
@@ -70,7 +83,7 @@
     },
     "skills": {
         "title": "Skills & Data",
-        "description": "My expertise lies at the intersection of <0>Engineering</0>, <1>Project Management</1>, and <2>Data Analytics</2>. The interactive graph below illustrates how these fields are connected in my daily work — from automating checklist generation to managing 3D project integration.",
+        "description": "My expertise lies at the intersection of <0>Engineering Coordination</0>, <1>Technical Documentation</1>, and <2>Data Automation</2>. The interactive graph below shows how these fields connect in my daily work — from RFQ and vendor documentation to issue tracking, reporting, and AI-assisted tools.",
         "software": "Engineering Software",
         "digital": "Digital Tech & Analytics",
         "key_expertise": "Key Expertise"
@@ -81,21 +94,37 @@
         "items": {
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
-                "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds."
+                "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds.",
+                "impact": "Reduces report and transmittal preparation from minutes to seconds."
             },
             "pipeline-analytics": {
                 "title": "TOiR Documentation Dispatcher",
-                "description": "An intelligent Python utility for automatically distributing incoming project PDF reports into target directories. It features automatic filename transliteration, detailed JSONL operation logging, and a Tkinter-based GUI for pipeline monitoring, essential for managing large-scale infrastructure technical documentation."
+                "description": "An intelligent Python utility for automatically distributing incoming project PDF reports into target directories. It features automatic filename transliteration, detailed JSONL operation logging, and a Tkinter-based GUI for pipeline monitoring, essential for managing large-scale infrastructure technical documentation.",
+                "impact": "Automates PDF routing and operation logging for engineering documentation flows."
             },
             "portfolio-v2": {
                 "title": "AI-Powered PDF Search Engine",
-                "description": "A semantic search and question-answering system for PDF documents. It utilizes RAG (Retrieval-Augmented Generation) architecture and LLMs to extract context from a FAISS vector database, providing accurate, grounded answers based on uploaded technical documentation."
+                "description": "A semantic search and question-answering system for PDF documents. It utilizes RAG (Retrieval-Augmented Generation) architecture and LLMs to extract context from a FAISS vector database, providing accurate, grounded answers based on uploaded technical documentation.",
+                "impact": "Turns local technical PDFs into a searchable knowledge base with grounded answers."
             },
             "graf-html": {
                 "title": "Interactive Trend Visualization",
-                "description": "A Python-based web application and toolkit (Dash/Plotly) for converting raw Excel/CSV data into interactive HTML plots. It enables engineers to quickly configure and analyze signals and trends, facilitating rapid pattern recognition in technical datasets without manual coding."
+                "description": "A Python-based web application and toolkit (Dash/Plotly) for converting raw Excel/CSV data into interactive HTML plots. It enables engineers to quickly configure and analyze signals and trends, facilitating rapid pattern recognition in technical datasets without manual coding.",
+                "impact": "Converts Excel/CSV data into interactive engineering charts and trend views."
             }
         }
+    },
+    "projectsPage": {
+        "back_home": "Back home",
+        "eyebrow": "Project portfolio",
+        "title": "Engineering tools, automation, and AI projects",
+        "description": "A dedicated project showcase for Python utilities, RAG search, data visualization, and technical documentation automation. The focus is practical value, measurable outcomes, and use in real engineering workflows.",
+        "filters_label": "Project filter",
+        "grid_label": "Project grid",
+        "all_filter": "All",
+        "card_tools": "Technologies used",
+        "view_project": "Open project",
+        "github_archive": "View all repositories on GitHub"
     },
     "footer": {
         "built_with": "Designed and built with <0>React</0>, <1>Tailwind CSS</1>, and <2>D3.js</2>.",

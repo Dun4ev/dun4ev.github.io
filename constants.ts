@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills & Data', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Projects', href: '/projects' },
 ];
 
 export const SOCIAL_LINKS = {
@@ -15,6 +15,21 @@ export const SOCIAL_LINKS = {
 
 export const JOBS: Job[] = [
   {
+    id: 'comita',
+    company: 'Comita Technics',
+    title: 'Chief Engineering Expert (Planning, Monitoring & Reporting)',
+    period: 'Aug 2025 — Present',
+    location: 'Serbia',
+    description: [
+      'Coordinate engineering activities, project monitoring, reporting, RFQ documentation, vendor communication, and follow-up control for energy infrastructure projects.',
+      'Connect clients, design institutes, subcontractors, vendors, and internal teams through structured documentation, planning discipline, and reliable reporting.',
+      'Prepare and coordinate RFQ packages, support technical clarifications, review vendor inputs, and monitor open issues through closure.',
+      'Developed a Python/Django-based internal system for meeting protocols, issue tracking, action item control, task filtering, discussion history, and automated XLSX reporting.',
+      'Built tools for maintenance report processing, documentation package preparation, file sorting, Excel-template population, archive generation, and structured logging.'
+    ],
+    technologies: ['Python', 'Django', 'RFQ Packages', 'Vendor Coordination', 'Issue Tracking', 'XLSX Reporting']
+  },
+  {
     id: 'idc-2',
     company: 'IDC d.o.o.',
     title: 'Chief Engineering Expert (Project Management)',
@@ -22,12 +37,14 @@ export const JOBS: Job[] = [
     location: 'Belgrade, Serbia',
     description: [
       'Provided comprehensive technical support for project and operational documentation, including pre-commissioning for main gas pipelines and compressor stations.',
-      'Developed automated Python scripts to generate comment sheets and analyze big data trends for equipment status.',
+      'Reviewed subcontractor reports, monitored recurring maintenance issues, and automated comment sheet generation with Python.',
+      'Developed Python-based graphical tools for big data trend analysis and equipment status monitoring.',
       'Created detailed equipment maintenance checklists based on manufacturer documentation.',
       'Prepared analytical data and technical conclusions for EPC contract documentation to resolve disputes.',
-      'Produced ~120 visual analytical reports comparing design vs. as-built conditions for legal claims.'
+      'Produced ~120 visual analytical reports comparing design vs. as-built conditions for legal claims.',
+      'Updated ~350 as-built documents, including mechanical drawings, electrical diagrams, instrumentation, automation tables, and settings.'
     ],
-    technologies: ['Python', 'Big Data', 'EPC Contracts', 'Documentation Control', 'Checklist Automation']
+    technologies: ['Python', 'Big Data', 'EPC Contracts', 'As-built Docs', 'Checklist Automation']
   },
   {
     id: 'idc-1',
@@ -40,9 +57,10 @@ export const JOBS: Job[] = [
       'Oversaw FEED documentation and Detailed Design finalization.',
       'Managed coordination among design institutes (Saipem, Giprogaztsentr, etc.), processing ~20,000 documents.',
       'Implemented MDR/MDI procedures for automated data storage.',
+      'Coordinated RFQ processes, procurement packages, and vendor relations to align manufacturers with project requirements.',
       'Participated in HAZOP reviews and ensured PED, ATEX, Ex, CE compliance.'
     ],
-    technologies: ['Project Coordination', 'FEED', 'HAZOP', 'MDR/MDI', 'Vendor Management']
+    technologies: ['Project Coordination', 'FEED', 'RFQ', 'MDR/MDI', 'Vendor Management']
   },
   {
     id: 'gazprom',
@@ -94,7 +112,11 @@ export const PROJECTS: Project[] = [
     description: 'A Python-based automation tool designed to streamline the creation of engineering reports and technical documentation.',
     tools: ['Python', 'Pandas', 'OpenPyXL', 'Automation'],
     link: 'https://github.com/Dun4ev/toir_tra_report',
-    image: '/images/projects/documentation-generator.png'
+    image: '/images/projects/documentation-generator.png',
+    category: 'Automation',
+    role: 'Creator',
+    status: 'Production-ready',
+    impact: 'Reduced routine report preparation from minutes to seconds'
   },
   {
     id: 'pipeline-analytics',
@@ -102,7 +124,11 @@ export const PROJECTS: Project[] = [
     description: 'An intelligent Python utility for automatically distributing incoming project PDF reports into target directories with automated transliteration and logging.',
     tools: ['Python', 'Tkinter', 'JSONL', 'Automation'],
     link: 'https://github.com/Dun4ev/toir_raspredelenije_report',
-    image: '/images/projects/pipeline-analytics.png'
+    image: '/images/projects/pipeline-analytics.png',
+    category: 'Documentation',
+    role: 'Creator',
+    status: 'Internal tool',
+    impact: 'Automated PDF routing and operation logging for engineering document flows'
   },
   {
     id: 'portfolio-v2',
@@ -110,7 +136,11 @@ export const PROJECTS: Project[] = [
     description: 'A semantic search and question-answering system for PDF documents using RAG architecture and LLMs.',
     tools: ['Python', 'LLM', 'RAG', 'FAISS', 'LangChain'],
     link: 'https://github.com/Dun4ev/ai-pdf-search-system',
-    image: '/images/projects/portfolio-website.png'
+    image: '/images/projects/portfolio-website.png',
+    category: 'AI / RAG',
+    role: 'Creator',
+    status: 'Prototype',
+    impact: 'Turns local technical PDFs into searchable, grounded answers'
   },
   {
     id: 'graf-html',
@@ -118,7 +148,11 @@ export const PROJECTS: Project[] = [
     description: 'A Python-based toolkit for converting raw Excel/CSV data into interactive HTML plots using Dash and Plotly.',
     tools: ['Python', 'Dash', 'Plotly', 'Pandas'],
     link: 'https://github.com/Dun4ev/graf_html',
-    image: '/images/projects/pipeline-analytics.png'
+    image: '/images/projects/pipeline-analytics.png',
+    category: 'Data Visualization',
+    role: 'Creator',
+    status: 'Reusable toolkit',
+    impact: 'Converts raw Excel and CSV data into interactive engineering trend views'
   }
 ];
 
@@ -132,6 +166,7 @@ export const D3_DATA: GraphData = {
     // Engineering
     { id: "Gas Pipelines", group: 1, radius: 18 },
     { id: "Compressor St.", group: 1, radius: 18 },
+    { id: "UGS", group: 1, radius: 14 },
     { id: "FEED", group: 1, radius: 15 },
     { id: "Detailed Design", group: 1, radius: 15 },
     { id: "HAZOP", group: 1, radius: 12 },
@@ -144,6 +179,7 @@ export const D3_DATA: GraphData = {
     { id: "Power Query", group: 2, radius: 15 },
     { id: "Automation", group: 2, radius: 18 },
     { id: "Prompt Eng", group: 2, radius: 15 },
+    { id: "Django", group: 2, radius: 12 },
     { id: "AutoCAD", group: 1, radius: 12 },
     { id: "SolidWorks", group: 1, radius: 12 },
     { id: "Kompas 3D", group: 1, radius: 10 },
@@ -151,6 +187,10 @@ export const D3_DATA: GraphData = {
     // Management
     { id: "EPC Contracts", group: 3, radius: 15 },
     { id: "Stakeholder Mgmt", group: 3, radius: 15 },
+    { id: "RFQ Packages", group: 3, radius: 14 },
+    { id: "Vendor Docs", group: 3, radius: 14 },
+    { id: "Issue Tracking", group: 3, radius: 14 },
+    { id: "Planning & Reporting", group: 3, radius: 14 },
     { id: "Risk Mgmt", group: 3, radius: 12 },
     { id: "Doc Control", group: 3, radius: 12 }, // MDR/MDI
     { id: "Cost Est.", group: 3, radius: 12 }
@@ -159,6 +199,7 @@ export const D3_DATA: GraphData = {
     // Engineering Center
     { source: "Engineering", target: "Gas Pipelines", value: 5 },
     { source: "Engineering", target: "Compressor St.", value: 5 },
+    { source: "Engineering", target: "UGS", value: 3 },
     { source: "Engineering", target: "FEED", value: 4 },
     { source: "Engineering", target: "Detailed Design", value: 4 },
     { source: "Engineering", target: "Regulatory", value: 3 },
@@ -174,6 +215,10 @@ export const D3_DATA: GraphData = {
     { source: "Project Mgmt", target: "Engineering", value: 5 },
     { source: "Project Mgmt", target: "EPC Contracts", value: 4 },
     { source: "Project Mgmt", target: "Stakeholder Mgmt", value: 4 },
+    { source: "Project Mgmt", target: "RFQ Packages", value: 4 },
+    { source: "Project Mgmt", target: "Vendor Docs", value: 4 },
+    { source: "Project Mgmt", target: "Issue Tracking", value: 4 },
+    { source: "Project Mgmt", target: "Planning & Reporting", value: 4 },
     { source: "Project Mgmt", target: "Risk Mgmt", value: 3 },
     { source: "Project Mgmt", target: "Doc Control", value: 3 },
     { source: "Project Mgmt", target: "Cost Est.", value: 3 },
@@ -184,10 +229,13 @@ export const D3_DATA: GraphData = {
     { source: "Data & AI", target: "Power Query", value: 4 },
     { source: "Data & AI", target: "Automation", value: 5 },
     { source: "Data & AI", target: "Prompt Eng", value: 4 },
+    { source: "Data & AI", target: "Django", value: 3 },
 
     // Cross-Domain
     { source: "Automation", target: "Doc Control", value: 4 }, // Python for docs
     { source: "Automation", target: "Engineering", value: 3 }, // Checklists
+    { source: "Automation", target: "Issue Tracking", value: 3 },
+    { source: "Vendor Docs", target: "RFQ Packages", value: 3 },
     { source: "Big Data", target: "Risk Mgmt", value: 3 }, // Analytics for risk
     { source: "Data & AI", target: "Project Mgmt", value: 3 },
     { source: "Regulatory", target: "Doc Control", value: 2 },

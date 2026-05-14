@@ -1,21 +1,21 @@
+--- Page 1 ---
+
+   
 Способы связаться
 +381698015343 (Mobile)
 andreydunaev1@gmail.com
-
 www.linkedin.com/in/andreydunaev
 (LinkedIn)
-
+dun4ev.github.io (Personal)
 Основные навыки
-Python
-Заявки на внесение изменений
-Корректирующее действие
-
+Budgeting and procurement
+Project Coordination Support
+EPC
 Languages
 Русский (Native or Bilingual)
 Английский (Elementary)
 Украинский (Native or Bilingual)
 Сербский (Limited Working)
-
 Certifications
 Data Analytics Essentials
 Специализация Prompt Engineering
@@ -24,60 +24,108 @@ Collaborate on Files in Slack: Local
 & Google Drive Integrations
 Generative AI for Executives and
 Business Leaders
-
-Andrej Dunajev
-
-Chief Engineering Expert in the Project Management Department
+Andrej Dunaev
+Engineering & Documentation Coordinator | Gas Infrastructure:
+Pipelines, Compressor Stations & UGS | FEED, Vendor
+Coordination, Compliance, Workflow Automation
 Белград, Сербия
-
 Общие сведения
-Highly qualified energy infrastructure expert with 18+ years
-of experience in managing large-scale gas pipeline and
-compressor station projects. Skilled in project coordination, FEED
-documentation, stakeholder and supplier negotiations. Strong
-background in digital transformation and automation of engineering
-workflows.
-Experienced in optimizing technical documentation by implementing
-automated change management systems, data structuring, and
-analytics. Developed custom tools in Excel (Power Query) and
-Python to improve efficiency, ensure compliance, and reduce project
-risks.
-Familiar with Agile/Scrum practices and iterative delivery in
-multidisciplinary teams.
-For me, professional growth is not just about climbing a career
-ladder, but about expanding horizons and applying expertise where
-it creates the most value. I believe in building systems that make
-complex processes transparent, reliable, and future-ready.
-Key areas of expertise:
-• Project coordination and lifecycle management (FEED → design →
-construction → operations).
-• Leadership of gas pipeline and compressor station projects.
-• Design and engineering software (AutoCAD, SolidWorks, Kompas
-3D).
-• Data analytics: Python, Excel (Power Query), dashboarding,
-reporting.
-• Prompt Engineering & AI tools for process automation.
-• Regulatory compliance: PED, ATEX, Ex, CE.
-• Certified in IBM Data Analytics, Project Management, Ex
-equipment, ISO 9712 Visual Inspection.
+I work at the intersection of energy infrastructure, engineering
+coordination, technical documentation, vendor coordination, and
+workflow automation.With nearly two decades of experience in gas
+pipeline and compressor station projects, I have worked across the
+full project lifecycle: FEED, detailed design, construction support,
+technical documentation, CAD / 3D model-based engineering review,
+RFQ package preparation, and operational coordination.My core
+strength is bringing structure, traceability, and reliability to complex
+engineering environments. I help connect engineering execution
+with documentation quality, technical data, change control, interface
+coordination, vendor documentation, and collaboration between
+engineering teams, design institutes, vendors, QA, procurement,
+and operations.A significant part of my work involves aligning
+design decisions with vendor solutions, technical requirements,
+project documentation, and site constraints. This includes preparing
+technical RFQ packages, reviewing vendor documentation,
+managing clarifications, tracking changes, and integrating supplier
+data into engineering deliverables.Alongside project delivery, I build
+practical digital solutions for engineering workflows: technical data
+structuring, automated change tracking, reporting, and analytics
+using Excel Power Query, Python, and AI-assisted methods. The
+focus is practical: reducing manual effort, improving consistency, and
+supporting better-informed decisions.I am interested in roles where
+engineering knowledge can be combined with data, automation,
+and Industrial AI to improve documentation-heavy processes,
+strengthen technical governance, and increase visibility across the
+asset lifecycle.Core areas of expertise:• Energy infrastructure and
+engineering coordination• Gas pipelines and compressor station
+projects• FEED, detailed design, and technical documentation
+workflows• CAD / 3D model-based engineering review: AutoCAD,
+SolidWorks, KOMPAS-3D• Technical RFQ package preparation and
+vendor documentation review• Vendor clarification management
+  Page 1 of 7
 
-Page 1 of 6
+--- Page 2 ---
 
-Passionate about data-driven solutions, AI integration, cybersecurity
-in engineering projects, and sustainable energy development. Open
-to opportunities in gas, nuclear, and broader energy projects.
-
+   
+and supplier data integration• Engineering interface coordination,
+traceability, and change control• Workflow automation with Python
+and Excel Power Query• Compliance-driven environments: PED,
+ATEX, Ex, CE• AI-enabled process improvement in engineering
+and industrial settingsI am open to roles and collaborations in
+energy, industrial, infrastructure, and other technically demanding
+sectors where complex processes need to become more structured,
+transparent, and scalable.
 Опыт работы
+Comita Technics
+Chief Engineering Expert in the Planning, Monitoring, and Reporting
+Group
+августа 2025 - Present (10 месяцев)
+Сербия
+As Chief Engineering Expert in the Planning, Monitoring, and Reporting
+Group, I coordinate engineering activities, project monitoring, reporting, RFQ
+documentation, vendor communication, and follow-up control for energy
+infrastructure projects.
+My role connects engineering execution with structured documentation,
+stakeholder coordination, planning discipline, and reliable reporting.
+Key responsibilities and contributions:
+• Coordinate engineering activities between the client, design institutes,
+subcontractors, vendors, and internal project teams.
+• Support development, review, and alignment of project documentation for
+gas infrastructure and underground gas storage projects.
+• Monitor deadlines, open issues, technical questions, design interfaces, and
+follow-up actions across multidisciplinary teams.
+• Prepare and coordinate RFQ documentation packages for vendors, support
+technical clarifications, and review vendor inputs.
+• Participate in coordination meetings, structure outcomes, prepare meeting
+protocols, and control follow-up actions until closure.
+• Support communication between stakeholders to align technical decisions,
+documentation status, project priorities, and delivery expectations.
+• Alongside my core engineering coordination and reporting responsibilities, I
+initiated and developed internal Python-based workflow automation tools for
+documentation, reporting, and task-control processes.
+  Page 2 of 7
+
+--- Page 3 ---
+
+   
+• Built tools for maintenance report processing, documentation package
+preparation, file sorting, Excel-template population, archive generation, and
+structured logging.
+• Developed a Python/Django-based internal system for meeting protocols,
+issue tracking, action item control, task filtering by organization, discussion
+history, and automated XLSX reporting.
+• Improved traceability, reduced repetitive manual work, increased
+transparency of responsibilities, and lowered the risk of missed agreements,
+data-transfer errors, and reporting inconsistencies.
 IDC d.o.o.
 6 лет 6 месяцев
-
 Chief Engineering Expert in the Project Management Department
-марта 2022 - августа 2025 (3 года 6 месяцев)
+марта 2022 - августа 2025 (3 года 6 месяцев)
 Belgrade, Serbia
-
 - Globally: Comprehensive Documentation Support: Full technical support
-provided for project and operational documentation, including precommissioning and commissioning documents, for the main gas pipeline, site
-facilities, and a compressor station.
+provided for project and operational documentation, including pre-
+commissioning and commissioning documents, for the main gas pipeline, site
+facilities, and a compressor station. 
 -In depth knowledge of installed systems: knowledge of all technical systems
 at facilities (main gas pipeline, compressor station, and facilities at several
 sites), their interaction, and components. Understanding and formatting RFQ
@@ -93,13 +141,15 @@ monitored. Automated the process of generating comment sheets for
 documents (Creating files using Python).
 - Analysis of trends and equipment status. Developed graphical programs for
 big data analysis based on Python. Trained colleagues.
+  Page 3 of 7
+
+--- Page 4 ---
+
+   
 - EPC Contract Support: Analytical data and technical conclusions prepared for
 EPC contract documentation to address questions and resolve disputes with
 third parties.
-
-Page 2 of 6
-
-- Developed technical justifications and investigated project decisions to
+- Developed technical justifications and investigated project decisions to
 support the legal department in resolving disputes and claims, producing
 approximately 120 visual analytical reports that compared design
 documentation with as-built conditions for use in claims and counterclaims.
@@ -107,16 +157,14 @@ documentation with as-built conditions for use in claims and counterclaims.
 (mechanical drawings, electrical diagrams, instrumentation, automation tables,
 and settings), bringing them up to date and reflecting the actual status after
 identifying discrepancies. Using Autocad and Kompas 3D.
-
 Chief Engineering Expert in the Project Implementation Department
-марта 2019 - марта 2022 (3 года 1 месяц)
+марта 2019 - марта 2022 (3 года 1 месяц)
 Belgrade, Serbia
-
 - Project Coordination: Led the implementation of a large-scale infrastructure
 project, including a compressor station and a 400 km main gas pipeline
-section. Ensured adherence to timelines, budgets, and project milestones.
+section. Ensured adherence to timelines, budgets, and project milestones. 
 - FEED & Detailed Design: Oversaw FEED documentation and finalization of
-Detailed Design for gas pipelines and compressor stations.
+Detailed Design for gas pipelines and compressor stations. 
 - Design Doc.: Managed the preparation and coordination of design
 documentation, ensuring effective communication and input integration among
 design institutes (e.g, Saipem, Giprogaztsentr, Putinvest, Delta Engineering).
@@ -129,15 +177,18 @@ developed procurement packages (PO), ensured manufacturers understood
 project requirements. Maintained strong collaboration between vendors,
 contractors, and customers (e.g. Siemens Energy, Comita, Norrexim, MSA,
 Altus).
+  Page 4 of 7
+
+--- Page 5 ---
+
+   
 - Contract management: participated in the coordination of the technical and
 design aspects of contracts. Approximately 20 contracts.
-
-Page 3 of 6
-
-- Regulatory Compliance: Directed the Detailed Design process in line with
+- Regulatory Compliance: Directed the Detailed Design process in line with
 Serbian legislation (PGD/PZI/PIO). Supervised the submission and approval of
 documentation by expert authorities.
-- Construction Support: Collaborated with construction teams to address onsite issues and ensure accurate as-built documentation (RLMU red lines).
+- Construction Support: Collaborated with construction teams to address on-
+site issues and ensure accurate as-built documentation (RLMU red lines).
 Supervised field engineering activities to maintain project integrity.
 - Risk & Safety Management: Participated in HAZOP reviews (pipeline and
 gas metering station), identifying risks and implementing measures to enhance
@@ -145,13 +196,11 @@ operational safety.
 - Equipment Certification: Assisted in the preparation of certification documents
 for PED, ATEX, Ex, and CE compliance, ensuring alignment with international
 standards.
-
 ООО "Газпром инвест"
 Junior Project Coordinator (Chief Specialist in Project Design and
 Survey Works Management)
-сентября 2015 - сентября 2017 (2 года 1 месяц)
+сентября 2015 - сентября 2017 (2 года 1 месяц)
 St. Petersburg, Russian Federation
-
 Coordinated a portfolio of 8 + large-scale gas and infrastructure projects
 valued between $30 M and $23 B, aligning schedules across 6 departments;
 Validated cost estimates for design and survey phases under senior oversight,
@@ -167,17 +216,19 @@ Conducted proactive stakeholder communication on official company forms
 —averaging 15 correspondences per day with the Investor, Operations, and
 Design Institute (excluding email)—to streamline approvals and keep all
 parties aligned.
+  Page 5 of 7
+
+--- Page 6 ---
+
+   
 Resolved contractual issues and monitored contractor performance against
 ISO-aligned and Gazprom Standard.
 Documented and tracked action items in ~250 stakeholder meetings, ensuring
 a 93-95% completion rate.
-Page 4 of 6
-
-Kubanvodproekt OJSC (ОАО Кубаньводпроект)
+Kubanvodproekt OJSC (ОАО Кубаньводпроект)
 Lead Design Engineer for Pipeline Systems
-октября 2014 - августа 2015 (11 месяцев)
+октября 2014 - августа 2015 (11 месяцев)
 Krasnodar region, Russian Federation
-
 - Participated in the creation of a new department specializing in the design
 of trunk pipelines, which included the organization of work processes for
 interaction between departments and the implementation of standards for the
@@ -192,12 +243,10 @@ the Customer during construction of the project.
 engineering issues on the project).
 - Participated in negotiations and working meetings with stakeholders,
 presenting technical aspects of projects.
-
 YUZHNIIGIPROGAZ PJSC ― ПАО "ЮЖНИИГИПРОГАЗ" (ЮНГГ)
 8 лет 3 месяца
-
 Lead Design Engineer for Pipeline Systems
-августа 2008 - октября 2014 (6 лет 3 месяца)
+августа 2008 - октября 2014 (6 лет 3 месяца)
 Donetsk, Ukraine
 2013
 Projects:
@@ -210,14 +259,17 @@ Results: Implementation of 3D design solutions and the resulting increase in
 project productivity by 50% in terms of time.
 Impact of previous achievements since 2006: Between 2008 and 2013, 3D
 design solutions optimized the design processes for trunk pipelines by 50%
+  Page 6 of 7
+
+--- Page 7 ---
+
+   
 in terms of build and approval time - reducing project delivery times. For the
 South Stream project, designed the intake terminal including pig launcher/
 receiver, valve assemblies, and completed all drawings and specifications in
 SolidWorks. Processes were optimized and integrated into AutoCAD for the
 job.
-Page 5 of 6
-
-2008
+2008
 Projects:
 • Gas Transportation System (GTS) Bovanenkovo–Ukhta.
 • Development of Achimov deposits (Urengoy Field, Samburg License Area).
@@ -227,10 +279,8 @@ systems, site facilities for trunk pipelines, author supervision, and collaborat
 with all project institute departments.
 Results: Reducing design time by using 3D methods, optimizing design
 processes (linking Excel and Autocad) and reducing errors.
-
 Design Engineer for Pipeline Systems
-
-августа 2006 - августа 2008 (2 года 1 месяц)
+августа 2006 - августа 2008 (2 года 1 месяц)
 Донецк, Донецкая область, Украина
 Personal Achievements:
 Introduced 3D design in SolidWorks in 2006.
@@ -245,12 +295,8 @@ Responsibilities: Development of technological solutions for site facilities,
 author supervision.
 Results: Smooth project execution and successful commissioning of
 infrastructure.
-
 Образование
 Donetsk National Technical University
-Expert, Equipment for chemical plants and enterprises of building
-materials · (2001 - 2006)
-
-Page 6 of 6
-
-
+Expert, Equipment for chemical plants and enterprises of building
+materials · (2001 - 2006)
+  Page 7 of 7

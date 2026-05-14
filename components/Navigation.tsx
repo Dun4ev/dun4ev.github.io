@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
 import { useTranslation } from 'react-i18next';
 
-export const Navigation: React.FC = () => {
+interface NavigationProps {
+  onNavigate?: (path: string) => void;
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
   const [activeSection, setActiveSection] = useState<string>('');
   const { t } = useTranslation();
 
@@ -26,6 +30,12 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('#')) {
+      e.preventDefault();
+      onNavigate?.(href);
+      return;
+    }
+
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
