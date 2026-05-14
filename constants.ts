@@ -4,8 +4,8 @@ export const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills & Data', href: '#skills' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Knowledge Base', href: '/knowledge-base' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Knowledge Base', href: '#knowledge' },
 ];
 
 export const SOCIAL_LINKS = {
