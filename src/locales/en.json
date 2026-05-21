@@ -93,6 +93,16 @@
         "title": "Projects",
         "view_archive": "View Full Project Archive",
         "items": {
+            "slotbot-booking-landing": {
+                "title": "SlotBot: Telegram Booking Landing",
+                "description": "A static landing page concept for a Telegram-based booking assistant. Visitors browse services, prices, and available slots, then book directly through Telegram.",
+                "impact": "Shows how a small business can connect a lightweight website with Telegram booking and reduce manual scheduling messages."
+            },
+            "electricity-theft-detector": {
+                "title": "EnergyGuard AI: Electricity Theft Detector",
+                "description": "An interactive MVP concept for non-invasive electricity theft localization without entering private properties. It combines feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly analysis.",
+                "impact": "Demonstrates a practical architecture for detecting commercial electricity losses through remote monitoring and fewer false field visits."
+            },
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
                 "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds.",

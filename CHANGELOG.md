@@ -2,6 +2,14 @@
 
 Формат основан на Keep a Changelog, версии следуют SemVer.
 
+## [0.2.1] - 2026-05-21
+
+### Added
+
+- Добавлен проект `EnergyGuard AI: Electricity Theft Detector`.
+- Добавлен проект `SlotBot: Telegram Booking Landing`.
+- Добавлена категория-фильтр `Interactive Web App` для интерактивных веб-концептов.
+
 ## [0.2.0] - 2026-05-14
 
 ### Added

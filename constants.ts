@@ -108,6 +108,30 @@ export const JOBS: Job[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'slotbot-booking-landing',
+    title: 'SlotBot: Telegram Booking Landing',
+    description: 'A static landing page concept for a Telegram-based booking assistant: clients browse services, prices, and available slots, then book directly through Telegram.',
+    tools: ['HTML', 'Landing Page', 'Telegram Bot', 'Booking Automation', 'Static Site'],
+    link: 'https://dun4ev.github.io/slotbot-booking-landing/',
+    image: '/images/projects/portfolio-website.png',
+    category: 'Interactive Web App',
+    role: 'Concept Designer',
+    status: 'Demo Landing',
+    impact: 'Shows how a small business can combine a static website with Telegram booking to reduce manual scheduling'
+  },
+  {
+    id: 'electricity-theft-detector',
+    title: 'EnergyGuard AI: Electricity Theft Detector',
+    description: 'An interactive MVP concept for non-invasive electricity theft detection using feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly localization.',
+    tools: ['HTML', 'Interactive UI', 'Energy Analytics', 'GIS', 'AI Concept'],
+    link: 'https://dun4ev.github.io/electricity-theft-detector/index.html',
+    image: '/images/projects/pipeline-analytics.png',
+    category: 'Interactive Web App',
+    role: 'Concept Designer',
+    status: 'MVP Concept',
+    impact: 'Demonstrates a practical architecture for detecting commercial electricity losses without entering private properties'
+  },
+  {
     id: 'auto-comment-sheets',
     title: 'TOiR Reporting Automation',
     description: 'A Python-based automation tool designed to streamline the creation of engineering reports and technical documentation.',
