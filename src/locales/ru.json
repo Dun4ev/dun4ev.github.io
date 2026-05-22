@@ -142,6 +142,7 @@
         "total": "{{count}} contributions за последний год",
         "pending": "GitHub activity скоро появится",
         "description": "Календарь публичной активности GitHub обновляется автоматически через GitHub Actions.",
+        "visible_period": "На графике показаны последние 6 месяцев, счетчик выше — за последний год.",
         "error": "Не удалось загрузить календарь GitHub. Проверь файл данных после запуска workflow.",
         "no_data": "Данные появятся после первого ручного или запланированного запуска workflow Update GitHub Contributions.",
         "view_profile": "Открыть GitHub",

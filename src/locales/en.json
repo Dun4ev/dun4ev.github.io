@@ -142,6 +142,7 @@
         "total": "{{count}} contributions in the last year",
         "pending": "GitHub activity will appear soon",
         "description": "The public GitHub contribution calendar is updated automatically through GitHub Actions.",
+        "visible_period": "The graph shows the latest 6 months; the counter above is for the last year.",
         "error": "Could not load the GitHub calendar. Check the data file after the workflow runs.",
         "no_data": "Contribution data will appear after the first manual or scheduled Update GitHub Contributions workflow run.",
         "view_profile": "View GitHub",

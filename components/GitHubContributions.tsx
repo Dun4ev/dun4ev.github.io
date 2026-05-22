@@ -34,6 +34,8 @@ const formatMonth = (date: string) => {
   return new Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(date));
 };
 
+const visibleWeekCount = 26;
+
 export const GitHubContributions: React.FC = () => {
   const { t } = useTranslation();
   const [data, setData] = useState<ContributionData | null>(null);
@@ -66,14 +68,22 @@ export const GitHubContributions: React.FC = () => {
     };
   }, []);
 
-  const monthLabels = useMemo(() => {
+  const visibleWeeks = useMemo(() => {
     if (!data?.weeks.length) {
+      return [];
+    }
+
+    return data.weeks.slice(-visibleWeekCount);
+  }, [data]);
+
+  const monthLabels = useMemo(() => {
+    if (!visibleWeeks.length) {
       return [];
     }
 
     let previousMonth = '';
 
-    return data.weeks.map((week) => {
+    return visibleWeeks.map((week) => {
       const firstDay = week.contributionDays[0]?.date || week.firstDay;
       const month = formatMonth(firstDay);
       const label = month !== previousMonth ? month : '';
@@ -81,9 +91,9 @@ export const GitHubContributions: React.FC = () => {
 
       return label;
     });
-  }, [data]);
+  }, [visibleWeeks]);
 
-  const hasCalendar = Boolean(data?.weeks.length);
+  const hasCalendar = Boolean(visibleWeeks.length);
 
   return (
     <div className="mb-12 rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-teal-300/40 hover:bg-slate-800/60">
@@ -101,6 +111,11 @@ export const GitHubContributions: React.FC = () => {
           <p className="mt-2 text-sm leading-6 text-slate-400">
             {hasError ? t('githubActivity.error') : t('githubActivity.description')}
           </p>
+          {hasCalendar && (
+            <p className="mt-1 text-xs font-medium text-slate-500">
+              {t('githubActivity.visible_period')}
+            </p>
+          )}
         </div>
 
         <a
@@ -115,9 +130,9 @@ export const GitHubContributions: React.FC = () => {
       </div>
 
       {hasCalendar ? (
-        <div className="overflow-x-auto pb-2">
-          <div className="min-w-[720px]">
-            <div className="mb-2 grid gap-1" style={{ gridTemplateColumns: `repeat(${data!.weeks.length}, minmax(0, 1fr))` }}>
+        <div className="pb-1">
+          <div className="w-full max-w-[460px]">
+            <div className="mb-2 grid gap-1" style={{ gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))` }}>
               {monthLabels.map((label, index) => (
                 <span key={`${label}-${index}`} className="h-4 text-[10px] leading-4 text-slate-500">
                   {label}
@@ -125,7 +140,7 @@ export const GitHubContributions: React.FC = () => {
               ))}
             </div>
             <div className="grid grid-flow-col grid-rows-7 gap-1" aria-label={t('githubActivity.calendar_label')}>
-              {data!.weeks.flatMap((week) =>
+              {visibleWeeks.flatMap((week) =>
                 week.contributionDays.map((day) => (
                   <span
                     key={day.date}
@@ -133,13 +148,13 @@ export const GitHubContributions: React.FC = () => {
                       count: day.contributionCount,
                       date: day.date,
                     })}
-                    className="h-3 w-3 rounded-sm border border-slate-900/40"
+                    className="aspect-square w-full rounded-sm border border-slate-900/40"
                     style={{ backgroundColor: day.color }}
                   />
                 ))
               )}
             </div>
-            <div className="mt-3 flex items-center justify-end gap-2 text-xs text-slate-500">
+            <div className="mt-3 flex items-center justify-start gap-2 text-xs text-slate-500">
               <span>{t('githubActivity.less')}</span>
               {['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'].map((color) => (
                 <span key={color} className="h-3 w-3 rounded-sm border border-slate-900/40" style={{ backgroundColor: color }} />
