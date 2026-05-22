@@ -137,6 +137,19 @@
         "view_project": "Открыть проект",
         "github_archive": "Посмотреть все репозитории на GitHub"
     },
+    "githubActivity": {
+        "eyebrow": "GitHub Activity",
+        "total": "{{count}} contributions за последний год",
+        "pending": "GitHub activity скоро появится",
+        "description": "Календарь публичной активности GitHub обновляется автоматически через GitHub Actions.",
+        "error": "Не удалось загрузить календарь GitHub. Проверь файл данных после запуска workflow.",
+        "no_data": "Данные появятся после первого ручного или запланированного запуска workflow Update GitHub Contributions.",
+        "view_profile": "Открыть GitHub",
+        "calendar_label": "Календарь вкладов GitHub",
+        "day_title": "{{count}} contributions on {{date}}",
+        "less": "Less",
+        "more": "More"
+    },
     "knowledge": {
         "eyebrow": "Knowledge Base",
         "title": "База знаний",

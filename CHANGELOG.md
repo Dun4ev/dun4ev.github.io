@@ -2,6 +2,14 @@
 
 Формат основан на Keep a Changelog, версии следуют SemVer.
 
+## [0.3.0] - 2026-05-22
+
+### Added
+
+- Добавлен блок GitHub Activity в начало секции Projects.
+- Добавлен workflow для ежедневного обновления `public/data/github-contributions.json`.
+- Добавлен скрипт `npm run update:github-contributions`.
+
 ## [0.2.1] - 2026-05-21
 
 ### Added

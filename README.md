@@ -43,3 +43,19 @@ Knowledge Base: https://dun4ev.github.io/knowledge-base
 - `/knowledge-base` — база знаний с инфографиками, AI-гайдами и блоговыми материалами.
 
 Для GitHub Pages добавлен `public/404.html`: прямое открытие SPA-страниц перенаправляется в React-приложение без потери пути.
+
+## GitHub Activity
+
+Блок активности GitHub в секции Projects читает публичный файл:
+
+```text
+public/data/github-contributions.json
+```
+
+Файл обновляется workflow:
+
+```text
+.github/workflows/update-contributions.yml
+```
+
+Его можно запустить вручную в GitHub Actions через **Update GitHub Contributions → Run workflow**. Также он запускается ежедневно по расписанию. Токен GitHub используется только внутри Actions и не попадает в браузер.

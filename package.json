@@ -1,11 +1,12 @@
 {
   "name": "dun4ev.github.io",
   "private": true,
-  "version": "0.2.1",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "update:github-contributions": "node scripts/update-github-contributions.mjs",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist"
   },
