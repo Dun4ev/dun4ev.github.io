@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
     description: 'An interactive MVP concept for non-invasive electricity theft detection using feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly localization.',
     tools: ['HTML', 'Interactive UI', 'Energy Analytics', 'GIS', 'AI Concept'],
     link: 'https://dun4ev.github.io/electricity-theft-detector/index.html',
-    image: '/images/projects/pipeline-analytics.png',
+    image: '/images/projects/electricity-theft-detector.png',
     category: 'Interactive Web App',
     role: 'Concept Designer',
     status: 'MVP Concept',
