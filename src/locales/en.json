@@ -4,7 +4,8 @@
         "experience": "Experience",
         "skills": "Skills & Data",
         "projects": "Projects",
-        "knowledge": "Knowledge Base"
+        "knowledge": "Knowledge Base",
+        "articles": "Articles"
     },
     "header": {
         "title": "Andrej Dunaev",
@@ -171,6 +172,37 @@
         "grid_label": "Knowledge base materials",
         "tags_label": "Item tags",
         "open_item": "Open material"
+    },
+    "articles": {
+        "eyebrow": "Medium",
+        "title": "Articles",
+        "description": "Medium publications about practical AI use, engineering automation, documentation workflows, and IT career frameworks.",
+        "view_all": "Open all articles",
+        "items": {
+            "ai-architectural-presentation": {
+                "title": "From Idea to Concept Site in Hours: AI and Early Architectural Presentation",
+                "description": "How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website."
+            },
+            "pdf-busywork-automation": {
+                "title": "How We Tamed `.pdf` and Saved Hours of Busywork",
+                "description": "A practical story about replacing manual PDF folder handling with a Python conveyor, structured logs, flexible paths, and operator-friendly automation."
+            },
+            "it-levels-l0-l11": {
+                "title": "IT levels, what L0-L11 levels are hiding in large companies",
+                "description": "A compact explanation of engineering career levels, responsibilities, impact, compensation ranges, and what usually signals readiness for the next step."
+            }
+        }
+    },
+    "articlesPage": {
+        "back_home": "Back home",
+        "eyebrow": "Medium Articles",
+        "title": "Writing about projects, AI, and engineering practice",
+        "description": "A dedicated showcase for Medium articles: not a duplicated blog, but a clean entry point into materials that complement the projects and knowledge base.",
+        "grid_label": "Article list",
+        "tags_label": "Article tags",
+        "highlight_label": "Key idea",
+        "levels_label": "Visual L0-L11 level scale",
+        "open_item": "Read on Medium"
     },
     "footer": {
         "built_with": "Designed and built with <0>React</0>, <1>Tailwind CSS</1>, and <2>D3.js</2>.",

@@ -2,6 +2,14 @@
 
 Формат основан на Keep a Changelog, версии следуют SemVer.
 
+## [0.4.0] - 2026-05-22
+
+### Added
+
+- Добавлена секция Articles после Knowledge Base на главной странице.
+- Добавлена отдельная страница `/articles` с Medium-публикациями.
+- Добавлены ссылки на три Medium-статьи: AI architectural presentation, PDF workflow automation и IT levels.
+
 ## [0.3.0] - 2026-05-22
 
 ### Added

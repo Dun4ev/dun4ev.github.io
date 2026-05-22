@@ -1,4 +1,4 @@
-import { Job, Project, KnowledgeItem, GraphData } from './types';
+import { Job, Project, KnowledgeItem, ArticleItem, GraphData } from './types';
 
 export const NAV_LINKS = [
   { name: 'About', href: '#about' },
@@ -6,6 +6,7 @@ export const NAV_LINKS = [
   { name: 'Skills & Data', href: '#skills' },
   { name: 'Projects', href: '#projects' },
   { name: 'Knowledge Base', href: '#knowledge' },
+  { name: 'Articles', href: '#articles' },
 ];
 
 export const SOCIAL_LINKS = {
@@ -190,6 +191,42 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
     format: 'Interactive HTML',
     href: '/knowledge-base/karpathy-agent-guide/index.html',
     tags: ['AI Agents', 'Coding Workflow', 'Delivery', 'Quality Checks']
+  }
+];
+
+export const ARTICLES: ArticleItem[] = [
+  {
+    id: 'ai-architectural-presentation',
+    title: 'From Idea to Concept Site in Hours: AI and Early Architectural Presentation',
+    description: 'How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website.',
+    category: 'AI & Architecture',
+    date: 'Apr 30, 2026',
+    readTime: '3 min read',
+    href: 'https://medium.com/@andreydunaev1/from-idea-to-concept-site-in-hours-ai-and-early-architectural-presentation-c10aadc681a9',
+    tags: ['AI', 'Architecture', 'Website', 'Concept'],
+    highlight: 'Idea -> images -> video -> landing page -> publication'
+  },
+  {
+    id: 'pdf-busywork-automation',
+    title: 'How We Tamed `.pdf` and Saved Hours of Busywork',
+    description: 'A practical story about replacing manual PDF folder handling with a Python conveyor, structured logs, flexible paths, and operator-friendly automation.',
+    category: 'Automation',
+    date: 'Nov 12, 2025',
+    readTime: '4 min read',
+    href: 'https://medium.com/@andreydunaev1/how-we-tamed-pdf-and-saved-hours-of-busywork-c131a65ad1e5',
+    tags: ['Python', 'PDF', 'Documentation', 'Workflow'],
+    highlight: '59 reports: from 25 minutes of focus to one controlled run'
+  },
+  {
+    id: 'it-levels-l0-l11',
+    title: 'IT levels, what L0-L11 levels are hiding in large companies',
+    description: 'A compact explanation of engineering career levels, responsibilities, impact, compensation ranges, and what usually signals readiness for the next step.',
+    category: 'Career Frameworks',
+    date: 'Jul 23, 2025',
+    readTime: '3 min read',
+    href: 'https://medium.com/@andreydunaev1/it-levels-what-l0-l11-levels-are-hiding-in-large-companies-7ba457d8021e',
+    tags: ['Career', 'Engineering Levels', 'Leadership', 'Growth'],
+    highlight: 'L0-L11 as a map of responsibility, influence, and impact'
   }
 ];
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Linkedin, Mail, Phone, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Mail, Phone, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { CursorSpotlight } from './components/CursorSpotlight';
 import { Navigation } from './components/Navigation';
@@ -7,10 +7,11 @@ import { ExperienceCard } from './components/ExperienceCard';
 import { ProjectCard } from './components/ProjectCard';
 import { SkillCloud } from './components/SkillCloud';
 import { SkillRadar } from './components/SkillRadar';
-import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS } from './constants';
+import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS, ARTICLES } from './constants';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProjectsPage } from './components/ProjectsPage';
 import { KnowledgeBasePage } from './components/KnowledgeBasePage';
+import { ArticlesPage } from './components/ArticlesPage';
 import { GitHubContributions } from './components/GitHubContributions';
 
 const TypingEffect = ({ text }: { text: string }) => {
@@ -107,8 +108,14 @@ const App: React.FC = () => {
     navigateTo('/knowledge-base');
   };
 
+  const handleArticlesClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    navigateTo('/articles');
+  };
+
   const isProjectsPage = routePath === '/projects';
   const isKnowledgeBasePage = routePath === '/knowledge-base';
+  const isArticlesPage = routePath === '/articles';
 
   if (isProjectsPage) {
     return (
@@ -124,6 +131,15 @@ const App: React.FC = () => {
       <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-cyan-300 selection:text-cyan-950 relative">
         <CursorSpotlight />
         <KnowledgeBasePage onNavigate={navigateTo} />
+      </div>
+    );
+  }
+
+  if (isArticlesPage) {
+    return (
+      <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-amber-950 relative">
+        <CursorSpotlight />
+        <ArticlesPage onNavigate={navigateTo} />
       </div>
     );
   }
@@ -326,6 +342,51 @@ const App: React.FC = () => {
                     onClick={handleKnowledgeClick}
                   >
                     <span>{t('knowledge.view_all')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
+                  </a>
+                </div>
+              </FadeIn>
+            </section>
+
+            {/* ARTICLES SECTION */}
+            <section id="articles" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.articles')}>
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('articles.title')}</h2>
+              </div>
+              <FadeIn>
+                <div className="rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-amber-300/40 hover:bg-slate-800/60">
+                  <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{t('articles.eyebrow')}</p>
+                  <h3 className="text-xl font-semibold text-slate-100">{t('articles.title')}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{t('articles.description')}</p>
+                  <div className="mt-6 space-y-4">
+                    {ARTICLES.map((article) => (
+                      <a
+                        key={article.id}
+                        href={article.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group/article block rounded-lg border border-slate-800 bg-slate-950/30 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/30 hover:bg-slate-800/70"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="text-xs font-bold uppercase tracking-widest text-amber-300">{article.category}</p>
+                            <h4 className="mt-2 text-base font-semibold leading-snug text-slate-100">
+                              {t(`articles.items.${article.id}.title`)}
+                            </h4>
+                          </div>
+                          <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover/article:text-amber-300" />
+                        </div>
+                        <p className="mt-2 text-sm leading-6 text-slate-400">
+                          {t(`articles.items.${article.id}.description`)}
+                        </p>
+                      </a>
+                    ))}
+                  </div>
+                  <a
+                    className="mt-5 inline-flex items-baseline font-semibold leading-tight text-slate-200 hover:text-amber-300 focus-visible:text-amber-300 group/link text-base"
+                    href="/articles"
+                    onClick={handleArticlesClick}
+                  >
+                    <span>{t('articles.view_all')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
                 </div>
               </FadeIn>

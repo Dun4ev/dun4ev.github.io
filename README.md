@@ -10,6 +10,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1vuATN9flhhq7C751H2MSKu
 Live Site: https://dun4ev.github.io/
 Projects: https://dun4ev.github.io/projects
 Knowledge Base: https://dun4ev.github.io/knowledge-base
+Articles: https://dun4ev.github.io/articles
 
 ## 📚 Документация
 
@@ -41,6 +42,7 @@ Knowledge Base: https://dun4ev.github.io/knowledge-base
 - `/` — главная страница портфолио.
 - `/projects` — отдельная сетка проектов с фильтрами и карточками.
 - `/knowledge-base` — база знаний с инфографиками, AI-гайдами и блоговыми материалами.
+- `/articles` — отдельная витрина Medium-публикаций.
 
 Для GitHub Pages добавлен `public/404.html`: прямое открытие SPA-страниц перенаправляется в React-приложение без потери пути.
 

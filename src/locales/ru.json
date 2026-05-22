@@ -4,7 +4,8 @@
         "experience": "Опыт",
         "skills": "Навыки",
         "projects": "Проекты",
-        "knowledge": "База знаний"
+        "knowledge": "База знаний",
+        "articles": "Статьи"
     },
     "header": {
         "title": "Андрей Дунаев",
@@ -171,6 +172,37 @@
         "grid_label": "Материалы базы знаний",
         "tags_label": "Теги материала",
         "open_item": "Открыть материал"
+    },
+    "articles": {
+        "eyebrow": "Medium",
+        "title": "Статьи",
+        "description": "Публикации на Medium о практическом применении ИИ, инженерной автоматизации, документационных workflow и карьерных фреймворках в IT.",
+        "view_all": "Открыть все статьи",
+        "items": {
+            "ai-architectural-presentation": {
+                "title": "From Idea to Concept Site in Hours: AI and Early Architectural Presentation",
+                "description": "Как ИИ помогает превратить раннюю архитектурную идею в презентабельный digital pitch: изображения, видео, структура рассказа и сайт, которым можно поделиться."
+            },
+            "pdf-busywork-automation": {
+                "title": "How We Tamed `.pdf` and Saved Hours of Busywork",
+                "description": "История о том, как ручную раскладку PDF по папкам заменили Python-конвейером, структурированными логами, гибкими путями и удобным режимом для операторов."
+            },
+            "it-levels-l0-l11": {
+                "title": "IT levels, what L0-L11 levels are hiding in large companies",
+                "description": "Краткое объяснение инженерных уровней: зоны ответственности, влияние, карьерные сигналы, компенсации и готовность к следующему шагу."
+            }
+        }
+    },
+    "articlesPage": {
+        "back_home": "На главную",
+        "eyebrow": "Medium Articles",
+        "title": "Публикации о проектах, ИИ и инженерной практике",
+        "description": "Отдельная витрина Medium-статей: не копия блога, а аккуратный вход в материалы, которые дополняют проекты и базу знаний.",
+        "grid_label": "Список статей",
+        "tags_label": "Теги статьи",
+        "highlight_label": "Ключевая мысль",
+        "levels_label": "Визуальная шкала уровней L0-L11",
+        "open_item": "Читать на Medium"
     },
     "footer": {
         "built_with": "Спроектировано и создано с помощью <0>React</0>, <1>Tailwind CSS</1> и <2>D3.js</2>.",

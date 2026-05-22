@@ -31,6 +31,18 @@ export interface KnowledgeItem {
   tags: string[];
 }
 
+export interface ArticleItem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  date: string;
+  readTime: string;
+  href: string;
+  tags: string[];
+  highlight: string;
+}
+
 export interface SkillNode {
   id: string;
   group: number; // 1: Engineering, 2: Data/Tech, 3: Management
