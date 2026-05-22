@@ -96,24 +96,21 @@ export const GitHubContributions: React.FC = () => {
   const hasCalendar = Boolean(visibleWeeks.length);
 
   return (
-    <div className="mb-12 rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-teal-300/40 hover:bg-slate-800/60">
-      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+    <div className="mb-10 rounded-lg border border-slate-800 bg-slate-900/70 p-4 transition-colors hover:border-teal-300/40 hover:bg-slate-800/60">
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-teal-300">
             <Github className="h-4 w-4" />
             {t('githubActivity.eyebrow')}
           </p>
-          <h3 className="text-xl font-semibold text-slate-100">
+          <h3 className="text-lg font-semibold leading-snug text-slate-100">
             {data?.totalContributions != null
               ? t('githubActivity.total', { count: data.totalContributions })
               : t('githubActivity.pending')}
           </h3>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
-            {hasError ? t('githubActivity.error') : t('githubActivity.description')}
-          </p>
-          {hasCalendar && (
-            <p className="mt-1 text-xs font-medium text-slate-500">
-              {t('githubActivity.visible_period')}
+          {hasError && (
+            <p className="mt-2 text-sm leading-6 text-slate-400">
+              {t('githubActivity.error')}
             </p>
           )}
         </div>
@@ -131,15 +128,15 @@ export const GitHubContributions: React.FC = () => {
 
       {hasCalendar ? (
         <div className="pb-1">
-          <div className="w-full max-w-[460px]">
-            <div className="mb-2 grid gap-1" style={{ gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))` }}>
+          <div className="w-full max-w-[360px]">
+            <div className="mb-1.5 grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))` }}>
               {monthLabels.map((label, index) => (
                 <span key={`${label}-${index}`} className="h-4 text-[10px] leading-4 text-slate-500">
                   {label}
                 </span>
               ))}
             </div>
-            <div className="grid grid-flow-col grid-rows-7 gap-1" aria-label={t('githubActivity.calendar_label')}>
+            <div className="grid grid-flow-col grid-rows-7 gap-[3px]" aria-label={t('githubActivity.calendar_label')}>
               {visibleWeeks.flatMap((week) =>
                 week.contributionDays.map((day) => (
                   <span
@@ -148,19 +145,22 @@ export const GitHubContributions: React.FC = () => {
                       count: day.contributionCount,
                       date: day.date,
                     })}
-                    className="aspect-square w-full rounded-sm border border-slate-900/40"
+                    className="aspect-square w-full rounded-[2px] border border-slate-900/40"
                     style={{ backgroundColor: day.color }}
                   />
                 ))
               )}
             </div>
-            <div className="mt-3 flex items-center justify-start gap-2 text-xs text-slate-500">
+            <div className="mt-2 flex items-center justify-start gap-2 text-xs text-slate-500">
               <span>{t('githubActivity.less')}</span>
               {['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'].map((color) => (
                 <span key={color} className="h-3 w-3 rounded-sm border border-slate-900/40" style={{ backgroundColor: color }} />
               ))}
               <span>{t('githubActivity.more')}</span>
             </div>
+            <p className="mt-1.5 text-[11px] font-medium leading-4 text-slate-500">
+              {t('githubActivity.visible_period')}
+            </p>
           </div>
         </div>
       ) : (
