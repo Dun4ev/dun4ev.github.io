@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
     description: 'A static landing page concept for a Telegram-based booking assistant: clients browse services, prices, and available slots, then book directly through Telegram.',
     tools: ['HTML', 'Landing Page', 'Telegram Bot', 'Booking Automation', 'Static Site'],
     link: 'https://dun4ev.github.io/slotbot-booking-landing/',
-    image: '/images/projects/portfolio-website.png',
+    image: '/images/projects/slotbot-booking-landing.png',
     category: 'Interactive Web App',
     role: 'Concept Designer',
     status: 'Demo Landing',
