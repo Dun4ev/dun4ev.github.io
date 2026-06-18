@@ -1,10 +1,11 @@
-import { Job, Project, KnowledgeItem, ArticleItem, GraphData } from './types';
+import { Job, Project, KnowledgeItem, ArticleItem, LabItem, GraphData } from './types';
 
 export const NAV_LINKS = [
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
   { name: 'Skills & Data', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Labs', href: '#labs' },
   { name: 'Knowledge Base', href: '#knowledge' },
   { name: 'Articles', href: '#articles' },
 ];
@@ -227,6 +228,31 @@ export const ARTICLES: ArticleItem[] = [
     href: 'https://medium.com/@andreydunaev1/it-levels-what-l0-l11-levels-are-hiding-in-large-companies-7ba457d8021e',
     tags: ['Career', 'Engineering Levels', 'Leadership', 'Growth'],
     highlight: 'L0-L11 as a map of responsibility, influence, and impact'
+  }
+];
+
+export const LABS: LabItem[] = [
+  {
+    id: 'vegaboost-business-overview',
+    title: 'VegaBoost Business Overview',
+    description: 'A lightweight business presentation site for quickly explaining a product idea, commercial logic, and key project signals in a shareable format.',
+    category: 'Business Presentation',
+    date: 'Jun 2026',
+    href: 'https://vegaboost-business-overview.netlify.app/',
+    tags: ['Business Overview', 'Presentation Site', 'Netlify'],
+    status: 'Live demo',
+    highlight: 'Turns a compact business concept into a clear web-based presentation.'
+  },
+  {
+    id: 'tank-nitrogen-blanketing',
+    title: 'Tank Nitrogen Blanketing',
+    description: 'An interactive engineering report about nitrogen blanketing for atmospheric storage tanks, including process physics, pressure limits, safety notes, and economic reasoning.',
+    category: 'Engineering Report',
+    date: 'May 2026',
+    href: 'https://dun4ev.github.io/2026-05-26_tank-nitrogen-blanketing/',
+    tags: ['Engineering', 'Interactive Report', 'Storage Tanks'],
+    status: 'Published',
+    highlight: 'Combines technical explanation, interactive presentation, and decision support.'
   }
 ];
 
