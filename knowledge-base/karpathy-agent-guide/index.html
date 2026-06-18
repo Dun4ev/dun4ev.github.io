@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Engineering Agent Guide — схема работы с ИИ-агентом</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --paper: #ffffff;
+      --ink: #121826;
+      --muted: #64748b;
+      --line: #d9e2ef;
+      --soft-blue: #eaf3ff;
+      --blue: #2563eb;
+      --soft-green: #eafaf0;
+      --green: #16a34a;
+      --soft-purple: #f4ecff;
+      --purple: #7c3aed;
+      --soft-amber: #fff7e6;
+      --amber: #d97706;
+      --soft-cyan: #e9fbff;
+      --cyan: #0891b2;
+      --soft-gray: #f3f6fa;
+      --gray: #475569;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.13), transparent 32%),
+        radial-gradient(circle at 85% 5%, rgba(124, 58, 237, 0.12), transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 50%, #eef3fa 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    .top-links {
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 16px 0;
+      width: fit-content;
+    }
+
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      color: #1d4ed8;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(12px);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .top-link:hover {
+      transform: translateY(-1px);
+      background: #ffffff;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 32px auto;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(217, 226, 239, 0.9);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    header {
+      padding: 44px 48px 28px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.06)),
+        #ffffff;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .subtitle {
+      max-width: 850px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .goal {
+      margin: 28px auto 0;
+      max-width: 940px;
+      padding: 18px 22px;
+      border: 1px solid #cfe0f6;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      font-size: 17px;
+    }
+
+    main {
+      padding: 28px;
+    }
+
+    .section {
+      position: relative;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 24px;
+      margin-bottom: 18px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .side {
+      padding-right: 16px;
+      border-right: 1px solid var(--line);
+    }
+
+    .step-title {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
+    }
+
+    .blue .badge { background: var(--blue); }
+    .green .badge { background: var(--green); }
+    .purple .badge { background: var(--purple); }
+    .amber .badge { background: var(--amber); }
+    .cyan .badge { background: var(--cyan); }
+    .gray .badge { background: var(--gray); }
+
+    .side p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .flow.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .flow.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #fff, #fbfdff);
+      min-height: 120px;
+    }
+
+    .card::after {
+      content: "→";
+      position: absolute;
+      right: -19px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 26px;
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    .card:last-child::after,
+    .no-arrow::after {
+      content: "";
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .tint-blue { background: linear-gradient(180deg, #fff, var(--soft-blue)); border-color: #bfdbfe; }
+    .tint-green { background: linear-gradient(180deg, #fff, var(--soft-green)); border-color: #bbf7d0; }
+    .tint-purple { background: linear-gradient(180deg, #fff, var(--soft-purple)); border-color: #ddd6fe; }
+    .tint-amber { background: linear-gradient(180deg, #fff, var(--soft-amber)); border-color: #fde68a; }
+    .tint-cyan { background: linear-gradient(180deg, #fff, var(--soft-cyan)); border-color: #a5f3fc; }
+    .tint-gray { background: linear-gradient(180deg, #fff, var(--soft-gray)); border-color: #dbe4ee; }
+
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #334155;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .icon {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      font-size: 22px;
+    }
+
+    .cycle {
+      grid-column: span 3;
+      padding: 20px;
+      border: 2px dashed #c4b5fd;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(255, 255, 255, 0.9));
+    }
+
+    .cycle-title {
+      color: var(--purple);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .cycle-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .cycle-step {
+      padding: 16px;
+      text-align: center;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #e9d5ff;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cycle-step strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .integration-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .small-card {
+      position: relative;
+      padding: 18px 14px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      min-height: 118px;
+    }
+
+    .small-card::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .small-card:last-child::after { content: ""; }
+
+    .small-card strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .principle b {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 15px;
+    }
+
+    .principle span:last-child {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary {
+      margin-top: 24px;
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      border: 1px solid #e9d5ff;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(37, 99, 235, 0.05), #fff);
+      text-align: center;
+    }
+
+    .summary h2 {
+      margin: 0 0 20px;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+      color: var(--purple);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .dot-step {
+      position: relative;
+      padding-top: 8px;
+    }
+
+    .dot-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: calc(50% + 20px);
+      width: calc(100% - 28px);
+      height: 2px;
+      background: #cbd5e1;
+    }
+
+    .dot {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .dot-step p {
+      margin: 0;
+      color: #475569;
+      font-size: 13px;
+    }
+
+    .tools {
+      margin-top: 18px;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .tools h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tool {
+      padding: 16px 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fbfdff;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tool strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      margin: 7px 0 3px;
+    }
+
+    footer {
+      padding: 24px 34px 34px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .page {
+        width: min(100% - 20px, 760px);
+        margin: 16px auto;
+        border-radius: 26px;
+      }
+
+      header {
+        padding: 34px 22px 24px;
+      }
+
+      main {
+        padding: 16px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .side {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 18px;
+      }
+
+      .flow,
+      .flow.four,
+      .flow.two,
+      .quality-grid,
+      .integration-flow,
+      .principles,
+      .tool-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .cycle {
+        grid-column: span 1;
+      }
+
+      .cycle-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card::after,
+      .small-card::after,
+      .dot-step::after {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+      .section,
+      .summary,
+      .tools {
+        break-inside: avoid;
+      }
+    }
+</style>
+</head>
+<body>
+  <nav class="top-links" aria-label="Page links">
+    <a class="top-link" href="/knowledge-base">← Knowledge Base</a>
+    <a class="top-link" href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer">Original gist ↗</a>
+  </nav>
+  <div class="page">
+    <header>
+      <div class="eyebrow">Agent workflow · coding · delivery</div>
+      <h1>Software Engineering Agent Guide</h1>
+      <p class="subtitle">Практичная схема работы с ИИ-агентом: от постановки задачи до качественного кода, PR, интеграции и следующей итерации.</p>
+      <div class="goal"><strong>Цель:</strong> автономный агент пишет полезный, корректный и хорошо протестированный код итеративно, а человек управляет направлением, качеством и приемкой.</div>
+    </header>
+
+    <main>
+      <section class="section blue">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">1</span>Определить задание</h2>
+          <p>Сначала нужно убрать туман. Чем точнее вход, тем меньше случайных решений и ненужной работы агента.</p>
+        </aside>
+        <div class="flow">
+          <div class="card tint-blue">
+            <span class="mini-label">Вход</span>
+            <h3>Контекст задачи</h3>
+            <ul>
+              <li>описание задачи</li>
+              <li>требования и ограничения</li>
+              <li>предпочтения по стеку</li>
+              <li>примеры и критерии приемки</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="icon">📄</span>
+            <h3>Задание для агента</h3>
+            <p>Один источник правды: что сделать, где границы, как понять, что задача завершена.</p>
+          </div>
+          <div class="card tint-blue">
+            <span class="mini-label">Выход</span>
+            <h3>Понимание и план действий</h3>
+            <p>Агент подтверждает задачу, фиксирует допущения и предлагает следующий шаг.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section green">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">2</span>Планирование</h2>
+          <p>Не начинать кодить сразу. Сначала агент должен показать маршрут, риски и затрагиваемые зоны.</p>
+        </aside>
+        <div class="flow three">
+          <div class="card tint-green">
+            <h3>План должен включать</h3>
+            <ul>
+              <li>ключевые этапы и задачи</li>
+              <li>файлы и модули, которые будут изменены</li>
+              <li>тест-план и критерии приемки</li>
+              <li>риски, допущения и неизвестные</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Роль человека</h3>
+            <ul>
+              <li>утвердить план</li>
+              <li>попросить изменить подход</li>
+              <li>уточнить детали, если агент ушел не туда</li>
+            </ul>
+          </div>
+          <div class="card tint-green">
+            <h3>После утверждения</h3>
+            <p>Переходим к реализации. План становится картой для итераций, а не жесткой бюрократией.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section purple">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">3</span>Реализация итерациями</h2>
+          <p>Лучше несколько маленьких рабочих шагов, чем один большой PR, который сложно проверить.</p>
+        </aside>
+        <div class="flow">
+          <div class="cycle">
+            <div class="cycle-title">Цикл повторяется</div>
+            <div class="cycle-steps">
+              <div class="cycle-step">💻<strong>Пишет код</strong><span>маленький осмысленный шаг</span></div>
+              <div class="cycle-step">🧪<strong>Запускает тесты</strong><span>unit, integration, e2e</span></div>
+              <div class="cycle-step">📋<strong>Проверяет результат</strong><span>логи, диффы, поведение</span></div>
+              <div class="cycle-step">🛠<strong>Фиксит проблемы</strong><span>ошибки, регрессии, стиль</span></div>
+            </div>
+            <div class="note">После каждого шага агент дает короткий отчет: что сделано, что проверено, что дальше.</div>
+          </div>
+          <div class="card tint-purple no-arrow">
+            <span class="mini-label">Ты</span>
+            <h3>Контроль результата</h3>
+            <ul>
+              <li>смотришь логи, диффы и тесты</li>
+              <li>даешь обратную связь</li>
+              <li>одобряешь или разворачиваешь шаг назад</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section amber">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">4</span>Проверка качества</h2>
+          <p>Код должен быть не просто «готовым», а пригодным к поддержке, проверке и дальнейшему развитию.</p>
+        </aside>
+        <div class="quality-grid">
+          <div class="card tint-amber">
+            <h3>Агент убеждается, что</h3>
+            <ul>
+              <li>все тесты проходят</li>
+              <li>код соответствует стилю проекта</li>
+              <li>нет линтер-ошибок</li>
+              <li>нет очевидных уязвимостей</li>
+              <li>документация обновлена, если нужно</li>
+            </ul>
+          </div>
+          <div class="card tint-amber">
+            <h3>Дополнительно</h3>
+            <ul>
+              <li>покрытие тестами в норме</li>
+              <li>производительность приемлема</li>
+              <li>обработка ошибок сделана на месте</li>
+            </ul>
+          </div>
+          <div class="card tint-amber no-arrow">
+            <h3>На выходе</h3>
+            <p><strong>Качественный, готовый к обзору код.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section blue">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">5</span>Интеграция</h2>
+          <p>Изменения вливаются аккуратно и прозрачно, через проверяемый процесс.</p>
+        </aside>
+        <div class="integration-flow">
+          <div class="small-card">🌿<strong>Создать PR / MR</strong></div>
+          <div class="small-card">⚙️<strong>Пройти CI / CD</strong></div>
+          <div class="small-card">👥<strong>Код-ревью</strong></div>
+          <div class="small-card">🔀<strong>Объединить в main</strong></div>
+        </div>
+      </section>
+
+      <section class="section cyan">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">6</span>Наблюдение и итерации</h2>
+          <p>После деплоя цикл не заканчивается. Нужно смотреть на поведение системы и улучшать ее.</p>
+        </aside>
+        <div class="flow three">
+          <div class="card tint-cyan">
+            <h3>Агент помогает</h3>
+            <ul>
+              <li>смотреть логи и метрики</li>
+              <li>находить ошибки и узкие места</li>
+              <li>собирать обратную связь</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Следующий цикл</h3>
+            <p>Планируются улучшения, фиксы и новые маленькие итерации.</p>
+          </div>
+          <div class="card tint-cyan">
+            <h3>Результат</h3>
+            <p><strong>Система становится лучше после каждого прохода.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gray">
+        <aside class="side">
+          <h2 class="step-title"><span class="badge">7</span>Принципы успеха</h2>
+          <p>На чем держится эффективная работа с агентом-разработчиком.</p>
+        </aside>
+        <div class="principles">
+          <div class="principle"><span class="icon">🎯</span><span><b>Четкая коммуникация</b><span>Ясные задачи и ожидания.</span></span></div>
+          <div class="principle"><span class="icon">👣</span><span><b>Маленькие шаги</b><span>Легче исправлять и понимать.</span></span></div>
+          <div class="principle"><span class="icon">⚙️</span><span><b>Автоматизация</b><span>Тесты, линтеры, CI/CD экономят время.</span></span></div>
+          <div class="principle"><span class="icon">🛡️</span><span><b>Доверяй, но проверяй</b><span>Автоматические тесты и ревью обязательны.</span></span></div>
+          <div class="principle"><span class="icon">📚</span><span><b>Контекст решает</b><span>Репозиторий, документация, примеры.</span></span></div>
+          <div class="principle"><span class="icon">🔁</span><span><b>Итеративность</b><span>Учимся и улучшаем каждый цикл.</span></span></div>
+        </div>
+      </section>
+
+      <section class="summary">
+        <h2>Коротко: весь цикл</h2>
+        <div class="timeline">
+          <div class="dot-step"><span class="dot" style="background: var(--blue);">1</span><p>Определи задание</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--green);">2</span><p>Согласуй план</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--purple);">3</span><p>Реализуй итерациями</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--amber);">4</span><p>Проверь качество</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--blue);">5</span><p>Интегрируй через PR</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--cyan);">6</span><p>Наблюдай и улучшай</p></div>
+          <div class="dot-step"><span class="dot" style="background: var(--gray);">∞</span><p>Повторяй цикл</p></div>
+        </div>
+      </section>
+
+      <section class="tools">
+        <h2>Инструменты, которые помогают</h2>
+        <div class="tool-grid">
+          <div class="tool">🐙<strong>Git / GitHub / GitLab</strong>ветки, PR, история</div>
+          <div class="tool">🔄<strong>CI/CD</strong>Actions, GitLab CI</div>
+          <div class="tool">🧪<strong>Тесты</strong>unit, integration, e2e</div>
+          <div class="tool">✅<strong>Линтеры</strong>ESLint, Prettier, Ruff</div>
+          <div class="tool">📄<strong>Документация</strong>README, ADR</div>
+          <div class="tool">📈<strong>Мониторинг</strong>логи, метрики, алерты</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Схема предназначена для практической работы с агентами-разработчиками: меньше хаоса, больше проверяемости, меньше больших неконтролируемых изменений.</p>
+      <p>Источник: <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noreferrer">gist Karpathy</a>.</p>
+      <p><a href="/knowledge-base">← Вернуться в Knowledge Base</a></p>
+    </footer>
+  </div>
+</body>
+</html>
