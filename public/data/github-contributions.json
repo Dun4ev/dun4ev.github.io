@@ -2,8 +2,8 @@
   "username": "Dun4ev",
   "name": "Dun4ev",
   "url": "https://github.com/Dun4ev",
-  "generatedAt": "2026-06-20T07:07:58.528Z",
-  "totalContributions": 1003,
+  "generatedAt": "2026-06-21T08:08:22.664Z",
+  "totalContributions": 997,
   "colors": [
     "#9be9a8",
     "#40c463",
@@ -11,23 +11,6 @@
     "#216e39"
   ],
   "weeks": [
-    {
-      "firstDay": "2025-06-20",
-      "contributionDays": [
-        {
-          "color": "#9be9a8",
-          "contributionCount": 6,
-          "date": "2025-06-20",
-          "weekday": 5
-        },
-        {
-          "color": "#ebedf0",
-          "contributionCount": 0,
-          "date": "2025-06-21",
-          "weekday": 6
-        }
-      ]
-    },
     {
       "firstDay": "2025-06-22",
       "contributionDays": [
@@ -2469,6 +2452,17 @@
           "contributionCount": 0,
           "date": "2026-06-20",
           "weekday": 6
+        }
+      ]
+    },
+    {
+      "firstDay": "2026-06-21",
+      "contributionDays": [
+        {
+          "color": "#ebedf0",
+          "contributionCount": 0,
+          "date": "2026-06-21",
+          "weekday": 0
         }
       ]
     }
