@@ -26,3 +26,6 @@ dist-ssr
 # Agent patches
 patches/
 
+# Playwright testing directories
+.playwright-mcp/
+.playwright-cli/

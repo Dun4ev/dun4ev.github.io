@@ -14,6 +14,7 @@ import { KnowledgeBasePage } from './components/KnowledgeBasePage';
 import { ArticlesPage } from './components/ArticlesPage';
 import { LabsPage } from './components/LabsPage';
 import { GitHubContributions } from './components/GitHubContributions';
+import DecryptedText from './components/DecryptedText';
 
 const TypingEffect = ({ text }: { text: string }) => {
   const [display, setDisplay] = useState('');
@@ -174,7 +175,21 @@ const App: React.FC = () => {
                 <LanguageSwitcher />
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-                <a href="/" onClick={handleHomeClick}>{t('header.title')}</a>
+                <a href="/" onClick={handleHomeClick}>
+                  {t('header.firstName')}{' '}
+                  <DecryptedText
+                    text={t('header.targetLastName')}
+                    bootstrapText={t('header.lastName')}
+                    delay={8000}
+                    animateOn="custom"
+                    speed={60}
+                    maxIterations={15}
+                    loop={true}
+                    loopDelay={8000}
+                    className="text-slate-200"
+                    parentClassName="inline-block"
+                  />
+                </a>
               </h1>
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl min-h-[3.5rem] sm:min-h-[2rem]">
                 <TypingEffect text={t('header.subtitle')} />

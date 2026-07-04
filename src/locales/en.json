@@ -10,6 +10,9 @@
     },
     "header": {
         "title": "Andrej Dunaev",
+        "firstName": "Andrej",
+        "lastName": "Dunaev",
+        "targetLastName": "Dun4ev",
         "subtitle": "Engineering Systems & AI Integration Specialist",
         "description": "Integrating engineering coordination, technical documentation, vendor workflows, and AI-assisted automation to make complex engineering processes traceable, transparent, and scalable."
     },
