@@ -14,6 +14,7 @@ import { KnowledgeBasePage } from './components/KnowledgeBasePage';
 import { ArticlesPage } from './components/ArticlesPage';
 import { LabsPage } from './components/LabsPage';
 import { GitHubContributions } from './components/GitHubContributions';
+import { SpatialDemoPage } from './components/SpatialDemoPage';
 import DecryptedText from './components/DecryptedText';
 
 const TypingEffect = ({ text }: { text: string }) => {
@@ -124,6 +125,11 @@ const App: React.FC = () => {
   const isLabsPage = routePath === '/labs';
   const isKnowledgeBasePage = routePath === '/knowledge-base';
   const isArticlesPage = routePath === '/articles';
+  const isSpatialDemoPage = routePath === '/spatial-demo';
+
+  if (isSpatialDemoPage) {
+    return <SpatialDemoPage onNavigate={navigateTo} />;
+  }
 
   if (isProjectsPage) {
     return (
