@@ -420,7 +420,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
 
           <div className="spatial-demo__career-carousel" aria-live="polite">
             {JOBS.map((job, index) => {
-              const position = index - experiencePosition;
+              const position = experiencePosition - index;
               const isActive = index === experienceIndex;
 
               return (
@@ -473,7 +473,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
 
           <div className="spatial-demo__carousel" aria-live="polite">
             {DEMO_PROJECTS.map((project, index) => {
-              const position = index - projectPosition;
+              const position = projectPosition - index;
               const isActive = index === projectIndex;
 
               return (
