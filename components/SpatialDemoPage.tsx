@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Maximize2, X } from 'lucide-react';
 import { JOBS, PROJECTS } from '../constants';
 import './SpatialDemoPage.css';
 
@@ -13,7 +13,15 @@ const SECTION_WHEEL_THRESHOLD = 52;
 const BOUNDARY_WHEEL_THRESHOLD = 96;
 const WHEEL_END_MS = 110;
 const WHEEL_PIXELS_PER_CARD = 320;
+const DETAIL_CLOSE_MS = 480;
 const LAST_SECTION_INDEX = 3;
+
+type DetailSelection = {
+  kind: 'experience' | 'project';
+  index: number;
+  originX: number;
+  originY: number;
+};
 
 const LEVELS = [
   { label: 'Profile', ariaLabel: 'Go to profile' },
@@ -68,11 +76,14 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
   const [experiencePosition, setExperiencePosition] = useState(0);
   const [projectPosition, setProjectPosition] = useState(0);
   const [isWheelActive, setIsWheelActive] = useState(false);
+  const [expandedDetail, setExpandedDetail] = useState<DetailSelection | null>(null);
+  const [isDetailClosing, setIsDetailClosing] = useState(false);
   const experiencePositionRef = useRef(0);
   const projectPositionRef = useRef(0);
   const animationLock = useRef(false);
   const unlockTimer = useRef<number | null>(null);
   const wheelResetTimer = useRef<number | null>(null);
+  const detailCloseTimer = useRef<number | null>(null);
   const boundaryWheelAccumulator = useRef(0);
   const touchStart = useRef({ x: 0, y: 0 });
   const experienceIndex = clamp(Math.round(experiencePosition), 0, JOBS.length - 1);
@@ -89,6 +100,45 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
     projectPositionRef.current = nextPosition;
     setProjectPosition(nextPosition);
   }, []);
+
+  const openDetail = useCallback((
+    kind: DetailSelection['kind'],
+    index: number,
+    source: HTMLElement,
+    pointer?: { x: number; y: number },
+  ) => {
+    if (isWheelActive) return;
+
+    const rect = source.getBoundingClientRect();
+    setIsDetailClosing(false);
+    setExpandedDetail({
+      kind,
+      index,
+      originX: pointer?.x ?? rect.left + rect.width / 2,
+      originY: pointer?.y ?? rect.top + rect.height / 2,
+    });
+  }, [isWheelActive]);
+
+  const closeDetail = useCallback(() => {
+    if (!expandedDetail || isDetailClosing) return;
+
+    setIsDetailClosing(true);
+    if (detailCloseTimer.current) window.clearTimeout(detailCloseTimer.current);
+    detailCloseTimer.current = window.setTimeout(() => {
+      setExpandedDetail(null);
+      setIsDetailClosing(false);
+    }, DETAIL_CLOSE_MS);
+  }, [expandedDetail, isDetailClosing]);
+
+  const handleCardKeyDown = (
+    event: React.KeyboardEvent<HTMLElement>,
+    kind: DetailSelection['kind'],
+    index: number,
+  ) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    openDetail(kind, index, event.currentTarget);
+  };
 
   const lockAnimation = useCallback(() => {
     animationLock.current = true;
@@ -195,6 +245,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
       : event.deltaX;
 
     event.preventDefault();
+    if (expandedDetail) return;
     scheduleWheelEnd();
     if (animationLock.current || primaryDelta === 0) return;
 
@@ -262,11 +313,20 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
       document.title = previousTitle;
       if (unlockTimer.current) window.clearTimeout(unlockTimer.current);
       if (wheelResetTimer.current) window.clearTimeout(wheelResetTimer.current);
+      if (detailCloseTimer.current) window.clearTimeout(detailCloseTimer.current);
     };
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (expandedDetail) {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeDetail();
+        }
+        return;
+      }
+
       if (event.key === 'ArrowDown' || event.key === 'PageDown') {
         event.preventDefault();
         stepScene(1);
@@ -292,7 +352,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onNavigate, stepScene]);
+  }, [closeDetail, expandedDetail, onNavigate, stepScene]);
 
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
     const touch = event.changedTouches[0];
@@ -300,6 +360,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
   };
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (expandedDetail) return;
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
@@ -321,6 +382,13 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
     event.preventDefault();
     onNavigate(path);
   };
+
+  const expandedJob = expandedDetail?.kind === 'experience'
+    ? JOBS[expandedDetail.index]
+    : null;
+  const expandedProject = expandedDetail?.kind === 'project'
+    ? DEMO_PROJECTS[expandedDetail.index]
+    : null;
 
   return (
     <main
@@ -428,6 +496,12 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
                   className={`spatial-demo__career-card ${isActive ? 'is-active' : ''}`}
                   style={getCarouselCardStyle(position, 96)}
                   aria-hidden={!isActive}
+                  aria-label={isActive ? `Open details about ${job.company}` : undefined}
+                  aria-haspopup={isActive ? 'dialog' : undefined}
+                  role={isActive ? 'button' : undefined}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={(event) => isActive && openDetail('experience', index, event.currentTarget, { x: event.clientX, y: event.clientY })}
+                  onKeyDown={(event) => isActive && handleCardKeyDown(event, 'experience', index)}
                   key={job.id}
                 >
                   <div className="spatial-demo__career-index">
@@ -448,6 +522,9 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
                         <li key={technology}>{technology}</li>
                       ))}
                     </ul>
+                    <span className="spatial-demo__expand-hint">
+                      <Maximize2 aria-hidden="true" /> Click to expand
+                    </span>
                   </div>
                 </article>
               );
@@ -481,6 +558,12 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
                   className={`spatial-demo__project ${isActive ? 'is-active' : ''}`}
                   style={getCarouselCardStyle(position, 96)}
                   aria-hidden={!isActive}
+                  aria-label={isActive ? `Open details about ${project.title}` : undefined}
+                  aria-haspopup={isActive ? 'dialog' : undefined}
+                  role={isActive ? 'button' : undefined}
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={(event) => isActive && openDetail('project', index, event.currentTarget, { x: event.clientX, y: event.clientY })}
+                  onKeyDown={(event) => isActive && handleCardKeyDown(event, 'project', index)}
                   key={project.id}
                 >
                   <div className="spatial-demo__project-image">
@@ -492,9 +575,9 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
                     <h3>{project.title}</h3>
                     <div className="spatial-demo__project-detail">
                       <p>{project.description}</p>
-                      <a href={project.link} target="_blank" rel="noreferrer" tabIndex={isActive ? 0 : -1}>
-                        Open project <ArrowUpRight aria-hidden="true" />
-                      </a>
+                      <span className="spatial-demo__project-expand">
+                        Expand details <Maximize2 aria-hidden="true" />
+                      </span>
                     </div>
                   </div>
                 </article>
@@ -540,6 +623,92 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
           </button>
         </section>
       </div>
+
+      {expandedDetail && (
+        <div
+          className={`spatial-demo__detail-overlay ${isDetailClosing ? 'is-closing' : ''}`}
+          style={{
+            '--reveal-x': `${expandedDetail.originX}px`,
+            '--reveal-y': `${expandedDetail.originY}px`,
+          } as React.CSSProperties}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="spatial-detail-title"
+          onClick={(event) => event.target === event.currentTarget && closeDetail()}
+        >
+          <div className={`spatial-demo__detail-panel ${expandedJob ? 'is-experience' : 'is-project'}`}>
+            <button
+              className="spatial-demo__detail-close"
+              type="button"
+              onClick={closeDetail}
+              aria-label="Close details"
+              autoFocus
+            >
+              <X aria-hidden="true" />
+            </button>
+
+            {expandedJob && (
+              <div className="spatial-demo__detail-layout">
+                <aside className="spatial-demo__detail-meta">
+                  <p>Experience · {String(expandedDetail.index + 1).padStart(2, '0')}</p>
+                  <dl>
+                    <div><dt>Company</dt><dd>{expandedJob.company}</dd></div>
+                    <div><dt>Period</dt><dd>{expandedJob.period}</dd></div>
+                    <div><dt>Location</dt><dd>{expandedJob.location}</dd></div>
+                  </dl>
+                  <ul aria-label="Technologies and expertise">
+                    {expandedJob.technologies.map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
+                  </ul>
+                </aside>
+
+                <div className="spatial-demo__detail-content">
+                  <p className="spatial-demo__eyebrow">What I worked on</p>
+                  <h2 id="spatial-detail-title">{expandedJob.title}</h2>
+                  <ol className="spatial-demo__responsibility-list">
+                    {expandedJob.description.map((description, index) => (
+                      <li key={description}>
+                        <span>{String(index + 1).padStart(2, '0')}</span>
+                        <p>{description}</p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            )}
+
+            {expandedProject && (
+              <div className="spatial-demo__project-dialog">
+                <div className="spatial-demo__detail-image">
+                  <img src={expandedProject.image} alt="" />
+                  <span>{expandedProject.category}</span>
+                </div>
+
+                <div className="spatial-demo__detail-content">
+                  <p className="spatial-demo__eyebrow">Project · {String(expandedDetail.index + 1).padStart(2, '0')}</p>
+                  <h2 id="spatial-detail-title">{expandedProject.title}</h2>
+                  <p className="spatial-demo__detail-lead">{expandedProject.description}</p>
+
+                  <dl className="spatial-demo__project-facts">
+                    <div><dt>Role</dt><dd>{expandedProject.role}</dd></div>
+                    <div><dt>Status</dt><dd>{expandedProject.status}</dd></div>
+                    <div><dt>Impact</dt><dd>{expandedProject.impact}</dd></div>
+                  </dl>
+
+                  <ul className="spatial-demo__detail-tools" aria-label="Project tools">
+                    {expandedProject.tools.map((tool) => <li key={tool}>{tool}</li>)}
+                  </ul>
+
+                  <a href={expandedProject.link} target="_blank" rel="noreferrer">
+                    Open live project <ArrowUpRight aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <aside className="spatial-demo__levels" aria-label="Current scene level">
         {LEVELS.map((level, index) => (
