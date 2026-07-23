@@ -1,4 +1,10 @@
 {
+    "language": {
+        "label": "Язык",
+        "english": "английский",
+        "russian": "русский",
+        "switch_to": "Переключить на {{language}}"
+    },
     "nav": {
         "about": "Обо мне",
         "experience": "Опыт",

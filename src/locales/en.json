@@ -1,4 +1,10 @@
 {
+    "language": {
+        "label": "Language",
+        "english": "English",
+        "russian": "Russian",
+        "switch_to": "Switch to {{language}}"
+    },
     "nav": {
         "about": "About",
         "experience": "Experience",
