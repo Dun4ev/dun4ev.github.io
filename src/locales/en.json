@@ -5,6 +5,14 @@
         "russian": "Russian",
         "switch_to": "Switch to {{language}}"
     },
+    "mobileNav": {
+        "menu": "Menu",
+        "title": "Navigation",
+        "close": "Close menu",
+        "primary_label": "Mobile navigation",
+        "home": "Home",
+        "current": "Current"
+    },
     "nav": {
         "about": "About",
         "experience": "Experience",

@@ -16,6 +16,7 @@ import { LabsPage } from './components/LabsPage';
 import { GitHubContributions } from './components/GitHubContributions';
 import { SpatialDemoPage } from './components/SpatialDemoPage';
 import DecryptedText from './components/DecryptedText';
+import { MobileNavigation } from './components/MobileNavigation';
 
 const TypingEffect = ({ text }: { text: string }) => {
   const [display, setDisplay] = useState('');
@@ -91,8 +92,20 @@ const App: React.FC = () => {
   }, []);
 
   const navigateTo = (path: string) => {
-    window.history.pushState(null, '', path);
-    setRoutePath(path);
+    const targetUrl = new URL(path, window.location.origin);
+    window.history.pushState(null, '', `${targetUrl.pathname}${targetUrl.hash}`);
+    setRoutePath(targetUrl.pathname);
+
+    if (targetUrl.hash) {
+      const targetId = targetUrl.hash.slice(1);
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      return;
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -134,6 +147,7 @@ const App: React.FC = () => {
   if (isProjectsPage) {
     return (
       <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
+        <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
         <CursorSpotlight />
         <ProjectsPage onNavigate={navigateTo} />
       </div>
@@ -143,6 +157,7 @@ const App: React.FC = () => {
   if (isLabsPage) {
     return (
       <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-violet-300 selection:text-violet-950 relative">
+        <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
         <CursorSpotlight />
         <LabsPage onNavigate={navigateTo} />
       </div>
@@ -152,6 +167,7 @@ const App: React.FC = () => {
   if (isKnowledgeBasePage) {
     return (
       <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-cyan-300 selection:text-cyan-950 relative">
+        <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
         <CursorSpotlight />
         <KnowledgeBasePage onNavigate={navigateTo} />
       </div>
@@ -161,6 +177,7 @@ const App: React.FC = () => {
   if (isArticlesPage) {
     return (
       <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-amber-300 selection:text-amber-950 relative">
+        <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
         <CursorSpotlight />
         <ArticlesPage onNavigate={navigateTo} />
       </div>
@@ -169,6 +186,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
+      <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
       <CursorSpotlight />
 
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
@@ -177,9 +195,6 @@ const App: React.FC = () => {
           {/* LEFT COLUMN (Sticky) */}
           <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
-              <div className="mb-8 lg:hidden">
-                <LanguageSwitcher />
-              </div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
                 <a href="/" onClick={handleHomeClick}>
                   {t('header.firstName')}{' '}
@@ -233,7 +248,7 @@ const App: React.FC = () => {
 
             {/* ABOUT SECTION */}
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.about')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('nav.about')}</h2>
               </div>
               <FadeIn>
@@ -253,7 +268,7 @@ const App: React.FC = () => {
 
             {/* EXPERIENCE SECTION */}
             <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.experience')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('experience.title')}</h2>
               </div>
 
@@ -278,7 +293,7 @@ const App: React.FC = () => {
 
             {/* SKILLS & DATA SECTION */}
             <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.skills')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('skills.title')}</h2>
               </div>
               <FadeIn>
@@ -339,7 +354,7 @@ const App: React.FC = () => {
 
             {/* PROJECTS SECTION */}
             <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.projects')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('projects.title')}</h2>
               </div>
               <FadeIn>
@@ -365,7 +380,7 @@ const App: React.FC = () => {
 
             {/* LABS SECTION */}
             <section id="labs" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.labs')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('labs.title')}</h2>
               </div>
               <FadeIn>
@@ -389,7 +404,7 @@ const App: React.FC = () => {
 
             {/* KNOWLEDGE BASE SECTION */}
             <section id="knowledge" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.knowledge')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('knowledge.title')}</h2>
               </div>
               <FadeIn>
@@ -410,7 +425,7 @@ const App: React.FC = () => {
 
             {/* ARTICLES SECTION */}
             <section id="articles" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.articles')}>
-              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('articles.title')}</h2>
               </div>
               <FadeIn>

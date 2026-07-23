@@ -5,6 +5,14 @@
         "russian": "русский",
         "switch_to": "Переключить на {{language}}"
     },
+    "mobileNav": {
+        "menu": "Меню",
+        "title": "Навигация",
+        "close": "Закрыть меню",
+        "primary_label": "Мобильная навигация",
+        "home": "Главная",
+        "current": "Сейчас"
+    },
     "nav": {
         "about": "Обо мне",
         "experience": "Опыт",
