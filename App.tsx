@@ -197,7 +197,7 @@ const App: React.FC = () => {
                   />
                 </a>
               </h1>
-              <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl min-h-[3.5rem] sm:min-h-[2rem]">
+              <h2 className="mt-3 min-h-[5.25rem] text-lg font-medium tracking-tight text-slate-200 sm:min-h-[3.5rem] sm:text-xl">
                 <TypingEffect text={t('header.subtitle')} />
               </h2>
               <p className="mt-4 max-w-xs leading-normal text-slate-400">
