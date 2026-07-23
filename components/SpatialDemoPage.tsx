@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Maximize2, X } from 'lucide-react';
 import { JOBS, PROJECTS } from '../constants';
 import './SpatialDemoPage.css';
+import { SpatialRippleCanvas } from './SpatialRippleCanvas';
 
 interface SpatialDemoPageProps {
   onNavigate: (path: string) => void;
@@ -19,6 +20,12 @@ const LAST_SECTION_INDEX = 3;
 type DetailSelection = {
   kind: 'experience' | 'project';
   index: number;
+  originX: number;
+  originY: number;
+};
+
+type LiquidRipple = {
+  id: number;
   originX: number;
   originY: number;
 };
@@ -78,6 +85,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
   const [isWheelActive, setIsWheelActive] = useState(false);
   const [expandedDetail, setExpandedDetail] = useState<DetailSelection | null>(null);
   const [isDetailClosing, setIsDetailClosing] = useState(false);
+  const [liquidRipple, setLiquidRipple] = useState<LiquidRipple | null>(null);
   const experiencePositionRef = useRef(0);
   const projectPositionRef = useRef(0);
   const animationLock = useRef(false);
@@ -110,18 +118,27 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
     if (isWheelActive) return;
 
     const rect = source.getBoundingClientRect();
+    const originX = pointer?.x ?? rect.left + rect.width / 2;
+    const originY = pointer?.y ?? rect.top + rect.height / 2;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion) {
+      setLiquidRipple({ id: window.performance.now(), originX, originY });
+    }
+
     setIsDetailClosing(false);
     setExpandedDetail({
       kind,
       index,
-      originX: pointer?.x ?? rect.left + rect.width / 2,
-      originY: pointer?.y ?? rect.top + rect.height / 2,
+      originX,
+      originY,
     });
   }, [isWheelActive]);
 
   const closeDetail = useCallback(() => {
     if (!expandedDetail || isDetailClosing) return;
 
+    setLiquidRipple(null);
     setIsDetailClosing(true);
     if (detailCloseTimer.current) window.clearTimeout(detailCloseTimer.current);
     detailCloseTimer.current = window.setTimeout(() => {
@@ -129,6 +146,10 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
       setIsDetailClosing(false);
     }, DETAIL_CLOSE_MS);
   }, [expandedDetail, isDetailClosing]);
+
+  const completeLiquidRipple = useCallback(() => {
+    setLiquidRipple(null);
+  }, []);
 
   const handleCardKeyDown = (
     event: React.KeyboardEvent<HTMLElement>,
@@ -624,9 +645,18 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
         </section>
       </div>
 
+      {liquidRipple && (
+        <SpatialRippleCanvas
+          key={liquidRipple.id}
+          originX={liquidRipple.originX}
+          originY={liquidRipple.originY}
+          onComplete={completeLiquidRipple}
+        />
+      )}
+
       {expandedDetail && (
         <div
-          className={`spatial-demo__detail-overlay ${isDetailClosing ? 'is-closing' : ''}`}
+          className={`spatial-demo__detail-overlay is-liquid ${isDetailClosing ? 'is-closing' : ''}`}
           style={{
             '--reveal-x': `${expandedDetail.originX}px`,
             '--reveal-y': `${expandedDetail.originY}px`,

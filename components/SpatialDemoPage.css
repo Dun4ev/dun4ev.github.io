@@ -867,6 +867,17 @@
   animation: spatial-droplet-open 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.spatial-demo__liquid-ripple {
+  position: fixed;
+  z-index: 96;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: saturate(1.12) drop-shadow(0 0 12px rgba(84, 230, 193, 0.24));
+}
+
 .spatial-demo__detail-overlay::before {
   content: '';
   position: absolute;
@@ -883,6 +894,10 @@
   opacity: 0;
   pointer-events: none;
   animation: spatial-water-ring 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.spatial-demo__detail-overlay.is-liquid::before {
+  display: none;
 }
 
 .spatial-demo__detail-overlay.is-closing {
@@ -1598,5 +1613,9 @@
   .spatial-demo__detail-overlay.is-closing,
   .spatial-demo__detail-overlay.is-closing .spatial-demo__detail-panel {
     animation-duration: 1ms !important;
+  }
+
+  .spatial-demo__liquid-ripple {
+    display: none;
   }
 }

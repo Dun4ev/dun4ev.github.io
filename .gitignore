@@ -29,3 +29,4 @@ patches/
 # Playwright testing directories
 .playwright-mcp/
 .playwright-cli/
+output/playwright/

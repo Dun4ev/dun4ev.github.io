@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
 import { useTranslation } from 'react-i18next';
+import LineSidebar, { type LineSidebarItem } from './LineSidebar';
 
 interface NavigationProps {
   onNavigate?: (path: string) => void;
@@ -9,6 +10,10 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
   const [activeSection, setActiveSection] = useState<string>('');
   const { t } = useTranslation();
+  const items: LineSidebarItem[] = NAV_LINKS.map((link) => ({
+    href: link.href,
+    label: t(`nav.${link.name.toLowerCase().split(' ')[0]}`),
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,7 +24,10 @@ export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
           }
         });
       },
-      { threshold: 0.3 }
+      {
+        rootMargin: '-15% 0px -75% 0px',
+        threshold: 0,
+      }
     );
 
     document.querySelectorAll('section[id]').forEach((section) => {
@@ -46,32 +54,17 @@ export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
     }
   };
 
+  const activeIndex = NAV_LINKS.findIndex(
+    (link) => link.href.substring(1) === activeSection,
+  );
+
   return (
-    <nav className="nav hidden lg:block" aria-label="In-page jump links">
-      <ul className="mt-16 w-max">
-        {NAV_LINKS.map((link) => (
-          <li key={link.name}>
-            <a
-              className={`group flex items-center py-3 transition-colors duration-300 ${activeSection === link.href.substring(1)
-                ? 'text-teal-400'
-                : 'text-slate-500 hover:text-slate-200'
-                }`}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-            >
-              <span
-                className={`mr-4 h-px transition-all duration-300 ease-in-out motion-reduce:transition-none ${activeSection === link.href.substring(1)
-                  ? 'w-16 bg-teal-400'
-                  : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200'
-                  }`}
-              ></span>
-              <span className="text-xs font-bold uppercase tracking-widest transition-colors duration-300">
-                {t(`nav.${link.name.toLowerCase().split(' ')[0]}`)}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="mt-16 hidden lg:block">
+      <LineSidebar
+        items={items}
+        activeIndex={activeIndex >= 0 ? activeIndex : null}
+        onItemClick={(_, item, event) => handleNavClick(event, item.href)}
+      />
+    </div>
   );
 };
