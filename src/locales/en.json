@@ -14,7 +14,7 @@
         "current": "Current"
     },
     "nav": {
-        "about": "About",
+        "about": "Profile",
         "experience": "Experience",
         "skills": "Skills & Data",
         "projects": "Projects",
@@ -27,14 +27,27 @@
         "firstName": "Andrej",
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
-        "subtitle": "Engineering Systems & AI Integration Specialist",
-        "description": "Integrating engineering coordination, technical documentation, vendor workflows, and AI-assisted automation to make complex engineering processes traceable, transparent, and scalable."
+        "subtitle": "Energy Infrastructure Engineer & Engineering Coordination and Project Delivery",
+        "description": "For more than 20 years, I have worked on the design and delivery of energy infrastructure projects. Today, I coordinate engineering work, technical documentation, and vendor collaboration, using automation and AI to improve process transparency and reliability."
+    },
+    "profile": {
+        "title": "Engineering Profile"
+    },
+    "radar": {
+        "metrics": {
+            "three_d": "3D design\n(up to 55% faster)",
+            "experience": "Engineering experience\n(20+ years)",
+            "design": "Design engineering\n(9+ years)",
+            "documents": "Documents\n(50k+ coordinated)",
+            "updates": "Personally updated\n(350+)",
+            "lifecycle": "Full lifecycle\n(design → operations)"
+        }
     },
     "about": {
-        "p1": "I work at the intersection of energy infrastructure, engineering coordination, technical documentation, vendor coordination, and workflow automation. With nearly two decades of experience in gas pipeline, compressor station, and underground gas storage projects, I have worked across FEED, detailed design, construction support, RFQ packages, vendor documentation, as-built updates, and operational coordination.",
-        "p2": "My core strength is bringing structure, traceability, and reliability to complex engineering environments: connecting engineering execution with documentation quality, technical data, change control, interface coordination, vendor inputs, QA, procurement, and operations.",
-        "p3": "Alongside project delivery, I build practical digital solutions for documentation, reporting, action item control, and data analysis. I use Python, Django, Excel Power Query, and AI-assisted methods to reduce manual effort, lower the risk of missed agreements, and support better-informed decisions in documentation-heavy projects.",
-        "p4": "I am interested in roles and collaborations where engineering knowledge can be combined with data, automation, and Industrial AI to make complex processes more structured, transparent, and scalable."
+        "p1": "I am an engineer with more than 20 years of experience in projects involving main gas pipelines, compressor stations, industrial site facilities, and underground gas storage.",
+        "p2": "For more than nine years, I designed pipeline systems and industrial facilities. My work then expanded into engineering coordination, FEED and detailed design management, construction and operational support, RFQ preparation, vendor collaboration, and change control.",
+        "p3": "My strength is connecting engineering decisions, documentation, and project participants into one controlled system. I help maintain decision traceability, make work status visible, and reduce the risk of information loss between clients, design institutes, contractors, vendors, procurement, and operations.",
+        "p4": "Alongside this work, I build practical tools with Python, Django, and Excel Power Query, and use AI for documentation, reporting, and technical data. To me, automation complements engineering expertise; it does not replace it."
     },
     "experience": {
         "title": "Work Experience",

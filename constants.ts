@@ -343,10 +343,10 @@ export const D3_DATA: GraphData = {
 };
 
 export const SKILL_METRICS = [
-  { name: 'Project Mgmt', value: 95, fullMark: 100 },
-  { name: 'Pipeline Design', value: 90, fullMark: 100 },
-  { name: 'Python/Automation', value: 75, fullMark: 100 },
-  { name: 'Regulatory (ATEX/CE)', value: 85, fullMark: 100 },
-  { name: 'Data Analysis', value: 80, fullMark: 100 },
-  { name: '3D Modeling', value: 85, fullMark: 100 },
+  { name: 'three_d', value: 95, fullMark: 100 },
+  { name: 'experience', value: 90, fullMark: 100 },
+  { name: 'design', value: 75, fullMark: 100 },
+  { name: 'documents', value: 85, fullMark: 100 },
+  { name: 'updates', value: 80, fullMark: 100 },
+  { name: 'lifecycle', value: 85, fullMark: 100 },
 ];

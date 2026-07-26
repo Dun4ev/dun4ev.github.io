@@ -82,6 +82,7 @@ const getRoutePath = () => {
 
 const App: React.FC = () => {
   const { t } = useTranslation();
+  const aboutParagraphs = Object.values(t('about', { returnObjects: true }) as Record<string, string>);
   const [routePath, setRoutePath] = useState(getRoutePath);
 
   useEffect(() => {
@@ -249,14 +250,13 @@ const App: React.FC = () => {
             {/* ABOUT SECTION */}
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.about')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('nav.about')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('profile.title', { defaultValue: t('nav.about') })}</h2>
               </div>
               <FadeIn>
                 <div className="space-y-4 text-lg">
-                  <p>{t('about.p1')}</p>
-                  <p>{t('about.p2')}</p>
-                  <p>{t('about.p3')}</p>
-                  <p>{t('about.p4')}</p>
+                  {aboutParagraphs.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
                 </div>
               </FadeIn>
 
