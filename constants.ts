@@ -96,7 +96,7 @@ export const JOBS: Job[] = [
     id: 'yuzh-1',
     company: 'YUZHNIIGIPROGAZ PJSC',
     title: 'Lead Design Engineer',
-    period: 'Aug 2008 — Oct 2014',
+    period: 'Aug 2006 — Oct 2014',
     location: 'Donetsk, Ukraine',
     description: [
       'Worked on "South Stream" and "Bovanenkovo–Ukhta" GTS.',

@@ -44,10 +44,10 @@
         }
     },
     "about": {
-        "p1": "I am an engineer with more than 20 years of experience in projects involving main gas pipelines, compressor stations, industrial site facilities, and underground gas storage.",
-        "p2": "For more than nine years, I designed pipeline systems and industrial facilities. My work then expanded into engineering coordination, FEED and detailed design management, construction and operational support, RFQ preparation, vendor collaboration, and change control.",
-        "p3": "My strength is connecting engineering decisions, documentation, and project participants into one controlled system. I help maintain decision traceability, make work status visible, and reduce the risk of information loss between clients, design institutes, contractors, vendors, procurement, and operations.",
-        "p4": "Alongside this work, I build practical tools with Python, Django, and Excel Power Query, and use AI for documentation, reporting, and technical data. To me, automation complements engineering expertise; it does not replace it."
+        "p1": "I am an energy infrastructure engineer with more than 20 years of experience in main gas pipeline, compressor station, industrial site facility, and underground gas storage projects.",
+        "p2": "For more than nine years, I worked on the design of pipeline systems and industrial facilities. My work then expanded to coordinating and overseeing the development of FEED and detailed design documentation, supporting construction and operations, preparing RFQs, coordinating with vendors, and managing change.",
+        "p3": "My strength is maintaining alignment among engineering decisions, documentation, and project participants’ actions. I support decision traceability, visibility into work status, and reliable information exchange among clients, design institutes, contractors, vendors, procurement, and operations.",
+        "p4": "On my own initiative, I systematically develop automation within my engineering and documentation workflows. I use Python, AI agents, and reusable agentic workflows to search and analyze documentation, prepare reports, track action items, and process technical data wherever confidentiality requirements permit. I preserve result traceability and the ability to perform engineering review: automation strengthens expertise but does not replace engineering judgment."
     },
     "experience": {
         "title": "Work Experience",
