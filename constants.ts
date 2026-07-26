@@ -1,4 +1,4 @@
-import { Job, Project, KnowledgeItem, ArticleItem, LabItem, GraphData } from './types';
+import { Job, ExperienceStage, Project, KnowledgeItem, ArticleItem, LabItem, GraphData } from './types';
 
 export const NAV_LINKS = [
   { name: 'About', href: '#about' },
@@ -106,6 +106,21 @@ export const JOBS: Job[] = [
     ],
     technologies: ['SolidWorks', 'AutoCAD', '3D Modeling', 'South Stream', 'Excel Automation']
   }
+];
+
+export const EXPERIENCE_STAGES: ExperienceStage[] = [
+  {
+    id: 'delivery',
+    jobIds: ['comita', 'idc-2', 'idc-1'],
+  },
+  {
+    id: 'coordination',
+    jobIds: ['gazprom'],
+  },
+  {
+    id: 'design',
+    jobIds: ['kuban', 'yuzh-1'],
+  },
 ];
 
 export const PROJECTS: Project[] = [

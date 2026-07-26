@@ -8,6 +8,11 @@ export interface Job {
   technologies: string[];
 }
 
+export interface ExperienceStage {
+  id: string;
+  jobIds: string[];
+}
+
 export interface Project {
   id: string;
   title: string;

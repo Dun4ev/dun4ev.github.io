@@ -52,6 +52,24 @@
     "experience": {
         "title": "Work Experience",
         "view_resume": "View Full Résumé",
+        "stages": {
+            "toggle": "Show roles and full details",
+            "delivery": {
+                "period": "2019 — Present",
+                "title": "Engineering Coordination and Project Delivery",
+                "summary": "Coordination of clients, design institutes, contractors, vendors, and internal teams. Management of FEED and detailed design documentation, construction and operations support, RFQ preparation, vendor documentation, reporting, and action tracking."
+            },
+            "coordination": {
+                "period": "2015 — 2017",
+                "title": "Project Coordination",
+                "summary": "Coordination support for a portfolio of major gas and infrastructure projects: planning, schedules, cost estimates, contractor coordination, meetings, and follow-up control."
+            },
+            "design": {
+                "period": "2006 — 2015",
+                "title": "Engineering Design",
+                "summary": "More than nine years of designing pipeline systems, compressor stations, valve stations, pig launcher and receiver facilities, and other industrial site facilities in AutoCAD and SolidWorks."
+            }
+        },
         "jobs": {
             "comita": {
                 "title": "Chief Engineering Expert (Planning, Monitoring & Reporting)",

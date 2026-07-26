@@ -3,11 +3,11 @@ import { Linkedin, Mail, Phone, ArrowUpRight, ExternalLink, FlaskConical } from 
 import { useTranslation, Trans } from 'react-i18next';
 import { CursorSpotlight } from './components/CursorSpotlight';
 import { Navigation } from './components/Navigation';
-import { ExperienceCard } from './components/ExperienceCard';
+import { ExperienceStageCard } from './components/ExperienceStageCard';
 import { ProjectCard } from './components/ProjectCard';
 import { SkillCloud } from './components/SkillCloud';
 import { SkillRadar } from './components/SkillRadar';
-import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS, ARTICLES } from './constants';
+import { JOBS, EXPERIENCE_STAGES, D3_DATA, SOCIAL_LINKS, PROJECTS, ARTICLES } from './constants';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProjectsPage } from './components/ProjectsPage';
 import { KnowledgeBasePage } from './components/KnowledgeBasePage';
@@ -272,12 +272,15 @@ const App: React.FC = () => {
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('experience.title')}</h2>
               </div>
 
-              <div className="group/list">
-                {JOBS.map((job, idx) => (
-                  <FadeIn key={job.id} delay={idx * 100}>
-                    <div className="mb-12">
-                      <ExperienceCard job={job} />
-                    </div>
+              <div className="space-y-5">
+                {EXPERIENCE_STAGES.map((stage, idx) => (
+                  <FadeIn key={stage.id} delay={idx * 100}>
+                    <ExperienceStageCard
+                      stage={stage}
+                      jobs={stage.jobIds
+                        .map((jobId) => JOBS.find((job) => job.id === jobId))
+                        .filter((job): job is (typeof JOBS)[number] => Boolean(job))}
+                    />
                   </FadeIn>
                 ))}
               </div>
