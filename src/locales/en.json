@@ -28,7 +28,7 @@
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
         "subtitle": "Energy Infrastructure Engineer & Engineering Coordination and Project Delivery",
-        "description": "For more than 20 years, I have worked on the design and delivery of energy infrastructure projects. Today, I coordinate engineering work, technical documentation, and vendor collaboration, using automation and AI to improve process transparency and reliability."
+        "description": "For more than 20 years, I have worked on the design and delivery of energy infrastructure projects. I combine engineering coordination, technical documentation, and vendor collaboration, using automation and AI to improve process transparency and reliability."
     },
     "profile": {
         "title": "Engineering Profile"
@@ -54,6 +54,7 @@
         "view_resume": "View Full Résumé",
         "stages": {
             "toggle": "Show roles and full details",
+            "collapse": "Hide roles and full details",
             "delivery": {
                 "period": "2019 — Present",
                 "title": "Engineering Coordination and Project Delivery",

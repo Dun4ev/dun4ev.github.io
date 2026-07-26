@@ -190,11 +190,11 @@ const App: React.FC = () => {
       <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
       <CursorSpotlight />
 
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div className="lg:flex lg:items-start lg:justify-between lg:gap-4">
+      <div className="mx-auto min-h-screen max-w-[84rem] px-6 py-12 font-sans md:px-12 md:py-20 lg:px-16 lg:py-0 xl:px-20">
+        <div className="lg:grid lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] lg:items-start lg:gap-16 xl:grid-cols-[minmax(360px,0.82fr)_minmax(0,1.18fr)] xl:gap-20">
 
           {/* LEFT COLUMN (Sticky) */}
-          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+          <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24">
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
                 <a href="/" onClick={handleHomeClick}>
@@ -216,7 +216,7 @@ const App: React.FC = () => {
               <h2 className="mt-3 min-h-[5.25rem] text-lg font-medium tracking-tight text-slate-200 sm:min-h-[3.5rem] sm:text-xl">
                 <TypingEffect text={t('header.subtitle')} />
               </h2>
-              <p className="mt-4 max-w-xs leading-normal text-slate-400">
+              <p className="mt-4 max-w-[26rem] leading-normal text-slate-400">
                 {t('header.description')}
               </p>
               <Navigation onNavigate={navigateTo} />
@@ -245,7 +245,7 @@ const App: React.FC = () => {
           </header>
 
           {/* RIGHT COLUMN (Scrollable) */}
-          <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
+          <main id="content" className="min-w-0 pt-24 lg:py-24">
 
             {/* ABOUT SECTION */}
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.about')}>
