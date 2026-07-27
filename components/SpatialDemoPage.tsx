@@ -711,7 +711,7 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
             {expandedProject && (
               <div className="spatial-demo__project-dialog">
                 <div className="spatial-demo__detail-image">
-                  <img src={expandedProject.image} alt="" />
+                  {expandedProject.image && <img src={expandedProject.image} alt="" />}
                   <span>{expandedProject.category}</span>
                 </div>
 
@@ -730,9 +730,11 @@ export const SpatialDemoPage: React.FC<SpatialDemoPageProps> = ({ onNavigate }) 
                     {expandedProject.tools.map((tool) => <li key={tool}>{tool}</li>)}
                   </ul>
 
-                  <a href={expandedProject.link} target="_blank" rel="noreferrer">
-                    Open live project <ArrowUpRight aria-hidden="true" />
-                  </a>
+                  {expandedProject.link && (
+                    <a href={expandedProject.link} target="_blank" rel="noreferrer">
+                      Open live project <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
               </div>
             )}

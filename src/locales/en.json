@@ -144,15 +144,10 @@
         "title": "Projects",
         "view_archive": "View Full Project Archive",
         "items": {
-            "slotbot-booking-landing": {
-                "title": "SlotBot: Telegram Booking Landing",
-                "description": "A static landing page concept for a Telegram-based booking assistant. Visitors browse services, prices, and available slots, then book directly through Telegram.",
-                "impact": "Shows how a small business can connect a lightweight website with Telegram booking and reduce manual scheduling messages."
-            },
-            "electricity-theft-detector": {
-                "title": "EnergyGuard AI: Electricity Theft Detector",
-                "description": "An interactive MVP concept for non-invasive electricity theft localization without entering private properties. It combines feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly analysis.",
-                "impact": "Demonstrates a practical architecture for detecting commercial electricity losses through remote monitoring and fewer false field visits."
+            "engineering-process-management-system": {
+                "title": "Internal Engineering Process Management System",
+                "description": "An internal Python/Django system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.",
+                "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work."
             },
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
@@ -208,6 +203,20 @@
         "description": "A lightweight showcase of small interactive sites, engineering reports, and business presentations: work that is easy to open, show, and discuss.",
         "view_all": "Open Labs",
         "items": {
+            "slotbot-booking-landing": {
+                "title": "SlotBot: Telegram Booking Landing",
+                "description": "A static landing page concept for a Telegram-based booking assistant. Visitors browse services, prices, and available slots, then book directly through Telegram.",
+                "category": "Interactive Demo",
+                "status": "Live demo",
+                "highlight": "Shows how a lightweight website can connect with Telegram booking and reduce manual scheduling."
+            },
+            "electricity-theft-detector": {
+                "title": "EnergyGuard AI: Electricity Theft Detector",
+                "description": "An interactive MVP concept for non-invasive electricity theft localization without entering private properties. It combines feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly analysis.",
+                "category": "Engineering Concept",
+                "status": "MVP concept",
+                "highlight": "Demonstrates a practical architecture for detecting commercial electricity losses through remote monitoring."
+            },
             "vegaboost-business-overview": {
                 "title": "VegaBoost Business Overview",
                 "description": "A lightweight business presentation site for quickly explaining a product idea, commercial logic, and key project signals in a shareable format.",
@@ -234,6 +243,8 @@
         "all_filter": "All",
         "category_business_presentation": "Business Presentations",
         "category_engineering_report": "Engineering Reports",
+        "category_interactive_demo": "Interactive Demos",
+        "category_engineering_concept": "Engineering Concepts",
         "tags_label": "Mini project tags",
         "open_item": "Open"
     },

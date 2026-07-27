@@ -125,28 +125,14 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'slotbot-booking-landing',
-    title: 'SlotBot: Telegram Booking Landing',
-    description: 'A static landing page concept for a Telegram-based booking assistant: clients browse services, prices, and available slots, then book directly through Telegram.',
-    tools: ['HTML', 'Landing Page', 'Telegram Bot', 'Booking Automation', 'Static Site'],
-    link: 'https://dun4ev.github.io/slotbot-booking-landing/',
-    image: '/images/projects/slotbot-booking-landing.png',
-    category: 'Interactive Web App',
-    role: 'Concept Designer',
-    status: 'Demo Landing',
-    impact: 'Shows how a small business can combine a static website with Telegram booking to reduce manual scheduling'
-  },
-  {
-    id: 'electricity-theft-detector',
-    title: 'EnergyGuard AI: Electricity Theft Detector',
-    description: 'An interactive MVP concept for non-invasive electricity theft detection using feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly localization.',
-    tools: ['HTML', 'Interactive UI', 'Energy Analytics', 'GIS', 'AI Concept'],
-    link: 'https://dun4ev.github.io/electricity-theft-detector/index.html',
-    image: '/images/projects/electricity-theft-detector.png',
-    category: 'Interactive Web App',
-    role: 'Concept Designer',
-    status: 'MVP Concept',
-    impact: 'Demonstrates a practical architecture for detecting commercial electricity losses without entering private properties'
+    id: 'engineering-process-management-system',
+    title: 'Internal Engineering Process Management System',
+    description: 'An internal Python/Django system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.',
+    tools: ['Python', 'Django', 'Issue Tracking', 'Action Items', 'XLSX Reporting'],
+    category: 'Internal Tool',
+    role: 'Creator',
+    status: 'Confidential / Internal',
+    impact: 'Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work'
   },
   {
     id: 'auto-comment-sheets',
@@ -173,6 +159,18 @@ export const PROJECTS: Project[] = [
     impact: 'Automated PDF routing and operation logging for engineering document flows'
   },
   {
+    id: 'graf-html',
+    title: 'Interactive Trend Visualization',
+    description: 'A Python-based toolkit for converting raw Excel/CSV data into interactive HTML plots using Dash and Plotly.',
+    tools: ['Python', 'Dash', 'Plotly', 'Pandas'],
+    link: 'https://github.com/Dun4ev/graf_html',
+    image: '/images/projects/interactive-trend-visualization.png',
+    category: 'Data Visualization',
+    role: 'Creator',
+    status: 'Reusable toolkit',
+    impact: 'Converts raw Excel and CSV data into interactive engineering trend views'
+  },
+  {
     id: 'portfolio-v2',
     title: 'AI-Powered PDF Search Engine',
     description: 'A semantic search and question-answering system for PDF documents using RAG architecture and LLMs.',
@@ -183,18 +181,6 @@ export const PROJECTS: Project[] = [
     role: 'Creator',
     status: 'Prototype',
     impact: 'Turns local technical PDFs into searchable, grounded answers'
-  },
-  {
-    id: 'graf-html',
-    title: 'Interactive Trend Visualization',
-    description: 'A Python-based toolkit for converting raw Excel/CSV data into interactive HTML plots using Dash and Plotly.',
-    tools: ['Python', 'Dash', 'Plotly', 'Pandas'],
-    link: 'https://github.com/Dun4ev/graf_html',
-    image: '/images/projects/pipeline-analytics.png',
-    category: 'Data Visualization',
-    role: 'Creator',
-    status: 'Reusable toolkit',
-    impact: 'Converts raw Excel and CSV data into interactive engineering trend views'
   }
 ];
 
@@ -247,6 +233,28 @@ export const ARTICLES: ArticleItem[] = [
 ];
 
 export const LABS: LabItem[] = [
+  {
+    id: 'slotbot-booking-landing',
+    title: 'SlotBot: Telegram Booking Landing',
+    description: 'A static landing page concept for a Telegram-based booking assistant: clients browse services, prices, and available slots, then book directly through Telegram.',
+    category: 'Interactive Demo',
+    date: 'May 2026',
+    href: 'https://dun4ev.github.io/slotbot-booking-landing/',
+    tags: ['HTML', 'Telegram Bot', 'Booking Automation'],
+    status: 'Live demo',
+    highlight: 'Shows how a lightweight website can connect with Telegram booking and reduce manual scheduling.'
+  },
+  {
+    id: 'electricity-theft-detector',
+    title: 'EnergyGuard AI: Electricity Theft Detector',
+    description: 'An interactive MVP concept for non-invasive electricity theft detection using feeder balance, pole-mounted split sensors, UAV thermal inspection, GIS topology, and AI-assisted anomaly localization.',
+    category: 'Engineering Concept',
+    date: 'May 2026',
+    href: 'https://dun4ev.github.io/electricity-theft-detector/index.html',
+    tags: ['Energy Analytics', 'GIS', 'AI Concept'],
+    status: 'MVP concept',
+    highlight: 'Demonstrates a practical architecture for detecting commercial electricity losses through remote monitoring.'
+  },
   {
     id: 'vegaboost-business-overview',
     title: 'VegaBoost Business Overview',

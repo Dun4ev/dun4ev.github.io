@@ -52,20 +52,26 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
 
       <div className="z-10 sm:col-span-6">
         <h3 className="font-medium leading-snug text-slate-200">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-          >
-            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-            <span>
-              {t(`projects.items.${project.id}.title`)}
-              <span className="inline-block ml-1">
-                <ExternalLink className="h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+          {project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+            >
+              <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+              <span>
+                {t(`projects.items.${project.id}.title`)}
+                <span className="inline-block ml-1">
+                  <ExternalLink className="h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+                </span>
               </span>
+            </a>
+          ) : (
+            <span className="text-base font-medium leading-tight text-slate-200">
+              {t(`projects.items.${project.id}.title`)}
             </span>
-          </a>
+          )}
         </h3>
         <p className="mt-2 text-sm leading-normal text-slate-400">
           {t(`projects.items.${project.id}.description`)}

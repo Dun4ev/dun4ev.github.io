@@ -33,13 +33,19 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-teal-950/20">
       {imageSrc && (
-        <a href={project.link} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
-          <img
-            src={imageSrc}
-            alt={title}
-            className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </a>
+        project.link ? (
+          <a href={project.link} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
+            <img
+              src={imageSrc}
+              alt={title}
+              className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </a>
+        ) : (
+          <div className="overflow-hidden border-b border-slate-800">
+            <img src={imageSrc} alt={title} className="aspect-video w-full object-cover" />
+          </div>
+        )
       )}
 
       <div className="flex flex-1 flex-col p-5">
@@ -57,10 +63,12 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
         </div>
 
         <h2 className="text-lg font-semibold leading-snug text-slate-100">
-          <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-start gap-1 hover:text-teal-300">
-            {title}
-            <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
+          {project.link ? (
+            <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-start gap-1 hover:text-teal-300">
+              {title}
+              <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+          ) : title}
         </h2>
 
         <p className="mt-3 text-sm leading-6 text-slate-400">{description}</p>
@@ -79,17 +87,19 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
           ))}
         </ul>
 
-        <div className="mt-auto pt-6">
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
-          >
-            <Github className="h-4 w-4" />
-            {t('projectsPage.view_project')}
-          </a>
-        </div>
+        {project.link && (
+          <div className="mt-auto pt-6">
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
+            >
+              <Github className="h-4 w-4" />
+              {t('projectsPage.view_project')}
+            </a>
+          </div>
+        )}
       </div>
     </article>
   );
