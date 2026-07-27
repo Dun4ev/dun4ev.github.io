@@ -22,9 +22,7 @@ const MOBILE_NAV_ITEMS: readonly MobileNavItem[] = [
   { key: 'experience', labelKey: 'nav.experience', path: '/#experience', section: 'experience' },
   { key: 'skills', labelKey: 'nav.skills', path: '/#skills', section: 'skills' },
   { key: 'projects', labelKey: 'nav.projects', path: '/projects', section: 'projects' },
-  { key: 'labs', labelKey: 'nav.labs', path: '/labs', section: 'labs' },
-  { key: 'knowledge', labelKey: 'nav.knowledge', path: '/knowledge-base', section: 'knowledge' },
-  { key: 'articles', labelKey: 'nav.articles', path: '/articles', section: 'articles' },
+  { key: 'writing', labelKey: 'nav.writing', path: '/#writing', section: 'writing' },
 ] as const;
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({

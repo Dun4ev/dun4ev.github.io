@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Linkedin, Mail, Phone, ArrowUpRight, ExternalLink, FlaskConical } from 'lucide-react';
+import { Linkedin, Mail, Phone, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { CursorSpotlight } from './components/CursorSpotlight';
 import { Navigation } from './components/Navigation';
@@ -12,7 +12,6 @@ import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProjectsPage } from './components/ProjectsPage';
 import { KnowledgeBasePage } from './components/KnowledgeBasePage';
 import { ArticlesPage } from './components/ArticlesPage';
-import { LabsPage } from './components/LabsPage';
 import { GitHubContributions } from './components/GitHubContributions';
 import { SpatialDemoPage } from './components/SpatialDemoPage';
 import DecryptedText from './components/DecryptedText';
@@ -71,13 +70,14 @@ const FadeIn = ({ children, delay = 0 }: React.PropsWithChildren<{ delay?: numbe
 
 const getRoutePath = () => {
   const redirectPath = new URLSearchParams(window.location.search).get('redirect');
+  const requestedPath = redirectPath || window.location.pathname;
+  const normalizedPath = requestedPath === '/labs' ? '/projects' : requestedPath;
 
-  if (redirectPath) {
-    window.history.replaceState(null, '', redirectPath);
-    return redirectPath;
+  if (redirectPath || normalizedPath !== requestedPath) {
+    window.history.replaceState(null, '', normalizedPath);
   }
 
-  return window.location.pathname;
+  return normalizedPath;
 };
 
 const App: React.FC = () => {
@@ -94,8 +94,9 @@ const App: React.FC = () => {
 
   const navigateTo = (path: string) => {
     const targetUrl = new URL(path, window.location.origin);
-    window.history.pushState(null, '', `${targetUrl.pathname}${targetUrl.hash}`);
-    setRoutePath(targetUrl.pathname);
+    const targetPath = targetUrl.pathname === '/labs' ? '/projects' : targetUrl.pathname;
+    window.history.pushState(null, '', `${targetPath}${targetUrl.hash}`);
+    setRoutePath(targetPath);
 
     if (targetUrl.hash) {
       const targetId = targetUrl.hash.slice(1);
@@ -120,11 +121,6 @@ const App: React.FC = () => {
     navigateTo('/projects');
   };
 
-  const handleLabsClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    navigateTo('/labs');
-  };
-
   const handleKnowledgeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     navigateTo('/knowledge-base');
@@ -135,8 +131,7 @@ const App: React.FC = () => {
     navigateTo('/articles');
   };
 
-  const isProjectsPage = routePath === '/projects';
-  const isLabsPage = routePath === '/labs';
+  const isProjectsPage = routePath === '/projects' || routePath === '/labs';
   const isKnowledgeBasePage = routePath === '/knowledge-base';
   const isArticlesPage = routePath === '/articles';
   const isSpatialDemoPage = routePath === '/spatial-demo';
@@ -151,16 +146,6 @@ const App: React.FC = () => {
         <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
         <CursorSpotlight />
         <ProjectsPage onNavigate={navigateTo} />
-      </div>
-    );
-  }
-
-  if (isLabsPage) {
-    return (
-      <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-violet-300 selection:text-violet-950 relative">
-        <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
-        <CursorSpotlight />
-        <LabsPage onNavigate={navigateTo} />
       </div>
     );
   }
@@ -381,61 +366,33 @@ const App: React.FC = () => {
               </FadeIn>
             </section>
 
-            {/* LABS SECTION */}
-            <section id="labs" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.labs')}>
+            {/* WRITING SECTION */}
+            <section id="writing" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.writing')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('labs.title')}</h2>
-              </div>
-              <FadeIn>
-                <div className="rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-violet-300/40 hover:bg-slate-800/60">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-violet-300/20 bg-violet-300/10 text-violet-300">
-                    <FlaskConical className="h-5 w-5" />
-                  </div>
-                  <p className="mb-3 text-xs font-bold uppercase tracking-widest text-violet-300">{t('labs.eyebrow')}</p>
-                  <h3 className="text-xl font-semibold text-slate-100">{t('labs.title')}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{t('labs.description')}</p>
-                  <a
-                    className="mt-5 inline-flex items-baseline font-semibold leading-tight text-slate-200 hover:text-violet-300 focus-visible:text-violet-300 group/link text-base"
-                    href="/labs"
-                    onClick={handleLabsClick}
-                  >
-                    <span>{t('labs.view_all')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
-                  </a>
-                </div>
-              </FadeIn>
-            </section>
-
-            {/* KNOWLEDGE BASE SECTION */}
-            <section id="knowledge" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.knowledge')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('knowledge.title')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('writing.title')}</h2>
               </div>
               <FadeIn>
                 <div className="rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-cyan-300/40 hover:bg-slate-800/60">
-                  <p className="mb-3 text-xs font-bold uppercase tracking-widest text-cyan-300">{t('knowledge.eyebrow')}</p>
-                  <h3 className="text-xl font-semibold text-slate-100">{t('knowledge.title')}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{t('knowledge.description')}</p>
+                  <p className="mb-3 text-xs font-bold uppercase tracking-widest text-cyan-300">{t('writing.eyebrow')}</p>
+                  <h3 className="text-xl font-semibold text-slate-100">{t('writing.title')}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">{t('writing.description')}</p>
+
                   <a
-                    className="mt-5 inline-flex items-baseline font-semibold leading-tight text-slate-200 hover:text-cyan-300 focus-visible:text-cyan-300 group/link text-base"
+                    className="group/note mt-6 block rounded-lg border border-slate-800 bg-slate-950/30 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-slate-800/70"
                     href="/knowledge-base"
                     onClick={handleKnowledgeClick}
                   >
-                    <span>{t('knowledge.view_all')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-cyan-300">{t('writing.notes_label')}</p>
+                        <h4 className="mt-2 text-base font-semibold leading-snug text-slate-100">{t('knowledgePage.title')}</h4>
+                      </div>
+                      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-slate-500 transition-colors group-hover/note:text-cyan-300" />
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-400">{t('knowledge.description')}</p>
                   </a>
-                </div>
-              </FadeIn>
-            </section>
 
-            {/* ARTICLES SECTION */}
-            <section id="articles" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.articles')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('articles.title')}</h2>
-              </div>
-              <FadeIn>
-                <div className="rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-colors hover:border-amber-300/40 hover:bg-slate-800/60">
-                  <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{t('articles.eyebrow')}</p>
-                  <h3 className="text-xl font-semibold text-slate-100">{t('articles.title')}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{t('articles.description')}</p>
+                  <p className="mb-3 mt-6 text-xs font-bold uppercase tracking-widest text-amber-300">{t('writing.articles_label')}</p>
                   <div className="mt-6 space-y-4">
                     {ARTICLES.map((article) => (
                       <a

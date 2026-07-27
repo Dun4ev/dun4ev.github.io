@@ -13,7 +13,7 @@ interface LabCardProps {
   index: number;
 }
 
-const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
+export const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
   const { t } = useTranslation();
   const title = t(`labs.items.${lab.id}.title`);
   const description = t(`labs.items.${lab.id}.description`);

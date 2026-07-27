@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PROJECTS } from '../constants';
+import { LABS, PROJECTS } from '../constants';
+import { LabCard } from './LabsPage';
 import { ProjectGridCard } from './ProjectGridCard';
 
 interface ProjectsPageProps {
@@ -10,16 +11,19 @@ interface ProjectsPageProps {
 
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   const { t } = useTranslation();
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('all');
 
-  const categories = useMemo(
-    () => ['All', ...Array.from(new Set(PROJECTS.map((project) => project.category).filter(Boolean) as string[]))],
-    []
-  );
+  const filters = ['all', 'engineering', 'interactive', 'presentations'] as const;
+  const visibleProjects = activeFilter === 'all' || activeFilter === 'engineering' ? PROJECTS : [];
+  const visibleLabs = activeFilter === 'all'
+    ? LABS
+    : LABS.filter((lab) => {
+        if (activeFilter === 'interactive') {
+          return lab.category === 'Interactive Demo' || lab.category === 'Engineering Concept';
+        }
 
-  const visibleProjects = activeCategory === 'All'
-    ? PROJECTS
-    : PROJECTS.filter((project) => project.category === activeCategory);
+        return lab.category === 'Business Presentation' || lab.category === 'Engineering Report';
+      });
 
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">
@@ -46,18 +50,18 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
         </section>
 
         <div className="mb-8 flex flex-wrap gap-2" aria-label={t('projectsPage.filters_label')}>
-          {categories.map((category) => (
+          {filters.map((filter) => (
             <button
-              key={category}
+              key={filter}
               type="button"
-              onClick={() => setActiveCategory(category)}
+              onClick={() => setActiveFilter(filter)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
-                activeCategory === category
+                activeFilter === filter
                   ? 'border-teal-300 bg-teal-300/10 text-teal-200'
                   : 'border-slate-700 bg-slate-900/50 text-slate-400 hover:border-slate-500 hover:text-slate-200'
               }`}
             >
-              {category === 'All' ? t('projectsPage.all_filter') : category}
+              {t(`projectsPage.filter_${filter}`)}
             </button>
           ))}
         </div>
@@ -65,6 +69,9 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
         <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" aria-label={t('projectsPage.grid_label')}>
           {visibleProjects.map((project) => (
             <ProjectGridCard key={project.id} project={project} />
+          ))}
+          {visibleLabs.map((lab, index) => (
+            <LabCard key={lab.id} lab={lab} index={index} />
           ))}
         </section>
 

@@ -19,8 +19,7 @@
         "skills": "Skills & Data",
         "projects": "Projects",
         "labs": "Labs",
-        "knowledge": "Knowledge Base",
-        "articles": "Articles"
+        "writing": "Articles & Notes"
     },
     "header": {
         "title": "Andrej Dunaev",
@@ -142,11 +141,11 @@
     },
     "projects": {
         "title": "Projects",
-        "view_archive": "View Full Project Archive",
+        "view_archive": "View all projects",
         "items": {
             "engineering-process-management-system": {
-                "title": "Internal Engineering Process Management System",
-                "description": "An internal Python/Django system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.",
+                "title": "Meeting Protocol Tracker (MPT)",
+                "description": "An internal Python/Django system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
                 "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work."
             },
             "auto-comment-sheets": {
@@ -166,19 +165,22 @@
             },
             "graf-html": {
                 "title": "Interactive Trend Visualization",
-                "description": "A Python-based web application and toolkit (Dash/Plotly) for converting raw Excel/CSV data into interactive HTML plots. It enables engineers to quickly configure and analyze signals and trends, facilitating rapid pattern recognition in technical datasets without manual coding.",
-                "impact": "Converts Excel/CSV data into interactive engineering charts and trend views."
+                "description": "A Python/Dash tool for analyzing HVAC trend data exported from SCADA systems. It converts CSV and Excel measurements into interactive multi-signal charts, helping engineers compare equipment behavior, identify dependencies, and investigate anomalies.",
+                "impact": "Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts."
             }
         }
     },
     "projectsPage": {
         "back_home": "Back home",
-        "eyebrow": "Project portfolio",
-        "title": "Engineering tools, automation, and AI projects",
-        "description": "A dedicated project showcase for Python utilities, RAG search, data visualization, and technical documentation automation. The focus is practical value, measurable outcomes, and use in real engineering workflows.",
+        "eyebrow": "All projects",
+        "title": "Projects, tools, and interactive work",
+        "description": "A unified showcase of engineering tools, automation, AI projects, interactive concepts, reports, and presentation sites.",
         "filters_label": "Project filter",
         "grid_label": "Project grid",
-        "all_filter": "All",
+        "filter_all": "All",
+        "filter_engineering": "Engineering tools",
+        "filter_interactive": "Demos & concepts",
+        "filter_presentations": "Reports & presentations",
         "card_tools": "Technologies used",
         "view_project": "Open project",
         "github_archive": "View all repositories on GitHub"
@@ -268,6 +270,13 @@
         "grid_label": "Knowledge base materials",
         "tags_label": "Item tags",
         "open_item": "Open material"
+    },
+    "writing": {
+        "eyebrow": "Knowledge Base & Medium",
+        "title": "Articles & Notes",
+        "description": "Practical materials on engineering automation, working with AI agents, documentation workflows, and professional development.",
+        "notes_label": "Notes and guides",
+        "articles_label": "Medium articles"
     },
     "articles": {
         "eyebrow": "Medium",

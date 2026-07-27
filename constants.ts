@@ -5,9 +5,7 @@ export const NAV_LINKS = [
   { name: 'Experience', href: '#experience' },
   { name: 'Skills & Data', href: '#skills' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Labs', href: '#labs' },
-  { name: 'Knowledge Base', href: '#knowledge' },
-  { name: 'Articles', href: '#articles' },
+  { name: 'Writing', href: '#writing' },
 ];
 
 export const SOCIAL_LINKS = {
@@ -126,12 +124,13 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'engineering-process-management-system',
-    title: 'Internal Engineering Process Management System',
-    description: 'An internal Python/Django system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.',
+    title: 'Meeting Protocol Tracker (MPT)',
+    description: 'An internal Python/Django system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
     tools: ['Python', 'Django', 'Issue Tracking', 'Action Items', 'XLSX Reporting'],
+    link: 'https://github.com/Dun4ev/Protocol',
     category: 'Internal Tool',
     role: 'Creator',
-    status: 'Confidential / Internal',
+    status: 'Source Code / No Public Demo',
     impact: 'Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work'
   },
   {
@@ -161,14 +160,14 @@ export const PROJECTS: Project[] = [
   {
     id: 'graf-html',
     title: 'Interactive Trend Visualization',
-    description: 'A Python-based toolkit for converting raw Excel/CSV data into interactive HTML plots using Dash and Plotly.',
+    description: 'A Python/Dash tool for analyzing HVAC trend data exported from SCADA systems. It converts CSV and Excel measurements into interactive multi-signal charts, helping engineers compare equipment behavior, identify dependencies, and investigate anomalies.',
     tools: ['Python', 'Dash', 'Plotly', 'Pandas'],
     link: 'https://github.com/Dun4ev/graf_html',
     image: '/images/projects/interactive-trend-visualization.png',
     category: 'Data Visualization',
     role: 'Creator',
     status: 'Reusable toolkit',
-    impact: 'Converts raw Excel and CSV data into interactive engineering trend views'
+    impact: 'Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts'
   },
   {
     id: 'portfolio-v2',
