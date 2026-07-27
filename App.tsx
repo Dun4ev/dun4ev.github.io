@@ -248,7 +248,7 @@ const App: React.FC = () => {
           <main id="content" className="min-w-0 pt-24 lg:py-24">
 
             {/* ABOUT SECTION */}
-            <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.about')}>
+            <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.about')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('profile.title', { defaultValue: t('nav.about') })}</h2>
               </div>
@@ -267,7 +267,7 @@ const App: React.FC = () => {
             </section>
 
             {/* EXPERIENCE SECTION */}
-            <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.experience')}>
+            <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.experience')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('experience.title')}</h2>
               </div>
@@ -286,7 +286,7 @@ const App: React.FC = () => {
               </div>
 
               <FadeIn>
-                <div className="mt-12">
+                <div className="mt-8">
                   <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href={`${import.meta.env.BASE_URL}resume.pdf`} target="_blank" rel="noreferrer">
                     <span>{t('experience.view_resume')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
@@ -295,7 +295,7 @@ const App: React.FC = () => {
             </section>
 
             {/* SKILLS & DATA SECTION */}
-            <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.skills')}>
+            <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.skills')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('skills.title')}</h2>
               </div>
@@ -356,7 +356,7 @@ const App: React.FC = () => {
             </section>
 
             {/* PROJECTS SECTION */}
-            <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.projects')}>
+            <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.projects')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('projects.title')}</h2>
               </div>
@@ -382,7 +382,7 @@ const App: React.FC = () => {
             </section>
 
             {/* LABS SECTION */}
-            <section id="labs" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.labs')}>
+            <section id="labs" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.labs')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('labs.title')}</h2>
               </div>
@@ -406,7 +406,7 @@ const App: React.FC = () => {
             </section>
 
             {/* KNOWLEDGE BASE SECTION */}
-            <section id="knowledge" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.knowledge')}>
+            <section id="knowledge" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.knowledge')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('knowledge.title')}</h2>
               </div>
@@ -427,7 +427,7 @@ const App: React.FC = () => {
             </section>
 
             {/* ARTICLES SECTION */}
-            <section id="articles" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label={t('nav.articles')}>
+            <section id="articles" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.articles')}>
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('articles.title')}</h2>
               </div>

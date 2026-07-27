@@ -32,7 +32,7 @@ export const SkillCloud: React.FC<SkillCloudProps> = ({ data }) => {
 
     return (
         <div className="my-8">
-            <h4 className="text-sm font-semibold text-slate-200 mb-6 uppercase tracking-wider text-center">Core Competencies</h4>
+            <h4 className="text-sm font-semibold text-slate-200 mb-6 uppercase tracking-wider">Core Competencies</h4>
 
             <div className="space-y-2">
                 {renderGroup("Engineering & Design", engineering)}
