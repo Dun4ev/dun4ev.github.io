@@ -13,17 +13,21 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const filters = ['all', 'engineering', 'interactive', 'presentations'] as const;
-  const visibleProjects = activeFilter === 'all' || activeFilter === 'engineering' ? PROJECTS : [];
+  const filters = ['all', 'engineering', 'client', 'interactive', 'presentations'] as const;
+  const visibleProjects = activeFilter === 'all'
+    ? PROJECTS
+    : activeFilter === 'engineering'
+      ? PROJECTS.filter((project) => project.category !== 'Client Website')
+      : activeFilter === 'client'
+        ? PROJECTS.filter((project) => project.category === 'Client Website')
+        : [];
   const visibleLabs = activeFilter === 'all'
     ? LABS
-    : LABS.filter((lab) => {
-        if (activeFilter === 'interactive') {
-          return lab.category === 'Interactive Demo' || lab.category === 'Engineering Concept';
-        }
-
-        return lab.category === 'Business Presentation' || lab.category === 'Engineering Report';
-      });
+    : activeFilter === 'interactive'
+      ? LABS.filter((lab) => lab.category === 'Interactive Demo' || lab.category === 'Engineering Concept')
+      : activeFilter === 'presentations'
+        ? LABS.filter((lab) => lab.category === 'Business Presentation' || lab.category === 'Engineering Report')
+        : [];
 
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">

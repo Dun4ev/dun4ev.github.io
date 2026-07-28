@@ -140,7 +140,7 @@ export const PROJECTS: Project[] = [
     description: 'A Python-based automation tool designed to streamline the creation of engineering reports and technical documentation.',
     tools: ['Python', 'Pandas', 'OpenPyXL', 'Automation'],
     link: 'https://github.com/Dun4ev/toir_tra_report',
-    image: '/images/projects/documentation-generator.png',
+    image: '/images/projects/toir-reporting-automation.jpg',
     category: 'Automation',
     role: 'Creator',
     status: 'Production-ready',
@@ -181,6 +181,30 @@ export const PROJECTS: Project[] = [
     role: 'Creator',
     status: 'Prototype',
     impact: 'Turns local technical PDFs into searchable, grounded answers'
+  },
+  {
+    id: 'bb-invest-website',
+    title: 'BB INVEST Real Estate Website',
+    description: 'A client website for a residential developer in Velika Plana, designed to turn a complex property portfolio into a clear buyer journey. The trilingual experience presents projects, apartment layouts and availability, construction progress, buying steps, location details, FAQs, and direct inquiry forms.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'SR / EN / RU'],
+    link: 'https://bbinvest.rs/',
+    image: '/images/projects/bb-invest-website.webp',
+    category: 'Client Website',
+    role: 'Design & Development',
+    status: 'Live',
+    impact: 'Gives buyers one clear path from exploring a property to sending a direct inquiry'
+  },
+  {
+    id: 'krasnova-residence-website',
+    title: 'Krasnova Residence Website',
+    description: 'A premium presentation website developed for a residential project in Vracar, Belgrade. It combines video-led storytelling with an interactive floor selector, detailed plans, real photo galleries, building technologies, location context, and direct inquiry forms.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'SR / EN'],
+    link: 'https://krasnovresidence.rs/',
+    image: '/images/projects/krasnova-residence-website.webp',
+    category: 'Client Website',
+    role: 'Design & Development',
+    status: 'Live',
+    impact: 'Turns architectural, technical, and sales materials into a focused digital presentation for prospective buyers'
   }
 ];
 

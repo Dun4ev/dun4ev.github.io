@@ -349,7 +349,9 @@ const App: React.FC = () => {
                 <GitHubContributions />
               </FadeIn>
               <div className="group/list">
-                {PROJECTS.map((project, idx) => (
+                {PROJECTS.filter(
+                  (project) => project.category !== 'Client Website' && project.id !== 'portfolio-v2'
+                ).map((project, idx) => (
                   <FadeIn key={project.id} delay={idx * 100}>
                     <div className="mb-12">
                       <ProjectCard project={project} />

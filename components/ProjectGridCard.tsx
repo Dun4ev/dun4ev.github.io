@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Project } from '../types';
 
@@ -29,6 +29,9 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
   const title = t(`projects.items.${project.id}.title`);
   const description = t(`projects.items.${project.id}.description`);
   const impact = t(`projects.items.${project.id}.impact`, { defaultValue: project.impact || '' });
+  const category = t(`projects.items.${project.id}.category`, { defaultValue: project.category || '' });
+  const status = t(`projects.items.${project.id}.status`, { defaultValue: project.status || '' });
+  const isGitHubProject = project.link?.startsWith('https://github.com/');
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-teal-950/20">
@@ -50,14 +53,14 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
 
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          {project.category && (
+          {category && (
             <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-3 py-1 text-xs font-medium text-teal-300">
-              {project.category}
+              {category}
             </span>
           )}
-          {project.status && (
+          {status && (
             <span className="rounded-full border border-slate-700 px-3 py-1 text-xs font-medium text-slate-400">
-              {project.status}
+              {status}
             </span>
           )}
         </div>
@@ -95,8 +98,8 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
             >
-              <Github className="h-4 w-4" />
-              {t('projectsPage.view_project')}
+              {isGitHubProject ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
+              {t(isGitHubProject ? 'projectsPage.view_source' : 'projectsPage.view_live_site')}
             </a>
           </div>
         )}

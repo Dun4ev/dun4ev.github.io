@@ -167,8 +167,24 @@
                 "title": "Interactive Trend Visualization",
                 "description": "A Python/Dash tool for analyzing HVAC trend data exported from SCADA systems. It converts CSV and Excel measurements into interactive multi-signal charts, helping engineers compare equipment behavior, identify dependencies, and investigate anomalies.",
                 "impact": "Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts."
+            },
+            "bb-invest-website": {
+                "title": "BB INVEST Real Estate Website",
+                "description": "A client website for a residential developer in Velika Plana, designed to turn a complex property portfolio into a clear buyer journey. The trilingual experience presents projects, apartment layouts and availability, construction progress, buying steps, location details, FAQs, and direct inquiry forms.",
+                "impact": "Gives buyers one clear path from exploring a property to sending a direct inquiry.",
+                "category": "Client Website",
+                "status": "Live"
+            },
+            "krasnova-residence-website": {
+                "title": "Krasnova Residence Website",
+                "description": "A premium presentation website developed for a residential project in Vracar, Belgrade. It combines video-led storytelling with an interactive floor selector, detailed plans, real photo galleries, building technologies, location context, and direct inquiry forms.",
+                "impact": "Turns architectural, technical, and sales materials into a focused digital presentation for prospective buyers.",
+                "category": "Client Website",
+                "status": "Live"
             }
-        }
+        },
+        "view_source": "View source on GitHub",
+        "view_live_site": "Open live website"
     },
     "projectsPage": {
         "back_home": "Back home",
@@ -179,10 +195,12 @@
         "grid_label": "Project grid",
         "filter_all": "All",
         "filter_engineering": "Engineering tools",
+        "filter_client": "Client websites",
         "filter_interactive": "Demos & concepts",
         "filter_presentations": "Reports & presentations",
         "card_tools": "Technologies used",
-        "view_project": "Open project",
+        "view_source": "View source",
+        "view_live_site": "Open live website",
         "github_archive": "View all repositories on GitHub"
     },
     "githubActivity": {
