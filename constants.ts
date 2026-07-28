@@ -125,9 +125,10 @@ export const PROJECTS: Project[] = [
   {
     id: 'engineering-process-management-system',
     title: 'Meeting Protocol Tracker (MPT)',
-    description: 'An internal Python/Django system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
+    description: 'An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
     tools: ['Python', 'Django', 'Issue Tracking', 'Action Items', 'XLSX Reporting'],
     link: 'https://github.com/Dun4ev/Protocol',
+    image: '/images/projects/meeting-protocol-tracker.png',
     category: 'Internal Tool',
     role: 'Creator',
     status: 'Source Code / No Public Demo',

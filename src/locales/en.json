@@ -145,7 +145,7 @@
         "items": {
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
-                "description": "An internal Python/Django system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
+                "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
                 "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work."
             },
             "auto-comment-sheets": {
