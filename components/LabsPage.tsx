@@ -13,6 +13,18 @@ interface LabCardProps {
   index: number;
 }
 
+const resolveImageSrc = (imagePath?: string) => {
+  if (!imagePath) {
+    return undefined;
+  }
+
+  const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+  const normalizedPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+
+  return `${normalizedBase}${normalizedPath}`;
+};
+
 export const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
   const { t } = useTranslation();
   const title = t(`labs.items.${lab.id}.title`);
@@ -20,52 +32,65 @@ export const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
   const category = t(`labs.items.${lab.id}.category`, { defaultValue: lab.category });
   const status = t(`labs.items.${lab.id}.status`, { defaultValue: lab.status });
   const highlight = t(`labs.items.${lab.id}.highlight`, { defaultValue: lab.highlight });
+  const imageSrc = resolveImageSrc(lab.image);
 
   return (
     <article
-      className="group flex h-full flex-col rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-violet-950/20"
+      className="group flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-violet-950/20"
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <div className="mb-5 flex items-start justify-between gap-4">
-        <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-violet-300/20 bg-violet-300/10 text-violet-300">
-          <MonitorPlay className="h-5 w-5" />
-        </div>
-        <div className="text-right text-xs font-semibold text-slate-500">
-          <div>{lab.date}</div>
-          <div className="mt-1">{status}</div>
-        </div>
-      </div>
-
-      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-violet-300">{category}</p>
-      <h2 className="text-xl font-semibold leading-snug text-slate-100">
-        {title}
-      </h2>
-      <p className="mt-3 text-sm leading-6 text-slate-400">
-        {description}
-      </p>
-
-      <p className="mt-5 border-l border-violet-300/30 pl-3 text-sm font-medium leading-6 text-slate-300">
-        {highlight}
-      </p>
-
-      <ul className="mt-5 flex flex-wrap gap-2" aria-label={t('labsPage.tags_label')}>
-        {lab.tags.map((tag) => (
-          <li key={tag} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
-            {tag}
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-auto pt-6">
-        <a
-          href={lab.href}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-violet-300"
-        >
-          {t('labsPage.open_item')}
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+      {imageSrc && (
+        <a href={lab.href} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
+          <img
+            src={imageSrc}
+            alt={title}
+            className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
         </a>
+      )}
+
+      <div className="flex flex-1 flex-col p-5">
+        <div className="mb-5 flex items-start justify-between gap-4">
+          <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-violet-300/20 bg-violet-300/10 text-violet-300">
+            <MonitorPlay className="h-5 w-5" />
+          </div>
+          <div className="text-right text-xs font-semibold text-slate-500">
+            <div>{lab.date}</div>
+            <div className="mt-1">{status}</div>
+          </div>
+        </div>
+
+        <p className="mb-3 text-xs font-bold uppercase tracking-widest text-violet-300">{category}</p>
+        <h2 className="text-xl font-semibold leading-snug text-slate-100">
+          {title}
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-slate-400">
+          {description}
+        </p>
+
+        <p className="mt-5 border-l border-violet-300/30 pl-3 text-sm font-medium leading-6 text-slate-300">
+          {highlight}
+        </p>
+
+        <ul className="mt-5 flex flex-wrap gap-2" aria-label={t('labsPage.tags_label')}>
+          {lab.tags.map((tag) => (
+            <li key={tag} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto pt-6">
+          <a
+            href={lab.href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-violet-300"
+          >
+            {t('labsPage.open_item')}
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </a>
+        </div>
       </div>
     </article>
   );

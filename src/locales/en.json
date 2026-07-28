@@ -148,6 +148,13 @@
                 "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
                 "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work."
             },
+            "geofuse": {
+                "title": "GeoFuse",
+                "description": "A web product for evaluating business locations before signing a lease. GeoFuse combines OSM and Overpass, Google Places when available, Overture and PostGIS building and POI layers, saved-location comparison, source-aware estimates, and decision-ready reports.",
+                "impact": "Turns fragmented geospatial data into a structured, source-aware workflow for comparing business locations.",
+                "category": "Product / Geo Analytics",
+                "status": "Public Beta"
+            },
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
                 "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds.",

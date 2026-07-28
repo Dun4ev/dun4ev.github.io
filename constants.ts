@@ -135,6 +135,18 @@ export const PROJECTS: Project[] = [
     impact: 'Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work'
   },
   {
+    id: 'geofuse',
+    title: 'GeoFuse',
+    description: 'A web product for evaluating business locations before signing a lease. GeoFuse combines OSM and Overpass, Google Places when available, Overture and PostGIS building and POI layers, saved-location comparison, source-aware estimates, and decision-ready reports.',
+    tools: ['React', 'TypeScript', 'Geospatial Analytics', 'PostGIS', 'Supabase'],
+    link: 'https://geofuse-gamma.vercel.app/',
+    image: '/images/projects/geofuse-public-beta.png',
+    category: 'Product / Geo Analytics',
+    role: 'Product Design & Development',
+    status: 'Public Beta',
+    impact: 'Turns fragmented geospatial data into a structured, source-aware workflow for comparing business locations'
+  },
+  {
     id: 'auto-comment-sheets',
     title: 'TOiR Reporting Automation',
     description: 'A Python-based automation tool designed to streamline the creation of engineering reports and technical documentation.',
@@ -264,6 +276,7 @@ export const LABS: LabItem[] = [
     category: 'Interactive Demo',
     date: 'May 2026',
     href: 'https://dun4ev.github.io/slotbot-booking-landing/',
+    image: '/images/projects/slotbot-booking-landing.png',
     tags: ['HTML', 'Telegram Bot', 'Booking Automation'],
     status: 'Live demo',
     highlight: 'Shows how a lightweight website can connect with Telegram booking and reduce manual scheduling.'
@@ -275,6 +288,7 @@ export const LABS: LabItem[] = [
     category: 'Engineering Concept',
     date: 'May 2026',
     href: 'https://dun4ev.github.io/electricity-theft-detector/index.html',
+    image: '/images/projects/electricity-theft-detector.png',
     tags: ['Energy Analytics', 'GIS', 'AI Concept'],
     status: 'MVP concept',
     highlight: 'Demonstrates a practical architecture for detecting commercial electricity losses through remote monitoring.'
@@ -286,6 +300,7 @@ export const LABS: LabItem[] = [
     category: 'Business Presentation',
     date: 'Jun 2026',
     href: 'https://vegaboost-business-overview.netlify.app/',
+    image: '/images/projects/vegaboost-business-overview.png',
     tags: ['Business Overview', 'Presentation Site', 'Netlify'],
     status: 'Live demo',
     highlight: 'Turns a compact business concept into a clear web-based presentation.'
@@ -297,6 +312,7 @@ export const LABS: LabItem[] = [
     category: 'Engineering Report',
     date: 'May 2026',
     href: 'https://dun4ev.github.io/2026-05-26_tank-nitrogen-blanketing/',
+    image: '/images/projects/tank-nitrogen-blanketing.png',
     tags: ['Engineering', 'Interactive Report', 'Storage Tanks'],
     status: 'Published',
     highlight: 'Combines technical explanation, interactive presentation, and decision support.'

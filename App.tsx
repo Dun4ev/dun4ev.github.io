@@ -350,7 +350,10 @@ const App: React.FC = () => {
               </FadeIn>
               <div className="group/list">
                 {PROJECTS.filter(
-                  (project) => project.category !== 'Client Website' && project.id !== 'portfolio-v2'
+                  (project) =>
+                    project.category !== 'Client Website'
+                    && project.id !== 'portfolio-v2'
+                    && project.id !== 'geofuse'
                 ).map((project, idx) => (
                   <FadeIn key={project.id} delay={idx * 100}>
                     <div className="mb-12">

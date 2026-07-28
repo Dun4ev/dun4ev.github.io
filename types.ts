@@ -55,6 +55,7 @@ export interface LabItem {
   category: string;
   date: string;
   href: string;
+  image?: string;
   tags: string[];
   status: string;
   highlight: string;
