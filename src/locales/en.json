@@ -188,6 +188,13 @@
                 "impact": "Turns architectural, technical, and sales materials into a focused digital presentation for prospective buyers.",
                 "category": "Client Website",
                 "status": "Live"
+            },
+            "natalya-psychologist-website": {
+                "title": "Psychologist Natalya Website",
+                "description": "A client website for a practicing psychologist in Rostov-on-Don, designed to present consultation topics, formats, pricing, and contact options in a calm and accessible journey. The launch included a custom domain, responsive static delivery, local SEO, Yandex Webmaster verification, canonical metadata, structured data, robots.txt, and sitemap.xml.",
+                "impact": "Delivered the complete path from content and interface design to domain launch, Yandex verification, and search-ready technical indexing.",
+                "category": "Client Website",
+                "status": "Live"
             }
         },
         "view_source": "View source on GitHub",

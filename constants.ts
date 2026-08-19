@@ -217,6 +217,18 @@ export const PROJECTS: Project[] = [
     role: 'Design & Development',
     status: 'Live',
     impact: 'Turns architectural, technical, and sales materials into a focused digital presentation for prospective buyers'
+  },
+  {
+    id: 'natalya-psychologist-website',
+    title: 'Psychologist Natalya Website',
+    description: 'A client website for a practicing psychologist in Rostov-on-Don, designed to present consultation topics, formats, pricing, and contact options in a calm and accessible journey. The launch included a custom domain, responsive static delivery, local SEO, Yandex Webmaster verification, canonical metadata, structured data, robots.txt, and sitemap.xml.',
+    tools: ['React', 'TypeScript', 'Vinext', 'Responsive Design', 'SEO'],
+    link: 'https://natalyapsiholog.ru/',
+    image: '/images/projects/natalya-psychologist-website.png',
+    category: 'Client Website',
+    role: 'Design, Development & Launch',
+    status: 'Live',
+    impact: 'Delivered the complete path from content and interface design to domain launch, Yandex verification, and search-ready technical indexing'
   }
 ];
 
