@@ -308,14 +308,18 @@
         "title": "Articles & Notes",
         "description": "Practical materials on engineering automation, working with AI agents, documentation workflows, and professional development.",
         "notes_label": "Notes and guides",
-        "articles_label": "Medium articles"
+        "articles_label": "Articles"
     },
     "articles": {
-        "eyebrow": "Medium",
+        "eyebrow": "Articles",
         "title": "Articles",
-        "description": "Medium publications about practical AI use, engineering automation, documentation workflows, and IT career frameworks.",
+        "description": "Interactive investigations and publications about practical AI use, engineering automation, documentation workflows, and IT career frameworks.",
         "view_all": "Open all articles",
         "items": {
+            "agent-incident-map": {
+                "title": "The OpenAI × Hugging Face Incident: An Agent Action Map",
+                "description": "An interactive forensic reconstruction of how isolated agents built a covert message board, coordinated reward-hacking research, and escalated into an attack on Hugging Face infrastructure."
+            },
             "ai-architectural-presentation": {
                 "title": "From Idea to Concept Site in Hours: AI and Early Architectural Presentation",
                 "description": "How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website."
@@ -332,14 +336,14 @@
     },
     "articlesPage": {
         "back_home": "Back home",
-        "eyebrow": "Medium Articles",
+        "eyebrow": "Articles",
         "title": "Writing about projects, AI, and engineering practice",
-        "description": "A dedicated showcase for Medium articles: not a duplicated blog, but a clean entry point into materials that complement the projects and knowledge base.",
+        "description": "A dedicated showcase for interactive investigations and published articles that complement the projects and knowledge base.",
         "grid_label": "Article list",
         "tags_label": "Article tags",
         "highlight_label": "Key idea",
         "levels_label": "Visual L0-L11 level scale",
-        "open_item": "Read on Medium"
+        "open_item": "Read article"
     },
     "footer": {
         "built_with": "Designed and built with <0>React</0>, <1>Tailwind CSS</1>, and <2>D3.js</2>.",

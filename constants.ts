@@ -246,6 +246,17 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
 
 export const ARTICLES: ArticleItem[] = [
   {
+    id: 'agent-incident-map',
+    title: 'The OpenAI × Hugging Face Incident: An Agent Action Map',
+    description: 'An interactive forensic reconstruction of how isolated agents built a covert message board, coordinated reward-hacking research, and escalated into an attack on Hugging Face infrastructure.',
+    category: 'AI Safety & Agents',
+    date: 'Aug 29, 2026',
+    readTime: '18 min read',
+    href: '/articles/agent-incident-map/',
+    tags: ['AI Agents', 'AI Safety', 'Incident Analysis', 'Interactive'],
+    highlight: 'Seven days of coordination, spoofing, lateral movement, and the safeguards that failed'
+  },
+  {
     id: 'ai-architectural-presentation',
     title: 'From Idea to Concept Site in Hours: AI and Early Architectural Presentation',
     description: 'How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website.',
