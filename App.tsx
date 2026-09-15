@@ -71,7 +71,8 @@ const FadeIn = ({ children, delay = 0 }: React.PropsWithChildren<{ delay?: numbe
 const getRoutePath = () => {
   const redirectPath = new URLSearchParams(window.location.search).get('redirect');
   const requestedPath = redirectPath || window.location.pathname;
-  const normalizedPath = requestedPath === '/labs' ? '/projects' : requestedPath;
+  const pathWithoutTrailingSlash = requestedPath.replace(/\/+$/, '') || '/';
+  const normalizedPath = pathWithoutTrailingSlash === '/labs' ? '/projects' : pathWithoutTrailingSlash;
 
   if (redirectPath || normalizedPath !== requestedPath) {
     window.history.replaceState(null, '', normalizedPath);
@@ -86,7 +87,7 @@ const App: React.FC = () => {
   const [routePath, setRoutePath] = useState(getRoutePath);
 
   useEffect(() => {
-    const handlePopState = () => setRoutePath(window.location.pathname);
+    const handlePopState = () => setRoutePath(window.location.pathname.replace(/\/+$/, '') || '/');
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
