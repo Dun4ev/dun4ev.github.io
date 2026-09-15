@@ -143,13 +143,6 @@
         "title": "Projects",
         "view_archive": "View all projects",
         "items": {
-            "epc-document-flow": {
-                "title": "Engineering Process Animation for EPC Presentations",
-                "description": "A 12-second animated explainer of vendor document review: submission to EPC, parallel review by the EPC contractor, design institute and client, and a consolidated reply to the vendor. A bilingual browser demo with pause and frame-by-frame seeking, designed for project presentations and team onboarding.",
-                "impact": "Makes document routes, participant roles and the consolidated review cycle visible in one short sequence.",
-                "category": "Engineering Communication",
-                "status": "Demonstration"
-            },
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
                 "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
@@ -323,6 +316,15 @@
         "description": "Interactive investigations and publications about practical AI use, engineering automation, documentation workflows, and IT career frameworks.",
         "view_all": "Open all articles",
         "items": {
+            "epc-document-flow": {
+                "title": "Engineering Process Animation for EPC Presentations",
+                "description": "A bilingual, 12-second visual note about vendor documentation: EPC distributes the package for parallel review, collects comments from the design institute and client, and sends a consolidated reply to the vendor.",
+                "category": "Engineering Visualization",
+                "readTime": "12 sec demo",
+                "highlight": "Vendor → EPC → parallel review → consolidated reply",
+                "image_alt": "Animation frame: EPC consolidated reply with review results and vendor revision",
+                "open_label": "View animation"
+            },
             "agent-incident-map": {
                 "title": "The OpenAI × Hugging Face Incident: An Agent Action Map",
                 "description": "An interactive forensic reconstruction of how isolated agents built a covert message board, coordinated reward-hacking research, and escalated into an attack on Hugging Face infrastructure."

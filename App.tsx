@@ -407,9 +407,17 @@ const App: React.FC = () => {
                         rel="noreferrer"
                         className="group/article block rounded-lg border border-slate-800 bg-slate-950/30 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/30 hover:bg-slate-800/70"
                       >
+                        {article.image && (
+                          <img
+                            src={`${import.meta.env.BASE_URL}${article.image.replace(/^\//, '')}`}
+                            alt={t(`articles.items.${article.id}.image_alt`)}
+                            className="float-right ml-4 mb-2 h-28 w-20 rounded border border-slate-700 bg-[#f5f2e9] object-contain sm:h-36 sm:w-24"
+                            loading="lazy"
+                          />
+                        )}
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="text-xs font-bold uppercase tracking-widest text-amber-300">{article.category}</p>
+                            <p className="text-xs font-bold uppercase tracking-widest text-amber-300">{t(`articles.items.${article.id}.category`, { defaultValue: article.category })}</p>
                             <h4 className="mt-2 text-base font-semibold leading-snug text-slate-100">
                               {t(`articles.items.${article.id}.title`)}
                             </h4>
@@ -419,6 +427,7 @@ const App: React.FC = () => {
                         <p className="mt-2 text-sm leading-6 text-slate-400">
                           {t(`articles.items.${article.id}.description`)}
                         </p>
+                        <div className="clear-both" />
                       </a>
                     ))}
                   </div>

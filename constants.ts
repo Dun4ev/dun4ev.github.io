@@ -123,17 +123,6 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'epc-document-flow',
-    title: "Engineering Process Animation for EPC Presentations",
-    description: "A 12-second animated explainer of vendor document review: submission to EPC, parallel review by the EPC contractor, design institute and client, and a consolidated reply to the vendor. A bilingual browser demo with pause and frame-by-frame seeking, designed for project presentations and team onboarding.",
-    tools: ['HTML Canvas', 'JavaScript', 'Process Visualization', 'RU / EN'],
-    link: `${import.meta.env.BASE_URL}demos/epc-document-flow/?lang=en`,
-    category: 'Engineering Communication',
-    role: 'Concept & Development',
-    status: 'Demonstration',
-    impact: "Makes document routes, participant roles and the consolidated review cycle visible in one short sequence."
-  },
-  {
     id: 'engineering-process-management-system',
     title: 'Meeting Protocol Tracker (MPT)',
     description: 'An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
@@ -256,6 +245,18 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
 ];
 
 export const ARTICLES: ArticleItem[] = [
+  {
+    id: 'epc-document-flow',
+    title: 'Engineering Process Animation for EPC Presentations',
+    description: 'A bilingual, 12-second visual note about vendor documentation: EPC distributes the package for parallel review, collects comments from the design institute and client, and sends a consolidated reply to the vendor.',
+    category: 'Engineering Visualization',
+    date: 'Sep 15, 2026',
+    readTime: '12 sec demo',
+    href: `${import.meta.env.BASE_URL}demos/epc-document-flow/?lang=en`,
+    image: '/images/articles/epc-document-flow.png',
+    tags: ['EPC', 'Document Review', 'Animation', 'RU / EN'],
+    highlight: 'Vendor → EPC → parallel review → consolidated reply'
+  },
   {
     id: 'agent-incident-map',
     title: 'The OpenAI × Hugging Face Incident: An Agent Action Map',

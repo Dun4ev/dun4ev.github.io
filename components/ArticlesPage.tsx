@@ -30,12 +30,20 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
           <div>{article.date}</div>
           <div className="mt-1 inline-flex items-center gap-1">
             <Clock3 className="h-3 w-3" />
-            {article.readTime}
+            {t(`articles.items.${article.id}.readTime`, { defaultValue: article.readTime })}
           </div>
         </div>
       </div>
 
-      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{article.category}</p>
+      {article.image && (
+        <img
+          src={`${import.meta.env.BASE_URL}${article.image.replace(/^\//, '')}`}
+          alt={t(`articles.items.${article.id}.image_alt`)}
+          className="mb-5 h-48 w-full rounded border border-slate-700 bg-[#f5f2e9] object-contain"
+          loading="lazy"
+        />
+      )}
+      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{t(`articles.items.${article.id}.category`, { defaultValue: article.category })}</p>
       <h2 className="text-xl font-semibold leading-snug text-slate-100">
         {t(`articles.items.${article.id}.title`)}
       </h2>
@@ -48,7 +56,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
           <Sparkles className="h-3.5 w-3.5" />
           {t('articlesPage.highlight_label')}
         </div>
-        <p className="text-sm leading-6 text-slate-300">{article.highlight}</p>
+        <p className="text-sm leading-6 text-slate-300">{t(`articles.items.${article.id}.highlight`, { defaultValue: article.highlight })}</p>
         {article.id === 'it-levels-l0-l11' && (
           <div className="mt-4 grid grid-cols-5 gap-2" aria-label={t('articlesPage.levels_label')}>
             {progressLabels.map((label) => (
@@ -78,7 +86,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
           rel="noreferrer"
           className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-amber-300"
         >
-          {t('articlesPage.open_item')}
+          {t(`articles.items.${article.id}.open_label`, { defaultValue: t('articlesPage.open_item') })}
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </a>
       </div>

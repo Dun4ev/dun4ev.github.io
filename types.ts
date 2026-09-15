@@ -46,6 +46,7 @@ export interface ArticleItem {
   href: string;
   tags: string[];
   highlight: string;
+  image?: string;
 }
 
 export interface LabItem {
