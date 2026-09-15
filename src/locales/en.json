@@ -143,6 +143,13 @@
         "title": "Projects",
         "view_archive": "View all projects",
         "items": {
+            "epc-document-flow": {
+                "title": "Engineering Process Animation for EPC Presentations",
+                "description": "A 12-second animated explainer of vendor document review: submission to EPC, parallel review by the EPC contractor, design institute and client, and a consolidated reply to the vendor. A bilingual browser demo with pause and frame-by-frame seeking, designed for project presentations and team onboarding.",
+                "impact": "Makes document routes, participant roles and the consolidated review cycle visible in one short sequence.",
+                "category": "Engineering Communication",
+                "status": "Demonstration"
+            },
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
                 "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
