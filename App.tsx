@@ -412,7 +412,7 @@ const App: React.FC = () => {
                           <img
                             src={`${import.meta.env.BASE_URL}${article.image.replace(/^\//, '')}`}
                             alt={t(`articles.items.${article.id}.image_alt`)}
-                            className="float-right ml-4 mb-2 h-28 w-20 rounded border border-slate-700 bg-[#f5f2e9] object-contain sm:h-36 sm:w-24"
+                            className="float-right ml-4 mb-2 aspect-[9/16] w-20 rounded border border-slate-700 bg-[#f5f2e9] object-cover sm:w-24"
                             loading="lazy"
                           />
                         )}

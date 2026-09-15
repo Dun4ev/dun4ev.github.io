@@ -19,7 +19,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
 
   return (
     <article
-      className="group flex h-full flex-col rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-amber-950/20"
+      className={`group flex h-full flex-col rounded-lg border border-slate-800 bg-slate-900/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-amber-950/20 ${article.image ? 'md:col-span-2' : ''}`}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       <div className="mb-5 flex items-start justify-between gap-4">
@@ -35,21 +35,25 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
         </div>
       </div>
 
-      {article.image && (
-        <img
-          src={`${import.meta.env.BASE_URL}${article.image.replace(/^\//, '')}`}
-          alt={t(`articles.items.${article.id}.image_alt`)}
-          className="mb-5 h-48 w-full rounded border border-slate-700 bg-[#f5f2e9] object-contain"
-          loading="lazy"
-        />
-      )}
-      <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{t(`articles.items.${article.id}.category`, { defaultValue: article.category })}</p>
-      <h2 className="text-xl font-semibold leading-snug text-slate-100">
-        {t(`articles.items.${article.id}.title`)}
-      </h2>
-      <p className="mt-3 text-sm leading-6 text-slate-400">
-        {t(`articles.items.${article.id}.description`)}
-      </p>
+      <div className={article.image ? 'grid grid-cols-[minmax(0,1fr)_5rem] items-start gap-4 sm:grid-cols-[minmax(0,1fr)_6rem] md:grid-cols-[minmax(0,1fr)_8rem]' : ''}>
+        <div>
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-amber-300">{t(`articles.items.${article.id}.category`, { defaultValue: article.category })}</p>
+          <h2 className="text-xl font-semibold leading-snug text-slate-100">
+            {t(`articles.items.${article.id}.title`)}
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-slate-400">
+            {t(`articles.items.${article.id}.description`)}
+          </p>
+        </div>
+        {article.image && (
+          <img
+            src={`${import.meta.env.BASE_URL}${article.image.replace(/^\//, '')}`}
+            alt={t(`articles.items.${article.id}.image_alt`)}
+            className="aspect-[9/16] w-full rounded border border-slate-700 bg-[#f5f2e9] object-cover"
+            loading="lazy"
+          />
+        )}
+      </div>
 
       <div className="mt-5 rounded-lg border border-slate-800 bg-slate-950/40 p-4">
         <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-amber-200">
