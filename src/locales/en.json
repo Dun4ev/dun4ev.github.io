@@ -318,11 +318,11 @@
         "items": {
             "epc-document-flow": {
                 "title": "Engineering Process Animation for EPC Presentations",
-                "description": "A bilingual, 12-second visual note about vendor documentation: EPC distributes the package for parallel review, collects comments from the design institute and client, and sends a consolidated reply to the vendor.",
-                "category": "Engineering Visualization",
-                "readTime": "12 sec demo",
-                "highlight": "Vendor → EPC → parallel review → consolidated reply",
-                "image_alt": "Animation frame: EPC consolidated reply with review results and vendor revision",
+                "description": "A bilingual, 24-second visual note about AI-assisted review of vendor documentation. Within EPC, AI classifies documents, checks requirements, identifies inconsistencies, prepares initial comments, and consolidates feedback from the design institute and client. EPC reviews the result and issues the reply to the vendor.",
+                "category": "AI-Assisted Engineering Review",
+                "readTime": "24 sec demo",
+                "highlight": "Vendor → EPC → AI analysis → stakeholder review → AI consolidation → EPC reply",
+                "image_alt": "Animation frame: AI analyzes the vendor documentation package before external review",
                 "open_label": "View animation"
             },
             "agent-incident-map": {

@@ -247,15 +247,15 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
 export const ARTICLES: ArticleItem[] = [
   {
     id: 'epc-document-flow',
-    title: 'Engineering Process Animation for EPC Presentations',
-    description: 'A bilingual, 12-second visual note about vendor documentation: EPC distributes the package for parallel review, collects comments from the design institute and client, and sends a consolidated reply to the vendor.',
-    category: 'Engineering Visualization',
-    date: 'Sep 15, 2026',
-    readTime: '12 sec demo',
+    title: 'AI-Assisted EPC Document Review Animation',
+    description: 'A bilingual, 24-second visual note showing how AI supports vendor-document review within EPC: classification, requirement checks, inconsistency detection, initial comments, and consolidation of stakeholder feedback before EPC issues the reply.',
+    category: 'AI-Assisted Engineering Review',
+    date: 'Sep 16, 2026',
+    readTime: '24 sec demo',
     href: `${import.meta.env.BASE_URL}demos/epc-document-flow/?lang=en`,
     image: '/images/articles/epc-document-flow.png',
-    tags: ['EPC', 'Document Review', 'Animation', 'RU / EN'],
-    highlight: 'Vendor → EPC → parallel review → consolidated reply'
+    tags: ['EPC', 'AI Analysis', 'Document Review', 'RU / EN'],
+    highlight: 'Vendor → EPC → AI analysis → stakeholder review → AI consolidation → EPC reply'
   },
   {
     id: 'agent-incident-map',
