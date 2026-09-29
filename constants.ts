@@ -229,6 +229,17 @@ export const PROJECTS: Project[] = [
     role: 'Design, Development & Launch',
     status: 'Live',
     impact: 'Delivered the complete path from content and interface design to domain launch, Yandex verification, and search-ready technical indexing'
+  },
+  {
+    id: 'belgrade-parking-guide',
+    title: 'Park in Belgrade',
+    description: 'A guide I created to help visitors pay for street parking in Belgrade. It covers zones, prices, time limits, payment with or without a Serbian SIM, parking signs, and printable QR cards for hotels and car rentals. Available in English and Spanish.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'EN / ES'],
+    link: 'https://belgrade-parking-guide.pages.dev/',
+    category: 'Visitor Guide',
+    role: 'Creator',
+    status: 'Live',
+    impact: 'Helps visitors understand local parking rules and choose a suitable payment method'
   }
 ];
 

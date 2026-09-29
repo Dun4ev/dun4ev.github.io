@@ -143,6 +143,14 @@
         "title": "Projects",
         "view_archive": "View all projects",
         "items": {
+            "belgrade-parking-guide": {
+                "title": "Park in Belgrade",
+                "description": "A guide I created to help visitors pay for street parking in Belgrade. It covers zones, prices, time limits, payment with or without a Serbian SIM, parking signs, and printable QR cards for hotels and car rentals. Available in English and Spanish.",
+                "category": "Visitor Guide",
+                "role": "Creator",
+                "status": "Live",
+                "impact": "Helps visitors understand local parking rules and choose a suitable payment method."
+            },
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
                 "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
