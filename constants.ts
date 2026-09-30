@@ -236,6 +236,7 @@ export const PROJECTS: Project[] = [
     description: 'A guide I created to help visitors pay for street parking in Belgrade. It covers zones, prices, time limits, payment with or without a Serbian SIM, parking signs, and printable QR cards for hotels and car rentals. Available in English and Spanish.',
     tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'EN / ES'],
     link: 'https://belgrade-parking-guide.pages.dev/',
+    image: '/images/projects/belgrade-parking-guide.png',
     category: 'Visitor Guide',
     role: 'Creator',
     status: 'Live',
