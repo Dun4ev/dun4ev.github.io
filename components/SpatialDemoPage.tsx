@@ -42,19 +42,19 @@ const EXPLORE_DESTINATIONS = [
     label: 'Applied experiments',
     title: 'Labs',
     description: 'Interactive engineering concepts, prototypes and focused technical explorations.',
-    path: '/labs',
+    path: '/projects/',
   },
   {
     label: 'Reusable explanations',
     title: 'Knowledge base',
     description: 'Visual guides and structured notes for engineering and AI-assisted work.',
-    path: '/knowledge-base',
+    path: '/knowledge-base/',
   },
   {
     label: 'Field notes',
     title: 'Articles',
     description: 'Practical writing about automation, documentation and technical delivery.',
-    path: '/articles',
+    path: '/articles/',
   },
 ];
 

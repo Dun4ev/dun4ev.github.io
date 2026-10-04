@@ -44,7 +44,7 @@ export const ExperienceStageCard: React.FC<Props> = ({ stage, jobs }) => {
       glowColor="169 75 64"
       backgroundColor="#0f172a"
       borderRadius={12}
-      glowRadius={26}
+      glowRadius={24}
       glowIntensity={0.7}
       coneSpread={22}
       colors={['#5eead4', '#2dd4bf', '#38bdf8']}

@@ -127,7 +127,7 @@ export const GitHubContributions: React.FC = () => {
       </div>
 
       {hasCalendar ? (
-        <div className="pb-1">
+        <div className="min-h-[180px] pb-1">
           <div className="w-full max-w-[360px]">
             <div className="mb-1.5 grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))` }}>
               {monthLabels.map((label, index) => (
@@ -164,7 +164,7 @@ export const GitHubContributions: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="rounded-md border border-slate-800 bg-slate-950/40 p-4 text-sm text-slate-400">
+        <div className="min-h-[180px] rounded-md border border-slate-800 bg-slate-950/40 p-4 text-sm text-slate-400">
           {t('githubActivity.no_data')}
         </div>
       )}

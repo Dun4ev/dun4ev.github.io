@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0f172a;
+  /* Slate 900 */
+  color: #94a3b8;
+  /* Slate 400 */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+@keyframes soft-blink {
+
+  0%,
+  100% {
+    background-color: rgba(45, 212, 191, 0.1);
+    box-shadow: 0 0 0 rgba(45, 212, 191, 0);
+    border-color: rgba(45, 212, 191, 0.1);
+    transform: translateY(0);
+  }
+
+  50% {
+    background-color: rgba(45, 212, 191, 0.2);
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.3);
+    border-color: rgba(45, 212, 191, 0.5);
+    transform: translateY(-2px);
+    color: #5eead4;
+    /* teal-200 */
+  }
+}
+
+.tech-tag-animate {
+  animation: soft-blink 5s infinite ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-web-base {
+  transform-origin: center;
+  transition: transform 0.8s ease-out;
+}
+
+.radar-rotate-web {
+  animation: rotate-slow 60s linear infinite;
+}
+
+.radar-web-static {
+  transform: rotate(0deg) !important;
+  animation: none !important;
+}

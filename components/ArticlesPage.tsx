@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowLeft, ArrowUpRight, BookMarked, Clock3, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Breadcrumbs } from './Breadcrumbs';
+import { localizedHref, type SiteLanguage } from '../src/routes';
 import { ARTICLES } from '../constants';
 import { ArticleItem } from '../types';
 
@@ -14,7 +16,8 @@ interface ArticleCardProps {
 }
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
   const progressLabels = ['L0', 'L3', 'L6', 'L9', 'L11'];
 
   return (
@@ -51,6 +54,9 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
             alt={t(`articles.items.${article.id}.image_alt`)}
             className="aspect-[9/16] w-full rounded border border-slate-700 bg-[#f5f2e9] object-cover"
             loading="lazy"
+            decoding="async"
+            width={article.imageWidth}
+            height={article.imageHeight}
           />
         )}
       </div>
@@ -85,7 +91,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
 
       <div className="mt-auto pt-6">
         <a
-          href={article.href}
+          href={localizedHref(article.href, language)}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-amber-300"
@@ -99,19 +105,13 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
 };
 
 export const ArticlesPage: React.FC<ArticlesPageProps> = ({ onNavigate }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
 
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <button
-          type="button"
-          onClick={() => onNavigate('/')}
-          className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-slate-400 transition-colors hover:text-amber-300"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {t('articlesPage.back_home')}
-        </button>
+        <Breadcrumbs current={t('articlesPage.title')} />
 
         <section className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-amber-300">

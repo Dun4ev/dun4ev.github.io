@@ -14,6 +14,8 @@ export interface ExperienceStage {
 }
 
 export interface Project {
+  imageWidth?: number;
+  imageHeight?: number;
   id: string;
   title: string;
   description: string;
@@ -37,6 +39,8 @@ export interface KnowledgeItem {
 }
 
 export interface ArticleItem {
+  imageWidth?: number;
+  imageHeight?: number;
   id: string;
   title: string;
   description: string;
@@ -50,6 +54,8 @@ export interface ArticleItem {
 }
 
 export interface LabItem {
+  imageWidth?: number;
+  imageHeight?: number;
   id: string;
   title: string;
   description: string;

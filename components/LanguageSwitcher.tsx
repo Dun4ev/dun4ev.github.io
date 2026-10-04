@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
+import { localizedHref } from '../src/routes';
+
+export const LanguagePathContext = React.createContext<string>('');
 
 interface LanguageSwitcherProps {
     size?: 'compact' | 'touch';
@@ -15,9 +18,8 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ size = 'comp
         { code: 'ru', shortLabel: 'RU', name: t('language.russian') },
     ] as const;
 
-    const changeLanguage = (language: 'en' | 'ru') => {
-        void i18n.changeLanguage(language);
-    };
+    const pathname = typeof window === 'undefined' ? (currentLanguage === 'ru' ? '/ru/' : '/') : window.location.pathname;
+    const routePath = React.useContext(LanguagePathContext) || pathname;
 
     return (
         <div
@@ -36,20 +38,19 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ size = 'comp
                     const isActive = language.code === currentLanguage;
 
                     return (
-                        <button
+                        <a
                             key={language.code}
-                            type="button"
-                            onClick={() => changeLanguage(language.code)}
-                            className={`${isTouchSize ? 'h-11 w-11' : 'w-10 py-1.5'} rounded-full px-2.5 font-semibold tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
+                            href={localizedHref(routePath, language.code)}
+                            className={`${isTouchSize ? 'h-11 w-11' : 'w-10 py-1.5'} inline-flex items-center justify-center rounded-full px-2.5 font-semibold tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
                                 isActive
                                     ? 'bg-teal text-navy shadow-[0_0_0_1px_rgba(100,255,218,0.45),0_0_14px_rgba(100,255,218,0.22)]'
                                     : 'text-slate hover:bg-lightestNavy hover:text-lightestSlate'
                             }`}
                             aria-label={t('language.switch_to', { language: language.name })}
-                            aria-pressed={isActive}
+                            aria-current={isActive ? 'page' : undefined}
                         >
                             {language.shortLabel}
-                        </button>
+                        </a>
                     );
                 })}
             </span>

@@ -43,6 +43,10 @@ export const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
         <a href={lab.href} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
           <img
             src={imageSrc}
+            width={lab.imageWidth}
+            height={lab.imageHeight}
+            loading="lazy"
+            decoding="async"
             alt={title}
             className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />

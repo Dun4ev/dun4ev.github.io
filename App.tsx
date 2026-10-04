@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Linkedin, Mail, Phone, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import { CursorSpotlight } from './components/CursorSpotlight';
@@ -6,128 +6,64 @@ import { Navigation } from './components/Navigation';
 import { ExperienceStageCard } from './components/ExperienceStageCard';
 import { ProjectCard } from './components/ProjectCard';
 import { SkillCloud } from './components/SkillCloud';
-import { SkillRadar } from './components/SkillRadar';
+import { DeferredRadar } from './components/DeferredRadar';
 import { JOBS, EXPERIENCE_STAGES, D3_DATA, SOCIAL_LINKS, PROJECTS, ARTICLES } from './constants';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProjectsPage } from './components/ProjectsPage';
 import { KnowledgeBasePage } from './components/KnowledgeBasePage';
 import { ArticlesPage } from './components/ArticlesPage';
 import { GitHubContributions } from './components/GitHubContributions';
-import { SpatialDemoPage } from './components/SpatialDemoPage';
+import { getPagePath, localizedHref, type SiteLanguage } from './src/routes';
+
 import DecryptedText from './components/DecryptedText';
 import { MobileNavigation } from './components/MobileNavigation';
 
-const TypingEffect = ({ text }: { text: string }) => {
-  const [display, setDisplay] = useState('');
+const SpatialDemoPage = lazy(() => import('./components/SpatialDemoPage').then((module) => ({ default: module.SpatialDemoPage })));
 
-  useEffect(() => {
-    let i = 0;
-    setDisplay('');
-    const timer = setInterval(() => {
-      if (i < text.length) {
-        setDisplay(text.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 40);
-    return () => clearInterval(timer);
-  }, [text]);
+// Content is visible in the generated HTML; animations never gate reading it.
+const FadeIn = ({ children }: React.PropsWithChildren<{ delay?: number }>) => (
+  <div>{children}</div>
+);
 
-  return <span>{display}<span className="animate-pulse text-teal-400">_</span></span>;
-};
-
-const FadeIn = ({ children, delay = 0 }: React.PropsWithChildren<{ delay?: number }>) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
-
-const getRoutePath = () => {
-  const redirectPath = new URLSearchParams(window.location.search).get('redirect');
-  const requestedPath = redirectPath || window.location.pathname;
-  const pathWithoutTrailingSlash = requestedPath.replace(/\/+$/, '') || '/';
-  const normalizedPath = pathWithoutTrailingSlash === '/labs' ? '/projects' : pathWithoutTrailingSlash;
-
-  if (redirectPath || normalizedPath !== requestedPath) {
-    window.history.replaceState(null, '', normalizedPath);
-  }
-
-  return normalizedPath;
-};
-
-const App: React.FC = () => {
-  const { t } = useTranslation();
+const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
+  const routePath = getPagePath(initialPath);
+  const href = (path: string) => localizedHref(path, language);
   const aboutParagraphs = Object.values(t('about', { returnObjects: true }) as Record<string, string>);
-  const [routePath, setRoutePath] = useState(getRoutePath);
-
-  useEffect(() => {
-    const handlePopState = () => setRoutePath(window.location.pathname.replace(/\/+$/, '') || '/');
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  const [isInteractive, setIsInteractive] = useState(false);
+  useEffect(() => setIsInteractive(true), []);
 
   const navigateTo = (path: string) => {
-    const targetUrl = new URL(path, window.location.origin);
-    const targetPath = targetUrl.pathname === '/labs' ? '/projects' : targetUrl.pathname;
-    window.history.pushState(null, '', `${targetPath}${targetUrl.hash}`);
-    setRoutePath(targetPath);
-
-    if (targetUrl.hash) {
-      const targetId = targetUrl.hash.slice(1);
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
-        });
-      });
+    const targetUrl = new URL(href(path), window.location.origin);
+    if (targetUrl.pathname === window.location.pathname && targetUrl.hash) {
+      window.history.pushState(null, '', targetUrl.hash);
+      document.getElementById(targetUrl.hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
       return;
     }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.location.assign(targetUrl.href);
   };
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     navigateTo('/');
   };
 
   const handleProjectsClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     navigateTo('/projects');
   };
 
   const handleKnowledgeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     navigateTo('/knowledge-base');
   };
 
   const handleArticlesClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     navigateTo('/articles');
   };
@@ -138,7 +74,11 @@ const App: React.FC = () => {
   const isSpatialDemoPage = routePath === '/spatial-demo';
 
   if (isSpatialDemoPage) {
-    return <SpatialDemoPage onNavigate={navigateTo} />;
+    return isInteractive ? (
+      <Suspense fallback={<SpatialDemoFallback />}>
+        <SpatialDemoPage onNavigate={navigateTo} />
+      </Suspense>
+    ) : <SpatialDemoFallback />;
   }
 
   if (isProjectsPage) {
@@ -171,6 +111,13 @@ const App: React.FC = () => {
     );
   }
 
+  if (routePath !== '/') {
+    return <main className="min-h-screen px-6 py-20 text-slate-200">
+      <h1 className="text-3xl font-bold">{language === 'ru' ? 'Страница не найдена' : 'Page not found'}</h1>
+      <a className="mt-6 inline-block text-teal-300" href={href('/')}>{t('mobileNav.home')}</a>
+    </main>;
+  }
+
   return (
     <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
       <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
@@ -183,7 +130,7 @@ const App: React.FC = () => {
           <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-24">
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-                <a href="/" onClick={handleHomeClick}>
+                <a href={href('/')} onClick={handleHomeClick}>
                   {t('header.firstName')}{' '}
                   <DecryptedText
                     text={t('header.targetLastName')}
@@ -200,7 +147,7 @@ const App: React.FC = () => {
                 </a>
               </h1>
               <h2 className="mt-3 min-h-[5.25rem] text-lg font-medium tracking-tight text-slate-200 sm:min-h-[3.5rem] sm:text-xl">
-                <TypingEffect text={t('header.subtitle')} />
+                {t('header.subtitle')}
               </h2>
               <p className="mt-4 max-w-[26rem] leading-normal text-slate-400">
                 {t('header.description')}
@@ -235,7 +182,7 @@ const App: React.FC = () => {
 
             {/* ABOUT SECTION */}
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.about')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('profile.title', { defaultValue: t('nav.about') })}</h2>
               </div>
               <FadeIn>
@@ -248,13 +195,13 @@ const App: React.FC = () => {
 
               {/* Radar Chart Visualization */}
               <FadeIn delay={200}>
-                <SkillRadar />
+                <DeferredRadar />
               </FadeIn>
             </section>
 
             {/* EXPERIENCE SECTION */}
             <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.experience')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('experience.title')}</h2>
               </div>
 
@@ -282,7 +229,7 @@ const App: React.FC = () => {
 
             {/* SKILLS & DATA SECTION */}
             <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.skills')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('skills.title')}</h2>
               </div>
               <FadeIn>
@@ -343,7 +290,7 @@ const App: React.FC = () => {
 
             {/* PROJECTS SECTION */}
             <section id="projects" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.projects')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('projects.title')}</h2>
               </div>
               <FadeIn>
@@ -365,7 +312,7 @@ const App: React.FC = () => {
               </div>
               <FadeIn>
                 <div className="mt-12">
-                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="/projects" onClick={handleProjectsClick}>
+                  <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href={href('/projects')} onClick={handleProjectsClick}>
                     <span>{t('projects.view_archive')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
                 </div>
@@ -374,7 +321,7 @@ const App: React.FC = () => {
 
             {/* WRITING SECTION */}
             <section id="writing" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-24 lg:scroll-mt-24" aria-label={t('nav.writing')}>
-              <div className="sticky top-16 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('writing.title')}</h2>
               </div>
               <FadeIn>
@@ -385,7 +332,7 @@ const App: React.FC = () => {
 
                   <a
                     className="group/note mt-6 block rounded-lg border border-slate-800 bg-slate-950/30 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-slate-800/70"
-                    href="/knowledge-base"
+                    href={href('/knowledge-base')}
                     onClick={handleKnowledgeClick}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -403,7 +350,7 @@ const App: React.FC = () => {
                     {ARTICLES.map((article) => (
                       <a
                         key={article.id}
-                        href={article.href}
+                        href={href(article.href)}
                         target="_blank"
                         rel="noreferrer"
                         className="group/article block rounded-lg border border-slate-800 bg-slate-950/30 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-amber-300/30 hover:bg-slate-800/70"
@@ -414,6 +361,9 @@ const App: React.FC = () => {
                             alt={t(`articles.items.${article.id}.image_alt`)}
                             className="float-right ml-4 mb-2 aspect-[9/16] w-20 rounded border border-slate-700 bg-[#f5f2e9] object-cover sm:w-24"
                             loading="lazy"
+                            decoding="async"
+                            width={1080}
+                            height={1920}
                           />
                         )}
                         <div className="flex items-start justify-between gap-4">
@@ -434,7 +384,7 @@ const App: React.FC = () => {
                   </div>
                   <a
                     className="mt-5 inline-flex items-baseline font-semibold leading-tight text-slate-200 hover:text-amber-300 focus-visible:text-amber-300 group/link text-base"
-                    href="/articles"
+                    href={href('/articles')}
                     onClick={handleArticlesClick}
                   >
                     <span>{t('articles.view_all')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
@@ -457,6 +407,11 @@ const App: React.FC = () => {
                 <br />
                 {t('footer.inspired_by')}
               </p>
+              <p className="mt-3">
+                <a href="/spatial-demo/" className="text-slate-300 hover:text-teal-300">
+                  {language === 'ru' ? 'Демо пространственной навигации' : 'Spatial navigation demo'}
+                </a>
+              </p>
             </footer>
 
           </main>
@@ -465,5 +420,13 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const SpatialDemoFallback = () => (
+  <main className="min-h-screen bg-slate-900 px-6 py-20 text-slate-200">
+    <h1 className="text-3xl font-bold">Spatial navigation demo</h1>
+    <p className="mt-4 max-w-xl text-slate-400">An interactive exploration of Andrej Dunaev's engineering experience, projects and publications.</p>
+    <a href="/" className="mt-6 inline-block text-teal-300">Back to portfolio</a>
+  </main>
+);
 
 export default App;

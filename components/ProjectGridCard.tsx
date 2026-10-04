@@ -40,13 +40,17 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
           <a href={project.link} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
             <img
               src={imageSrc}
+              width={project.imageWidth}
+              height={project.imageHeight}
+              loading="lazy"
+              decoding="async"
               alt={title}
               className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </a>
         ) : (
           <div className="overflow-hidden border-b border-slate-800">
-            <img src={imageSrc} alt={title} className="aspect-video w-full object-cover" />
+            <img src={imageSrc} alt={title} width={project.imageWidth} height={project.imageHeight} loading="lazy" decoding="async" className="aspect-video w-full object-cover" />
           </div>
         )
       )}

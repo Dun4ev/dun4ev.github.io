@@ -3,6 +3,7 @@ import { Mail, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SOCIAL_LINKS } from '../constants';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { localizedHref, type SiteLanguage } from '../src/routes';
 
 interface MobileNavigationProps {
   routePath: string;
@@ -29,7 +30,8 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   routePath,
   onNavigate,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
   const dialogRef = useRef<HTMLDialogElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -129,7 +131,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
       <div className="sticky top-0 z-50 border-b border-lightestNavy bg-navy backdrop-blur-xl lg:hidden">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6 md:px-12">
           <a
-            href="/"
+            href={localizedHref('/', language)}
             onClick={(event) => handleNavigate(event, '/')}
             className="inline-flex h-11 items-center text-sm font-bold tracking-[0.18em] text-lightestSlate transition-colors hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
           >
@@ -196,7 +198,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
                 return (
                   <li key={item.key} className="border-b border-lightestNavy">
                     <a
-                      href={item.path}
+                      href={localizedHref(item.path, language)}
                       onClick={(event) => handleNavigate(event, item.path)}
                       className={`group flex min-h-14 items-center gap-4 py-3 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-teal ${
                         isActive

@@ -4,10 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Инцидент OpenAI × Hugging Face — карта действий агентов</title>
-<link rel="alternate" hreflang="en" href="../">
-<link rel="alternate" hreflang="ru" href="./">
-<link rel="alternate" hreflang="es" href="../es/">
-<link rel="alternate" hreflang="x-default" href="../">
+<meta name="description" content="Интерактивная реконструкция инцидента OpenAI и Hugging Face: координация агентов, reward hacking, хронология и ссылки на исходные отчеты.">
+<link rel="canonical" href="https://dun4ev.com/articles/agent-incident-map/ru/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Инцидент OpenAI × Hugging Face — карта действий агентов">
+<meta property="og:description" content="Интерактивная реконструкция инцидента OpenAI и Hugging Face: координация агентов, reward hacking, хронология и ссылки на исходные отчеты.">
+<meta property="og:url" content="https://dun4ev.com/articles/agent-incident-map/ru/">
+<meta property="og:locale" content="ru_RU">
+<meta name="author" content="Андрей Дунаев">
+<link rel="alternate" hreflang="en" href="https://dun4ev.com/articles/agent-incident-map/">
+<link rel="alternate" hreflang="ru" href="https://dun4ev.com/articles/agent-incident-map/ru/">
+<link rel="alternate" hreflang="es" href="https://dun4ev.com/articles/agent-incident-map/es/">
+<link rel="alternate" hreflang="x-default" href="https://dun4ev.com/articles/agent-incident-map/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
@@ -33,6 +41,7 @@ a{color:var(--board)}
 :focus-visible{outline:2px solid var(--board);outline-offset:2px;border-radius:4px}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 
+.article-breadcrumbs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:16px;font-size:12px;color:var(--dim)}
 /* ---------- header ---------- */
 header{position:relative;padding:64px 0 40px;border-bottom:1px solid var(--line-soft)}
 .language-switch{position:absolute;top:12px;right:24px;z-index:5;display:flex;gap:4px;font-family:var(--mono);font-size:10px;letter-spacing:.08em}
@@ -424,6 +433,7 @@ footer.wrap{margin-top:60px;padding-bottom:54px}
   .playbtn{font-size:10px;padding:8px 10px}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://dun4ev.com/ru/"}, {"@type": "ListItem", "position": 2, "name": "Статьи", "item": "https://dun4ev.com/ru/articles/"}, {"@type": "ListItem", "position": 3, "name": "Инцидент OpenAI × Hugging Face", "item": "https://dun4ev.com/articles/agent-incident-map/ru/"}]}</script>
 </head>
 <body>
 
@@ -439,6 +449,7 @@ footer.wrap{margin-top:60px;padding-bottom:54px}
 </aside>
 
 <header class="wrap" id="top">
+  <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/ru/">Главная</a><span aria-hidden="true">/</span><a href="/ru/articles/">Статьи</a><span aria-hidden="true">/</span><span aria-current="page">Инцидент OpenAI × Hugging Face</span></nav>
   <nav class="language-switch" aria-label="Язык"><a href="../">EN</a><a href="./" aria-current="page">RU</a><a href="../es/">ES</a></nav>
   <div class="mobile-editorial-top"><strong>Editorial Evidence Desk</strong><span>00 / Введение</span></div>
   <div class="eyebrow">Forensic reconstruction · 7–13 июля 2026</div>
@@ -739,6 +750,7 @@ METR содержат такие подмены</span> (≥96 явных,
 </section>
 
 <footer class="wrap">
+  <p>Интерактивная реконструкция: <a href="/ru/">Андрей Дунаев</a>.</p>
   <div>Реконструкция по двум отчётам (26.08.2026): <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener">METR — “Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident” ↗</a> · <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI — “The Hugging Face incident and the road ahead” ↗</a> · <a href="https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf" target="_blank" rel="noopener">технический отчёт OpenAI (PDF) ↗</a><br>
   Оговорки METR: метки времени внутри суток восстановлены приблизительно; классификация сообщений неточна; сам анализ METR в значительной степени делегирован ИИ-агентам. Модели: ~95% HPIM, ~5% GPT-5.6 Sol. Ключевой факт: убеждение агентов о «читающем транскрипты» скорере было ошибочным.</div>
 </footer>

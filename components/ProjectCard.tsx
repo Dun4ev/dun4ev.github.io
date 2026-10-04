@@ -40,6 +40,10 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-700 group-hover:border-teal-300/50 transition-colors">
             <img
               src={imageSrc}
+              width={project.imageWidth}
+              height={project.imageHeight}
+              loading="lazy"
+              decoding="async"
               alt={t(`projects.items.${project.id}.title`)}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />

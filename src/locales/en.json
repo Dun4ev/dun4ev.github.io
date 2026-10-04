@@ -165,18 +165,18 @@
             },
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
-                "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds.",
-                "impact": "Reduces report and transmittal preparation from minutes to seconds."
+                "description": "A Python tool for preparing technical reports, index folders, and transmittals. It fills Excel templates, groups project documentation, and creates ZIP archives.",
+                "impact": "Automates Excel template filling and document packaging for reports and transmittals."
             },
             "pipeline-analytics": {
                 "title": "TOiR Documentation Dispatcher",
-                "description": "An intelligent Python utility for automatically distributing incoming project PDF reports into target directories. It features automatic filename transliteration, detailed JSONL operation logging, and a Tkinter-based GUI for pipeline monitoring, essential for managing large-scale infrastructure technical documentation.",
+                "description": "A Python utility that distributes incoming project PDF reports into target directories, transliterates filenames, records operations in JSONL logs, and provides a Tkinter interface for monitoring the workflow.",
                 "impact": "Automates PDF routing and operation logging for engineering documentation flows."
             },
             "portfolio-v2": {
                 "title": "AI-Powered PDF Search Engine",
-                "description": "A semantic search and question-answering system for PDF documents. It utilizes RAG (Retrieval-Augmented Generation) architecture and LLMs to extract context from a FAISS vector database, providing accurate, grounded answers based on uploaded technical documentation.",
-                "impact": "Turns local technical PDFs into a searchable knowledge base with grounded answers."
+                "description": "A semantic search and question-answering system for PDF documents. It retrieves context from a local FAISS vector database and passes it to a language model using RAG (Retrieval-Augmented Generation). Answers depend on the retrieved document content.",
+                "impact": "Searches local technical PDFs and uses retrieved passages as context for answers."
             },
             "graf-html": {
                 "title": "Interactive Trend Visualization",

@@ -4,15 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
-  <script>
-    const targetPath = window.location.pathname + window.location.search + window.location.hash;
-    window.location.replace('/?redirect=' + encodeURIComponent(targetPath));
-  </script>
+  <title>Page not found | Andrej Dunaev</title>
+  <meta name="robots" content="noindex,follow" />
+  <style>
+    body { margin: 0; padding: 12vh 24px; background: #0f172a; color: #ccd6f6; font: 18px/1.6 system-ui, sans-serif; }
+    main { max-width: 650px; margin: auto; } a { color: #64ffda; }
+  </style>
 </head>
 
 <body>
-  Redirecting...
+  <main>
+    <h1>404: Page not found / Страница не найдена</h1>
+    <p>The address may have changed. Choose a section below.</p>
+    <p>Возможно, адрес изменился. Выберите раздел сайта.</p>
+    <p><a href="/">Home</a> · <a href="/projects/">Projects</a> · <a href="/articles/">Articles</a></p>
+    <p><a href="/ru/">Главная</a> · <a href="/ru/projects/">Проекты</a> · <a href="/ru/articles/">Статьи</a></p>
+  </main>
 </body>
 
 </html>

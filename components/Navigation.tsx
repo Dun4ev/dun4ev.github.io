@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
+import { localizedHref, type SiteLanguage } from '../src/routes';
 import { useTranslation } from 'react-i18next';
 import LineSidebar, { type LineSidebarItem } from './LineSidebar';
 
@@ -9,9 +10,10 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
   const [activeSection, setActiveSection] = useState<string>('');
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
   const items: LineSidebarItem[] = NAV_LINKS.map((link) => ({
-    href: link.href,
+    href: localizedHref(link.href, language),
     label: t(`nav.${link.name.toLowerCase().split(' ')[0]}`),
   }));
 

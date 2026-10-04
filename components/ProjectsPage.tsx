@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Breadcrumbs } from './Breadcrumbs';
+import { localizedHref, type SiteLanguage } from '../src/routes';
 import { LABS, PROJECTS } from '../constants';
 import { LabCard } from './LabsPage';
 import { ProjectGridCard } from './ProjectGridCard';
@@ -10,7 +12,8 @@ interface ProjectsPageProps {
 }
 
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filters = ['all', 'engineering', 'client', 'interactive', 'presentations'] as const;
@@ -32,14 +35,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <button
-          type="button"
-          onClick={() => onNavigate('/')}
-          className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-slate-400 transition-colors hover:text-teal-300"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {t('projectsPage.back_home')}
-        </button>
+        <Breadcrumbs current={t('projectsPage.title')} />
 
         <section className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-teal-300">
