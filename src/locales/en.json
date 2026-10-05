@@ -143,6 +143,14 @@
         "title": "Projects",
         "view_archive": "View all projects",
         "items": {
+            "vila-tihora": {
+                "title": "Vila Tihora",
+                "description": "An independent website concept for a fictional countryside villa. It combines an editorial layout, responsive navigation, an interactive gallery, an illustrative map, and a demo enquiry form. The seven images were generated from text descriptions without reference photos; the form sends no data.",
+                "category": "Website Concept",
+                "role": "Design & Development",
+                "status": "Independent Concept",
+                "impact": "Demonstrates the journey from exploring a villa to preparing an enquiry, with a fictional property and illustrative images."
+            },
             "belgrade-parking-guide": {
                 "title": "Park in Belgrade",
                 "description": "A guide I created to help visitors pay for street parking in Belgrade. It covers zones, prices, time limits, payment with or without a Serbian SIM, parking signs, and printable QR cards for hotels and car rentals. Available in English and Spanish.",

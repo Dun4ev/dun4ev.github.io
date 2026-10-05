@@ -123,6 +123,20 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'vila-tihora',
+    title: 'Vila Tihora',
+    description: 'An independent website concept for a fictional countryside villa. It combines an editorial layout, responsive navigation, an interactive gallery, an illustrative map, and a demo enquiry form. The seven images were generated from text descriptions without reference photos; the form sends no data.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    link: '/demos/vila-tihora/',
+    image: '/images/projects/vila-tihora.jpg',
+    imageWidth: 1440,
+    imageHeight: 900,
+    category: 'Website Concept',
+    role: 'Design & Development',
+    status: 'Independent Concept',
+    impact: 'Demonstrates the journey from exploring a villa to preparing an enquiry, with a fictional property and illustrative images'
+  },
+  {
     id: 'engineering-process-management-system',
     title: 'Meeting Protocol Tracker (MPT)',
     description: 'An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
