@@ -77,8 +77,12 @@ export const LabCard: React.FC<LabCardProps> = ({ lab, index }) => {
         </p>
 
         <ul className="mt-5 flex flex-wrap gap-2" aria-label={t('labsPage.tags_label')}>
-          {lab.tags.map((tag) => (
-            <li key={tag} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
+          {lab.tags.map((tag, tagIndex) => (
+            <li
+              key={tag}
+              className="flex items-center rounded-full border border-teal-300/20 bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 tech-tag-animate motion-reduce:animate-none"
+              style={{ animationDelay: `${tagIndex * 0.4}s` }}
+            >
               {tag}
             </li>
           ))}

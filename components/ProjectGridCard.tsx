@@ -87,8 +87,12 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
         )}
 
         <ul className="mt-5 flex flex-wrap gap-2" aria-label={t('projectsPage.card_tools')}>
-          {project.tools.map((tool) => (
-            <li key={tool} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
+          {project.tools.map((tool, index) => (
+            <li
+              key={tool}
+              className="flex items-center rounded-full border border-teal-300/20 bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 tech-tag-animate motion-reduce:animate-none"
+              style={{ animationDelay: `${index * 0.4}s` }}
+            >
               {tool}
             </li>
           ))}
