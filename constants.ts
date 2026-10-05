@@ -123,6 +123,20 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'document-intake',
+    title: 'Document Intake',
+    description: 'An interactive demo of a logistics document workflow: review prepared fields from a sample email and PDF, resolve missing information, and export a load record as CSV or JSON. Includes a logistics workbench and an email request for a paid pilot. Uses synthetic examples; live PDF recognition, AI processing, and TMS integrations are not enabled.',
+    tools: ['JavaScript', 'Workflow UX', 'CSV / JSON', 'Responsive Design'],
+    link: 'https://document-intake.pages.dev/',
+    image: '/images/projects/document-intake.jpg',
+    imageWidth: 1280,
+    imageHeight: 720,
+    category: 'Interactive Demo',
+    role: 'Design & Development',
+    status: 'Live Demo / Synthetic Data',
+    impact: 'Demonstrates a document review workflow and provides a starting point for a paid pilot tailored to a client process'
+  },
+  {
     id: 'vila-tihora',
     title: 'Vila Tihora',
     description: 'An independent website concept for a fictional countryside villa. It combines an editorial layout, responsive navigation, an interactive gallery, an illustrative map, and a demo enquiry form. The seven images were generated from text descriptions without reference photos; the form sends no data.',

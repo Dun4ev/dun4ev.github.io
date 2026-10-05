@@ -24,7 +24,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
       : activeFilter === 'client'
         ? PROJECTS.filter((project) => project.category === 'Client Website')
         : activeFilter === 'interactive'
-          ? PROJECTS.filter((project) => project.category === 'Website Concept')
+          ? PROJECTS.filter((project) => project.category === 'Website Concept' || project.category === 'Interactive Demo')
           : [];
   const visibleLabs = activeFilter === 'all'
     ? LABS
