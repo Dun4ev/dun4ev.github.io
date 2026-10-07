@@ -26,8 +26,9 @@ interface Props {
 
 export const ProjectCard: React.FC<Props> = ({ project }) => {
   const imageSrc = resolveImageSrc(project.image);
-  const { t } = useTranslation();
-  const isGitHubProject = project.link?.startsWith('https://github.com/');
+  const { t, i18n } = useTranslation();
+  const link = i18n.resolvedLanguage === 'ru' ? project.linkRu || project.link : project.link;
+  const isGitHubProject = link?.startsWith('https://github.com/');
 
   return (
     <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -57,9 +58,9 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
 
       <div className="z-10 sm:col-span-6">
         <h3 className="font-medium leading-snug text-slate-200">
-          {project.link ? (
+          {link ? (
             <a
-              href={project.link}
+              href={link}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
@@ -94,9 +95,9 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           ))}
         </ul>
 
-        {project.link && (
+        {link && (
           <a
-            href={project.link}
+            href={link}
             target="_blank"
             rel="noreferrer"
             className="mt-4 flex items-center text-sm font-medium text-slate-400 hover:text-teal-300 transition-colors w-max relative z-10"

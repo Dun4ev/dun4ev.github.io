@@ -123,6 +123,21 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'ostatak',
+    title: 'Ostatak',
+    description: 'A working restaurant delivery reconciliation prototype. Match orders and payouts from two CSV templates, review deductions and discrepancies, and export the results. Runs in the browser in English and Russian. Uses synthetic demo data; AI document reading and Wolt/Glovo connections are not enabled.',
+    tools: ['JavaScript', 'CSV Reconciliation', 'Local Processing', 'RU / EN'],
+    link: `${import.meta.env.BASE_URL}demos/ostatak/?lang=en`,
+    linkRu: `${import.meta.env.BASE_URL}demos/ostatak/?lang=ru`,
+    image: '/images/projects/ostatak.png',
+    imageWidth: 1512,
+    imageHeight: 1080,
+    category: 'Interactive Demo',
+    role: 'Research, Design & Development',
+    status: 'Working Prototype / Synthetic Data',
+    impact: 'Makes each calculation traceable to source rows; discrepancies require review and do not establish an underpayment.'
+  },
+  {
     id: 'document-intake',
     title: 'Document Intake',
     description: 'An interactive demo of a logistics document workflow: review prepared fields from a sample email and PDF, resolve missing information, and export a load record as CSV or JSON. Includes a logistics workbench and an email request for a paid pilot. Uses synthetic examples; live PDF recognition, AI processing, and TMS integrations are not enabled.',

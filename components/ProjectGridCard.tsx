@@ -24,20 +24,21 @@ interface ProjectGridCardProps {
 }
 
 export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const link = i18n.resolvedLanguage === 'ru' ? project.linkRu || project.link : project.link;
   const imageSrc = resolveImageSrc(project.image);
   const title = t(`projects.items.${project.id}.title`);
   const description = t(`projects.items.${project.id}.description`);
   const impact = t(`projects.items.${project.id}.impact`, { defaultValue: project.impact || '' });
   const category = t(`projects.items.${project.id}.category`, { defaultValue: project.category || '' });
   const status = t(`projects.items.${project.id}.status`, { defaultValue: project.status || '' });
-  const isGitHubProject = project.link?.startsWith('https://github.com/');
+  const isGitHubProject = link?.startsWith('https://github.com/');
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-teal-950/20">
       {imageSrc && (
-        project.link ? (
-          <a href={project.link} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
+        link ? (
+          <a href={link} target="_blank" rel="noreferrer" className="block overflow-hidden border-b border-slate-800">
             <img
               src={imageSrc}
               width={project.imageWidth}
@@ -70,8 +71,8 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
         </div>
 
         <h2 className="text-lg font-semibold leading-snug text-slate-100">
-          {project.link ? (
-            <a href={project.link} target="_blank" rel="noreferrer" className="inline-flex items-start gap-1 hover:text-teal-300">
+          {link ? (
+            <a href={link} target="_blank" rel="noreferrer" className="inline-flex items-start gap-1 hover:text-teal-300">
               {title}
               <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
@@ -98,10 +99,10 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
           ))}
         </ul>
 
-        {project.link && (
+        {link && (
           <div className="mt-auto pt-6">
             <a
-              href={project.link}
+              href={link}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"

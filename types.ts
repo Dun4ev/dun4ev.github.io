@@ -21,6 +21,7 @@ export interface Project {
   description: string;
   tools: string[];
   link?: string;
+  linkRu?: string;
   image?: string;
   category?: string;
   role?: string;
