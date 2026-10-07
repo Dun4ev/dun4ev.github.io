@@ -16,16 +16,18 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const filters = ['all', 'engineering', 'client', 'interactive', 'presentations'] as const;
+  const filters = ['all', 'work', 'engineering', 'client', 'interactive', 'presentations'] as const;
   const visibleProjects = activeFilter === 'all'
     ? PROJECTS
-    : activeFilter === 'engineering'
-      ? PROJECTS.filter((project) => project.category !== 'Client Website' && project.category !== 'Website Concept')
-      : activeFilter === 'client'
-        ? PROJECTS.filter((project) => project.category === 'Client Website')
-        : activeFilter === 'interactive'
-          ? PROJECTS.filter((project) => project.category === 'Website Concept' || project.category === 'Interactive Demo')
-          : [];
+    : activeFilter === 'work'
+      ? PROJECTS.filter((project) => project.usedAtWork)
+      : activeFilter === 'engineering'
+        ? PROJECTS.filter((project) => project.category !== 'Client Website' && project.category !== 'Website Concept')
+        : activeFilter === 'client'
+          ? PROJECTS.filter((project) => project.category === 'Client Website')
+          : activeFilter === 'interactive'
+            ? PROJECTS.filter((project) => project.category === 'Website Concept' || project.category === 'Interactive Demo')
+            : [];
   const visibleLabs = activeFilter === 'all'
     ? LABS
     : activeFilter === 'interactive'
@@ -57,6 +59,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
               key={filter}
               type="button"
               onClick={() => setActiveFilter(filter)}
+              aria-pressed={activeFilter === filter}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
                 activeFilter === filter
                   ? 'border-teal-300 bg-teal-300/10 text-teal-200'

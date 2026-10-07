@@ -175,6 +175,7 @@ export const PROJECTS: Project[] = [
     imageWidth: 1280,
     imageHeight: 631,
     category: 'Internal Tool',
+    usedAtWork: true,
     role: 'Creator',
     status: 'Source Code / No Public Demo',
     impact: 'Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work'
@@ -203,6 +204,7 @@ export const PROJECTS: Project[] = [
     imageWidth: 1280,
     imageHeight: 577,
     category: 'Automation',
+    usedAtWork: true,
     role: 'Creator',
     status: 'Production-ready',
     impact: 'Reduced routine report preparation from minutes to seconds'
@@ -217,6 +219,7 @@ export const PROJECTS: Project[] = [
     imageWidth: 1201,
     imageHeight: 725,
     category: 'Documentation',
+    usedAtWork: true,
     role: 'Creator',
     status: 'Internal tool',
     impact: 'Automated PDF routing and operation logging for engineering document flows'
@@ -231,6 +234,7 @@ export const PROJECTS: Project[] = [
     imageWidth: 1280,
     imageHeight: 633,
     category: 'Data Visualization',
+    usedAtWork: true,
     role: 'Creator',
     status: 'Reusable toolkit',
     impact: 'Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts'

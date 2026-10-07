@@ -24,6 +24,7 @@ export interface Project {
   linkRu?: string;
   image?: string;
   category?: string;
+  usedAtWork?: boolean;
   role?: string;
   status?: string;
   impact?: string;

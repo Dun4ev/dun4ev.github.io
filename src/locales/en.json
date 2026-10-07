@@ -142,6 +142,8 @@
     "projects": {
         "title": "Projects",
         "view_archive": "View all projects",
+        "work_title": "Tools I use at work",
+        "work_description": "Created for my engineering tasks and used in my work: meeting protocols, reporting, documentation, and trend analysis.",
         "items": {
             "ostatak": {
                 "title": "Ostatak",
@@ -240,6 +242,7 @@
         "filters_label": "Project filter",
         "grid_label": "Project grid",
         "filter_all": "All",
+        "filter_work": "Tools I use at work",
         "filter_engineering": "Engineering tools",
         "filter_client": "Client websites",
         "filter_interactive": "Demos & concepts",

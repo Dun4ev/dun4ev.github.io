@@ -31,6 +31,7 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
   const routePath = getPagePath(initialPath);
   const href = (path: string) => localizedHref(path, language);
   const aboutParagraphs = Object.values(t('about', { returnObjects: true }) as Record<string, string>);
+  const workProjects = PROJECTS.filter((project) => project.usedAtWork);
   const [isInteractive, setIsInteractive] = useState(false);
   useEffect(() => setIsInteractive(true), []);
 
@@ -296,13 +297,12 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
               <FadeIn>
                 <GitHubContributions />
               </FadeIn>
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-teal-300">
+                {t('projects.work_title')}
+              </h3>
+              <p className="mb-8 text-sm leading-relaxed text-slate-400">{t('projects.work_description')}</p>
               <div className="group/list">
-                {PROJECTS.filter(
-                  (project) =>
-                    project.category !== 'Client Website'
-                    && project.id !== 'portfolio-v2'
-                    && project.id !== 'geofuse'
-                ).map((project, idx) => (
+                {workProjects.map((project, idx) => (
                   <FadeIn key={project.id} delay={idx * 100}>
                     <div className="mb-12">
                       <ProjectCard project={project} />
