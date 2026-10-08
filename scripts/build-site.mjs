@@ -7,6 +7,8 @@ await build();
 await build({ build: { ssr: 'entry-server.tsx', outDir: 'dist-ssr' } });
 const { render, INDEXABLE_PATHS } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href);
 const template = await readFile('dist/index.html', 'utf8');
+const analyticsScript = template.match(/<script\b[^>]*src="https:\/\/cloud\.umami\.is\/script\.js"[^>]*><\/script>/)?.[0];
+if (!analyticsScript) throw new Error('Missing Umami tracker in the HTML template.');
 if (!template.includes('<!--seo:start-->') || !template.includes('<div id="root"></div>')) {
   throw new Error('Missing SEO or React root marker in the HTML template.');
 }
@@ -54,7 +56,12 @@ const attributes = (tag) => Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s
 const xml = (value) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const entries = [];
 for (const filename of await htmlFiles(resolve('dist'))) {
-  const html = await readFile(filename, 'utf8');
+  let html = await readFile(filename, 'utf8');
+  // Standalone articles, notes and demos do not use the React HTML template.
+  if (!html.includes('cloud.umami.is/script.js') && /<\/head>/i.test(html)) {
+    html = html.replace(/<\/head>/i, `${analyticsScript}\n</head>`);
+    await writeFile(filename, html);
+  }
   const metadata = [...html.matchAll(/<meta\b[^>]*>/gi)].map((match) => attributes(match[0]));
   if (metadata.some((meta) => meta.name === 'robots' && /noindex/i.test(meta.content || ''))) continue;
   const links = [...html.matchAll(/<link\b[^>]*>/gi)].map((match) => attributes(match[0]));

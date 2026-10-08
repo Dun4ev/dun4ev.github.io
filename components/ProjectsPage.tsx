@@ -58,6 +58,8 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
             <button
               key={filter}
               type="button"
+              data-analytics-event="project_filter"
+              data-analytics-value={filter}
               onClick={() => setActiveFilter(filter)}
               aria-pressed={activeFilter === filter}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-all ${

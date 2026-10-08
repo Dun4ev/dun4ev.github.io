@@ -41,6 +41,8 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ size = 'comp
                         <a
                             key={language.code}
                             href={localizedHref(routePath, language.code)}
+                            data-analytics-event="language_switch"
+                            data-analytics-value={language.code}
                             className={`${isTouchSize ? 'h-11 w-11' : 'w-10 py-1.5'} inline-flex items-center justify-center rounded-full px-2.5 font-semibold tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
                                 isActive
                                     ? 'bg-teal text-navy shadow-[0_0_0_1px_rgba(100,255,218,0.45),0_0_14px_rgba(100,255,218,0.22)]'

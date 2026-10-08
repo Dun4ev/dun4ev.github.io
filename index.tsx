@@ -6,6 +6,10 @@ import { LanguagePathContext } from './components/LanguageSwitcher';
 import i18n from './src/i18n';
 import './src/styles.css';
 import { getLanguage, getPagePath, localizedHref, PAGE_PATHS } from './src/routes';
+import { installAnalytics } from './src/analytics';
+
+const disposeAnalytics = installAnalytics();
+if (import.meta.hot) import.meta.hot.dispose(disposeAnalytics);
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
