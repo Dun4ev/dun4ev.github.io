@@ -36,6 +36,22 @@
     "profile": {
         "title": "Инженерный профиль"
     },
+    "directions": {
+        "title": "Три направления",
+        "description": "Три направления моей работы, каждое на отдельном сайте.",
+        "studio": {
+            "title": "Studio",
+            "description": "Дизайн, сайты и цифровые продукты."
+        },
+        "engineering": {
+            "title": "Engineering",
+            "description": "Инженерные расчеты, проектирование и документация."
+        },
+        "atelier": {
+            "title": "Atelier",
+            "description": "Прототипы, модели и устройства."
+        }
+    },
     "radar": {
         "metrics": {
             "three_d": "3D-проектирование\n(до 55% быстрее)",

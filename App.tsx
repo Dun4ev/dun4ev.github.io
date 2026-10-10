@@ -194,6 +194,29 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 </div>
               </FadeIn>
 
+              <section className="my-10" aria-labelledby="directions-title">
+                <h2 id="directions-title" className="mb-2 text-sm font-bold uppercase tracking-widest text-slate-200">{t('directions.title')}</h2>
+                <p className="mb-4 text-sm text-slate-400">{t('directions.description')}</p>
+                <ul className="divide-y divide-slate-700/50 border-y border-slate-700/50">
+                  {(['studio', 'engineering', 'atelier'] as const).map((direction) => (
+                    <li key={direction}>
+                      <a
+                        href={`https://${direction}.dun4ev.com`}
+                        className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>
+                          <span className="block font-medium text-slate-200 group-hover:text-teal-300">{t(`directions.${direction}.title`)}</span>
+                          <span className="mt-1 block text-sm text-slate-400">{t(`directions.${direction}.description`)}</span>
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 text-teal-300" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
               {/* Radar Chart Visualization */}
               <FadeIn delay={200}>
                 <DeferredRadar />

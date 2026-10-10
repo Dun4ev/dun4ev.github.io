@@ -36,6 +36,22 @@
     "profile": {
         "title": "Engineering Profile"
     },
+    "directions": {
+        "title": "Three directions",
+        "description": "Explore three directions of my work.",
+        "studio": {
+            "title": "Studio",
+            "description": "Design, websites, and digital products."
+        },
+        "engineering": {
+            "title": "Engineering",
+            "description": "Engineering calculations, design, and documentation."
+        },
+        "atelier": {
+            "title": "Atelier",
+            "description": "Prototypes, models, and devices."
+        }
+    },
     "radar": {
         "metrics": {
             "three_d": "3D design\n(up to 55% faster)",
