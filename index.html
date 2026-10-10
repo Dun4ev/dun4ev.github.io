@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-palette="warm" data-mode="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Restore appearance before painting, including on localized page navigation.
+    try {
+      const appearance = JSON.parse(localStorage.getItem('portfolio-appearance') || 'null');
+      if (appearance) {
+        document.documentElement.dataset.palette = appearance.palette === 'blue' ? 'blue' : 'warm';
+        document.documentElement.dataset.mode = appearance.mode === 'light' ? 'light' : 'dark';
+      }
+    } catch {}
+  </script>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

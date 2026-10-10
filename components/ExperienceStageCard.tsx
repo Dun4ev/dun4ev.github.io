@@ -42,12 +42,12 @@ export const ExperienceStageCard: React.FC<Props> = ({ stage, jobs }) => {
       className="experience-stage-glow"
       edgeSensitivity={28}
       glowColor="169 75 64"
-      backgroundColor="#0f172a"
+      backgroundColor="rgb(var(--slate-900))"
       borderRadius={12}
       glowRadius={24}
       glowIntensity={0.7}
       coneSpread={22}
-      colors={['#5eead4', '#2dd4bf', '#38bdf8']}
+      colors={['rgb(var(--teal-300))', 'rgb(var(--teal-400))', 'rgb(var(--cyan-400))']}
       fillOpacity={0.24}
     >
       <div className={`rounded-xl bg-transparent transition-colors ${isOpen ? 'bg-slate-900/50' : ''}`}>

@@ -59,7 +59,7 @@ export const SkillRadar: React.FC = () => {
     const [label, detail] = payload.value.split('\n');
 
     return (
-      <text x={x} y={y} textAnchor={textAnchor} fill="#94a3b8" fontSize={11}>
+      <text x={x} y={y} textAnchor={textAnchor} fill="rgb(var(--slate-400))" fontSize={11}>
         <tspan x={x} dy="-0.35em">{label}</tspan>
         <tspan x={x} dy="1.3em">{detail}</tspan>
       </text>
@@ -75,7 +75,7 @@ export const SkillRadar: React.FC = () => {
       <h4 className="text-sm font-semibold text-slate-200 mb-4 uppercase tracking-wider text-center">Competency Overview</h4>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius={isMobile ? '68%' : '80%'} data={metrics}>
-          <PolarGrid stroke="#334155" className={radarClass} />
+          <PolarGrid stroke="rgb(var(--slate-700))" className={radarClass} />
           <PolarAngleAxis
             dataKey="name"
             tick={renderMetricTick}
@@ -84,9 +84,9 @@ export const SkillRadar: React.FC = () => {
           <Radar
             name="Skills"
             dataKey="value"
-            stroke="#64ffda"
+            stroke="rgb(var(--teal))"
             strokeWidth={2}
-            fill="#64ffda"
+            fill="rgb(var(--teal))"
             fillOpacity={0.3}
             className={radarClass}
           />

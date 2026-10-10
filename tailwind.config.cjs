@@ -1,4 +1,6 @@
 const colors = require('tailwindcss/colors');
+const themeColor = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+const themeScale = (name) => Object.fromEntries(Object.keys(colors[name]).map((shade) => [shade, themeColor(`${name}-${shade}`)]));
 
 module.exports = {
   content: ['./index.html', './*.{ts,tsx}', './components/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
@@ -8,15 +10,17 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        navy: '#0a192f',
-        lightNavy: '#112240',
-        lightestNavy: '#233554',
-        slate: { ...colors.slate, DEFAULT: '#8892b0' },
-        lightSlate: '#a8b2d1',
-        lightestSlate: '#ccd6f6',
-        white: '#e6f1ff',
-        teal: { ...colors.teal, DEFAULT: '#64ffda' },
-        tealTint: 'rgba(100, 255, 218, 0.1)',
+        navy: themeColor('navy'),
+        lightNavy: themeColor('light-navy'),
+        lightestNavy: themeColor('lightest-navy'),
+        slate: { ...themeScale('slate'), DEFAULT: themeColor('slate') },
+        lightSlate: themeColor('light-slate'),
+        lightestSlate: themeColor('lightest-slate'),
+        white: themeColor('white'),
+        teal: { ...themeScale('teal'), DEFAULT: themeColor('teal') },
+        cyan: themeScale('cyan'),
+        amber: themeScale('amber'),
+        tealTint: 'rgb(var(--teal) / 0.1)',
       },
     },
   },

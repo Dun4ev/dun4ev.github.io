@@ -20,7 +20,7 @@ export const SkillCloud: React.FC<SkillCloudProps> = ({ data }) => {
                 {skills.map((skill, index) => (
                     <span
                         key={skill.id}
-                        className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 border border-teal-300/20 tech-tag-animate transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400/20 hover:shadow-[0_0_10px_rgba(94,234,212,0.2)] cursor-default"
+                        className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 border border-teal-300/20 tech-tag-animate transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-400/20 hover:shadow-[0_0_10px_rgb(var(--teal-300)/0.2)] cursor-default"
                         style={{ animationDelay: `${index * 0.4}s` }}
                     >
                         {skill.id}

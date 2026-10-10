@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
+import { ThemeSwitcher } from './ThemeSwitcher';
 import { localizedHref } from '../src/routes';
 
 export const LanguagePathContext = React.createContext<string>('');
@@ -22,40 +23,43 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ size = 'comp
     const routePath = React.useContext(LanguagePathContext) || pathname;
 
     return (
-        <div
-            className={`inline-flex items-center rounded-full border border-lightestNavy bg-lightNavy p-1 text-xs font-medium text-slate ${
-                isTouchSize ? 'w-52' : 'w-48'
-            }`}
-            role="group"
-            aria-label={t('language.label')}
-        >
-            <Globe className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
-            <span className={`${isTouchSize ? 'mx-2 w-14' : 'mx-1.5 w-14'} text-center tracking-wide`}>
-                {t('language.label')}
-            </span>
-            <span className="flex items-center gap-0.5">
-                {languages.map((language) => {
-                    const isActive = language.code === currentLanguage;
+        <div className="appearance-controls">
+            <div
+                className={`inline-flex items-center rounded-full border border-lightestNavy bg-lightNavy p-1 text-xs font-medium text-slate ${
+                    isTouchSize ? 'w-52' : 'w-48'
+                }`}
+                role="group"
+                aria-label={t('language.label')}
+            >
+                <Globe className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
+                <span className={`${isTouchSize ? 'mx-2 w-14' : 'mx-1.5 w-14'} text-center tracking-wide`}>
+                    {t('language.label')}
+                </span>
+                <span className="flex items-center gap-0.5">
+                    {languages.map((language) => {
+                        const isActive = language.code === currentLanguage;
 
-                    return (
-                        <a
-                            key={language.code}
-                            href={localizedHref(routePath, language.code)}
-                            data-analytics-event="language_switch"
-                            data-analytics-value={language.code}
-                            className={`${isTouchSize ? 'h-11 w-11' : 'w-10 py-1.5'} inline-flex items-center justify-center rounded-full px-2.5 font-semibold tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
-                                isActive
-                                    ? 'bg-teal text-navy shadow-[0_0_0_1px_rgba(100,255,218,0.45),0_0_14px_rgba(100,255,218,0.22)]'
-                                    : 'text-slate hover:bg-lightestNavy hover:text-lightestSlate'
-                            }`}
-                            aria-label={t('language.switch_to', { language: language.name })}
-                            aria-current={isActive ? 'page' : undefined}
-                        >
-                            {language.shortLabel}
-                        </a>
-                    );
-                })}
-            </span>
+                        return (
+                            <a
+                                key={language.code}
+                                href={localizedHref(routePath, language.code)}
+                                data-analytics-event="language_switch"
+                                data-analytics-value={language.code}
+                                className={`${isTouchSize ? 'h-11 w-11' : 'w-10 py-1.5'} inline-flex items-center justify-center rounded-full px-2.5 font-semibold tracking-wider transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
+                                    isActive
+                                        ? 'bg-teal text-navy language-switcher-active'
+                                        : 'text-slate hover:bg-lightestNavy hover:text-lightestSlate'
+                                }`}
+                                aria-label={t('language.switch_to', { language: language.name })}
+                                aria-current={isActive ? 'page' : undefined}
+                            >
+                                {language.shortLabel}
+                            </a>
+                        );
+                    })}
+                </span>
+            </div>
+            <ThemeSwitcher size={size} />
         </div>
     );
 };

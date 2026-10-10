@@ -1,4 +1,8 @@
 {
+    "theme": {
+        "warm_palette": "Warm orange palette",
+        "light_mode": "Light mode"
+    },
     "language": {
         "label": "Language",
         "english": "English",

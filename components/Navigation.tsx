@@ -64,6 +64,9 @@ export const Navigation: React.FC<NavigationProps> = ({ onNavigate }) => {
     <div className="mt-16 hidden lg:block">
       <LineSidebar
         items={items}
+        accentColor="rgb(var(--teal-400))"
+        textColor="rgb(var(--slate-500))"
+        markerColor="rgb(var(--slate-600))"
         activeIndex={activeIndex >= 0 ? activeIndex : null}
         onItemClick={(_, item, event) => handleNavClick(event, item.href)}
       />

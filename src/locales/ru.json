@@ -1,4 +1,8 @@
 {
+    "theme": {
+        "warm_palette": "Теплая оранжевая палитра",
+        "light_mode": "Светлая тема"
+    },
     "language": {
         "label": "Язык",
         "english": "английский",

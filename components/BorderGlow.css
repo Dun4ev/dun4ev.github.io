@@ -136,8 +136,18 @@
 }
 
 .experience-stage-glow {
-  border-color: rgb(51 65 85 / 80%);
+  border-color: rgb(var(--slate-700) / 80%);
   box-shadow: 0 12px 36px rgb(2 6 23 / 18%);
+}
+
+.experience-stage-glow > .edge-light {
+  --glow-color: rgb(var(--teal-300) / 70%);
+  --glow-color-60: rgb(var(--teal-300) / 42%);
+  --glow-color-50: rgb(var(--teal-300) / 35%);
+  --glow-color-40: rgb(var(--teal-300) / 28%);
+  --glow-color-30: rgb(var(--teal-300) / 21%);
+  --glow-color-20: rgb(var(--teal-300) / 14%);
+  --glow-color-10: rgb(var(--teal-300) / 7%);
 }
 
 .experience-stage-glow .border-glow-inner {
