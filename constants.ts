@@ -138,6 +138,20 @@ export const PROJECTS: Project[] = [
     impact: 'Brings assignments, deadlines and the latest update into one shared workflow instead of separate spreadsheet extracts.'
   },
   {
+    id: 'pizza-tt426-3d',
+    title: 'Pizza TT426 3D Layout',
+    description: 'An interactive preliminary 3D layout of a pizzeria. Explore 57 equipment objects and labels, select equipment, review dimensions with their stated sources, change camera angles, and export a PNG. The geometry follows the source plan; heights and materials are illustrative. This visualization supports layout discussions and is not a measured survey or installation design.',
+    tools: ['React', 'Three.js', 'Vite', 'RU / EN'],
+    link: 'https://pizza-tt426-3d.pages.dev/',
+    image: '/images/projects/pizza-plan.png',
+    imageWidth: 1700,
+    imageHeight: 941,
+    category: 'Interactive Demo',
+    role: 'Design & Development',
+    status: 'Interactive visualisation / Preliminary layout',
+    impact: 'Makes a preliminary equipment layout easier to review through interactive selection, source-aware dimensions, and multiple views.'
+  },
+  {
     id: 'ostatak',
     title: 'Ostatak',
     description: 'A working restaurant delivery reconciliation prototype. Match orders and payouts from two CSV templates, review deductions and discrepancies, and export the results. Runs in the browser in English and Russian. Uses synthetic demo data; AI document reading and Wolt/Glovo connections are not enabled.',

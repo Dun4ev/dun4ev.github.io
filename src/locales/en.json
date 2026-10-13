@@ -256,6 +256,14 @@
                 "impact": "Brings assignments, deadlines and the latest update into one shared workflow instead of separate spreadsheet extracts.",
                 "category": "Interactive Demo",
                 "status": "Live Demo / Fictional Data"
+            },
+            "pizza-tt426-3d": {
+                "title": "Pizza TT426 3D Layout",
+                "description": "An interactive preliminary 3D layout of a pizzeria. Explore 57 equipment objects and labels, select equipment, review dimensions with their stated sources, change camera angles, and export a PNG. The geometry follows the source plan; heights and materials are illustrative. This visualization supports layout discussions and is not a measured survey or installation design.",
+                "category": "Interactive Demo",
+                "role": "Design & Development",
+                "status": "Interactive visualisation / Preliminary layout",
+                "impact": "Makes a preliminary equipment layout easier to review through interactive selection, source-aware dimensions, and multiple views."
             }
         },
         "view_source": "View source on GitHub",
