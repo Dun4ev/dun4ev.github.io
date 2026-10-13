@@ -10,6 +10,7 @@ import { DeferredRadar } from './components/DeferredRadar';
 import { JOBS, EXPERIENCE_STAGES, D3_DATA, SOCIAL_LINKS, PROJECTS, ARTICLES } from './constants';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProjectsPage } from './components/ProjectsPage';
+import { ActionRegisterCase } from './components/ActionRegisterCase';
 import { KnowledgeBasePage } from './components/KnowledgeBasePage';
 import { ArticlesPage } from './components/ArticlesPage';
 import { GitHubContributions } from './components/GitHubContributions';
@@ -70,6 +71,7 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
   };
 
   const isProjectsPage = routePath === '/projects' || routePath === '/labs';
+  const isActionRegisterCase = routePath === '/projects/action-register';
   const isKnowledgeBasePage = routePath === '/knowledge-base';
   const isArticlesPage = routePath === '/articles';
   const isSpatialDemoPage = routePath === '/spatial-demo';
@@ -90,6 +92,14 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
         <ProjectsPage onNavigate={navigateTo} />
       </div>
     );
+  }
+
+  if (isActionRegisterCase) {
+    return <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
+      <MobileNavigation routePath={routePath} onNavigate={navigateTo} />
+      <CursorSpotlight />
+      <ActionRegisterCase />
+    </div>;
   }
 
   if (isKnowledgeBasePage) {
@@ -335,6 +345,8 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
               </div>
               <FadeIn>
                 <div className="mt-12">
+                  <h3 className="mb-6 text-sm font-semibold text-teal-300">{t('projects.demo_title')}</h3>
+                  {PROJECTS.filter(project => project.id === 'action-register').map(project => <div key={project.id} className="mb-8"><ProjectCard project={project} /><a href={href(project.caseStudy!)} className="relative mt-3 inline-flex items-center gap-2 text-sm font-medium text-teal-300 hover:text-slate-100">{t('projects.read_case')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a></div>)}
                   <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href={href('/projects')} onClick={handleProjectsClick}>
                     <span>{t('projects.view_archive')} <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>

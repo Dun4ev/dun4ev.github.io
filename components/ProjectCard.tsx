@@ -103,7 +103,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
             className="mt-4 flex items-center text-sm font-medium text-slate-400 hover:text-teal-300 transition-colors w-max relative z-10"
           >
             {isGitHubProject ? <Github className="w-4 h-4 mr-2" /> : <ExternalLink className="w-4 h-4 mr-2" />}
-            <span>{t(isGitHubProject ? 'projects.view_source' : 'projects.view_live_site')}</span>
+            <span>{t(isGitHubProject ? 'projects.view_source' : project.caseStudy ? 'projects.try_demo' : 'projects.view_live_site')}</span>
           </a>
         )}
       </div>

@@ -6,12 +6,14 @@ const descriptions = {
   en: {
     '/': 'Andrej Dunaev: energy infrastructure engineer with 20+ years of experience. Engineering coordination, technical documentation, vendor collaboration and automation projects.',
     '/projects': 'Engineering automation tools, client websites and interactive demos by Andrej Dunaev. Project descriptions, screenshots, source repositories and published examples.',
+    '/projects/action-register': 'Action Register by Andrej Dunaev: a bilingual team task workflow with manager review, registrar intake, a draggable board and email drafts. Explore the fictional-data demo.',
     '/articles': 'Articles and visual investigations by Andrej Dunaev on engineering automation, vendor documentation, AI coding agents and professional development.',
     '/knowledge-base': 'Visual guides, diagrams and practical notes on AI agents, engineering automation and documentation workflows, collected by Andrej Dunaev.',
   },
   ru: {
     '/': 'Андрей Дунаев: инженер энергетической инфраструктуры с опытом более 20 лет. Инженерная координация, техническая документация, работа с поставщиками и автоматизация.',
     '/projects': 'Инструменты инженерной автоматизации, клиентские сайты и интерактивные демо Андрея Дунаева. Описания проектов, скриншоты, исходный код и опубликованные примеры.',
+    '/projects/action-register': 'Реестр поручений Андрея Дунаева: работа команды, приемка руководителем, регистрация писем, доска и история обновлений. Описание проекта и демонстрация на условных данных.',
     '/articles': 'Статьи и визуальные исследования Андрея Дунаева об инженерной автоматизации, документации поставщиков, AI-агентах и профессиональном развитии.',
     '/knowledge-base': 'Визуальные руководства, схемы и практические заметки об AI-агентах, инженерной автоматизации и работе с документацией в подборке Андрея Дунаева.',
   },
@@ -20,7 +22,7 @@ const descriptions = {
 export const getPageMetadata = (pathname: string, translate: (key: string) => string) => {
   const language = getLanguage(pathname);
   const page = getPagePath(pathname);
-  const titleKey = page === '/projects' ? 'projectsPage.title'
+  const titleKey = page === '/projects/action-register' ? 'actionRegisterCase.title' : page === '/projects' ? 'projectsPage.title'
     : page === '/articles' ? 'articlesPage.title'
       : page === '/knowledge-base' ? 'knowledgePage.title' : 'header.title';
   const authorName = translate('header.title');
@@ -38,7 +40,7 @@ export const getPageMetadata = (pathname: string, translate: (key: string) => st
   const graph: Record<string, unknown>[] = [
     { '@type': 'WebSite', '@id': `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: 'Dun4Ev', publisher: { '@id': person['@id'] } },
     person,
-    { '@type': page === '/' ? 'ProfilePage' : 'CollectionPage', '@id': `${canonical}#page`, url: canonical,
+    { '@type': page === '/' ? 'ProfilePage' : page === '/projects/action-register' ? 'WebPage' : 'CollectionPage', '@id': `${canonical}#page`, url: canonical,
       name: title, description: descriptions[language][page], inLanguage: language,
       isPartOf: { '@id': `${SITE_URL}/#website` }, ...(page === '/' ? { mainEntity: { '@id': person['@id'] } } : {}) },
   ];

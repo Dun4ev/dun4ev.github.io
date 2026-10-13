@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Project } from '../types';
+import { localizedHref } from '../src/routes';
 
 const resolveImageSrc = (imagePath?: string) => {
   if (!imagePath) {
@@ -100,7 +101,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
         </ul>
 
         {link && (
-          <div className="mt-auto pt-6">
+          <div className="mt-auto flex flex-wrap gap-x-5 gap-y-3 pt-6">
             <a
               href={link}
               target="_blank"
@@ -108,8 +109,9 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
             >
               {isGitHubProject ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
-              {t(isGitHubProject ? 'projectsPage.view_source' : 'projectsPage.view_live_site')}
+              {t(isGitHubProject ? 'projectsPage.view_source' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
             </a>
+            {project.caseStudy && <a href={localizedHref(project.caseStudy, i18n.resolvedLanguage === 'ru' ? 'ru' : 'en')} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-teal-300">{t('projects.read_case')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>}
           </div>
         )}
       </div>

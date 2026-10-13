@@ -1,6 +1,6 @@
 export type SiteLanguage = 'en' | 'ru';
 
-export const PAGE_PATHS = ['/', '/projects/', '/articles/', '/knowledge-base/'] as const;
+export const PAGE_PATHS = ['/', '/projects/', '/projects/action-register/', '/articles/', '/knowledge-base/'] as const;
 export type PagePath = (typeof PAGE_PATHS)[number];
 
 export const getLanguage = (pathname: string): SiteLanguage => (

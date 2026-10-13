@@ -123,6 +123,21 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'action-register',
+    title: 'Action Register',
+    description: 'A bilingual web app for tracking team actions, deadlines and outcomes. Managers review progress and accept completed work; registrars maintain records; employees see their assigned tasks. Includes a table, a drag-and-drop board, comments and email-to-draft import.',
+    tools: ['JavaScript', 'Node.js', 'Cloudflare Workers', 'D1', 'Workflow UX', 'EN / RU'],
+    link: 'https://action-register-demo.andreydunaev1.workers.dev/',
+    caseStudy: '/projects/action-register/',
+    image: '/images/projects/action-register.png',
+    imageWidth: 1280,
+    imageHeight: 720,
+    category: 'Interactive Demo',
+    role: 'Design & Development',
+    status: 'Live Demo / Fictional Data',
+    impact: 'Brings assignments, deadlines and the latest update into one shared workflow instead of separate spreadsheet extracts.'
+  },
+  {
     id: 'ostatak',
     title: 'Ostatak',
     description: 'A working restaurant delivery reconciliation prototype. Match orders and payouts from two CSV templates, review deductions and discrepancies, and export the results. Runs in the browser in English and Russian. Uses synthetic demo data; AI document reading and Wolt/Glovo connections are not enabled.',

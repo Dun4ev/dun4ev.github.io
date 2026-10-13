@@ -249,10 +249,20 @@
                 "impact": "Delivered the complete path from content and interface design to domain launch, Yandex verification, and search-ready technical indexing.",
                 "category": "Client Website",
                 "status": "Live"
+            },
+            "action-register": {
+                "title": "Action Register",
+                "description": "A bilingual web app for tracking team actions, deadlines and outcomes. Managers review progress and accept completed work; registrars maintain records; employees see their assigned tasks. Includes a table, a drag-and-drop board, comments and email-to-draft import.",
+                "impact": "Brings assignments, deadlines and the latest update into one shared workflow instead of separate spreadsheet extracts.",
+                "category": "Interactive Demo",
+                "status": "Live Demo / Fictional Data"
             }
         },
         "view_source": "View source on GitHub",
-        "view_live_site": "Open live website"
+        "view_live_site": "Open live website",
+        "read_case": "Read the case study",
+        "try_demo": "Try the demo",
+        "demo_title": "Interactive demo: Action Register"
     },
     "projectsPage": {
         "back_home": "Back home",
@@ -412,5 +422,56 @@
     "footer": {
         "built_with": "Designed and built with <0>React</0>, <1>Tailwind CSS</1>, and <2>D3.js</2>.",
         "inspired_by": "Inspired by the portfolio of Brittany Chiang."
+    },
+    "actionRegisterCase": {
+        "title": "Action Register",
+        "subtitle": "Team actions, deadlines and outcomes",
+        "try_demo": "Try the demo",
+        "back_projects": "Back to projects",
+        "screenshot_alt": "Action Register: English task table with owners, statuses and deadlines",
+        "screenshot_caption": "Actual application interface. The records and accounts shown are fictional; task text stays in the language in which it was entered.",
+        "problem_title": "The starting point",
+        "problem": "Action items were maintained in Excel, then filtered and sent to employees as separate extracts. Keeping the team overview, individual assignments and the latest updates aligned required repeated manual work.",
+        "solution": "This prototype explores one shared register. A table supports comparison across the team; a draggable board shows progress. A sliding task drawer keeps the source, expected outcome and discussion beside the task.",
+        "workflow_title": "From incoming action to accepted result",
+        "roles_title": "Three roles",
+        "email_title": "From email to a reviewed draft",
+        "email": "Drop an EML or TXT file, or paste email text. The subject and body fill a draft. A registrar reviews the action, selects owners and a deadline, and specifies the expected result before saving. Import does not interpret the meaning of a conversation.",
+        "implementation": "The Node.js application and Cloudflare Worker share business rules. The cloud demo stores records in D1; GitHub updates trigger automated checks and deployment.",
+        "demo_title": "What the demo includes",
+        "demo": "The live demo uses fictional records and a role selector. Visitors share changes. Employees receive assigned tasks only; the API also checks access. The demo selector lets visitors try every role and does not establish a real corporate identity.",
+        "boundary": "Microsoft sign-in, mailbox reception, original attachment storage, MSG import and AI analysis are not connected. These are separate integration tasks, not features of the current demo.",
+        "roles": {
+            "manager": {
+                "title": "Manager",
+                "text": "Reviews the team, assigns work and accepts results after review."
+            },
+            "registrar": {
+                "title": "Registrar",
+                "text": "Registers incoming actions and emails, maintains owners, deadlines and source details. Cannot accept or reopen completed work."
+            },
+            "employee": {
+                "title": "Employee",
+                "text": "Sees assigned tasks, updates progress and adds comments or results."
+            }
+        },
+        "steps": {
+            "register": {
+                "title": "Register the action.",
+                "text": "Enter the request or prepare a draft from an email, with a reference to its source."
+            },
+            "assign": {
+                "title": "Assign responsibility.",
+                "text": "Select one or more owners, an optional deadline and the expected outcome."
+            },
+            "update": {
+                "title": "Keep the latest state visible.",
+                "text": "Move a card or select a status; add progress and context to the task history."
+            },
+            "review": {
+                "title": "Review and accept.",
+                "text": "Submit the result for review. A manager accepts completed work or returns it for follow-up."
+            }
+        }
     }
 }

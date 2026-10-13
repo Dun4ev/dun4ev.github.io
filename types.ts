@@ -22,6 +22,7 @@ export interface Project {
   tools: string[];
   link?: string;
   linkRu?: string;
+  caseStudy?: string;
   image?: string;
   category?: string;
   usedAtWork?: boolean;
