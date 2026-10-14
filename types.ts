@@ -22,6 +22,7 @@ export interface Project {
   tools: string[];
   link?: string;
   linkRu?: string;
+  variants?: { label: string; href: string }[];
   caseStudy?: string;
   image?: string;
   category?: string;

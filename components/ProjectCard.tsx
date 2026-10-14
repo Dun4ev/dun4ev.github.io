@@ -96,6 +96,12 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
         </ul>
 
         {link && (
+          project.variants?.length ? <div className="relative z-10 mt-4 flex flex-wrap gap-x-5 gap-y-2">
+            {project.variants.map((variant) => <a key={variant.href} href={variant.href} target="_blank" rel="noreferrer" className="relative z-10 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-teal-300">
+              <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+              {t('projects.open_version', { version: variant.label })}
+            </a>)}
+          </div> : (
           <a
             href={link}
             target="_blank"
@@ -105,6 +111,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
             {isGitHubProject ? <Github className="w-4 h-4 mr-2" /> : <ExternalLink className="w-4 h-4 mr-2" />}
             <span>{t(isGitHubProject ? 'projects.view_source' : project.caseStudy ? 'projects.try_demo' : 'projects.view_live_site')}</span>
           </a>
+          )
         )}
       </div>
     </div>

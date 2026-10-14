@@ -143,6 +143,10 @@ export const PROJECTS: Project[] = [
     description: 'An interactive preliminary 3D layout of a pizzeria. Explore 57 equipment objects and labels, select equipment, review dimensions with their stated sources, change camera angles, and export a PNG. The geometry follows the source plan; heights and materials are illustrative. This visualization supports layout discussions and is not a measured survey or installation design.',
     tools: ['React', 'Three.js', 'Vite', 'RU / EN'],
     link: 'https://pizza-tt426-3d.pages.dev/',
+    variants: [
+      { label: 'Codex · GPT-6.1 Sol (High)', href: 'https://pizza-tt426-3d.pages.dev/' },
+      { label: 'Gemini 4 Argon', href: 'https://pizza-tt426-3d-g4argon.pages.dev/' },
+    ],
     image: '/images/projects/pizza-plan.png',
     imageWidth: 1700,
     imageHeight: 941,

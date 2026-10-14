@@ -102,6 +102,12 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
 
         {link && (
           <div className="mt-auto flex flex-wrap gap-x-5 gap-y-3 pt-6">
+            {project.variants?.length ? project.variants.map((variant) => (
+              <a key={variant.href} href={variant.href} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300">
+                <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {t('projects.open_version', { version: variant.label })}
+              </a>
+            )) : (
             <a
               href={link}
               target="_blank"
@@ -111,6 +117,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
               {isGitHubProject ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
               {t(isGitHubProject ? 'projectsPage.view_source' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
             </a>
+            )}
             {project.caseStudy && <a href={localizedHref(project.caseStudy, i18n.resolvedLanguage === 'ru' ? 'ru' : 'en')} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-teal-300">{t('projects.read_case')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>}
           </div>
         )}
