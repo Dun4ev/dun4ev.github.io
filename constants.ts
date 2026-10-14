@@ -139,13 +139,12 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'pizza-tt426-3d',
-    title: 'Pizza TT426 3D Layout',
-    description: 'An interactive preliminary 3D layout of a pizzeria. Explore 57 equipment objects and labels, select equipment, review dimensions with their stated sources, change camera angles, and export a PNG. The geometry follows the source plan; heights and materials are illustrative. This visualization supports layout discussions and is not a measured survey or installation design.',
+    title: 'Pizza TT426 3D · Codex',
+    description: 'Built with Codex GPT-6.1 Sol (High) from a 2D equipment plan. Explore 57 equipment objects and labels, select equipment, review dimensions with their stated sources, change camera angles, and export a PNG. The geometry follows the source plan; heights and materials are illustrative. This visualization supports layout discussions and is not a measured survey or installation design.',
     tools: ['React', 'Three.js', 'Vite', 'RU / EN'],
     link: 'https://pizza-tt426-3d.pages.dev/',
     variants: [
       { label: 'Codex · GPT-6.1 Sol (High)', href: 'https://pizza-tt426-3d.pages.dev/' },
-      { label: 'Gemini 4 Argon', href: 'https://pizza-tt426-3d-g4argon.pages.dev/' },
     ],
     image: '/images/projects/pizza-plan.png',
     imageWidth: 1700,
@@ -154,6 +153,23 @@ export const PROJECTS: Project[] = [
     role: 'Design & Development',
     status: 'Interactive visualisation / Preliminary layout',
     impact: 'Makes a preliminary equipment layout easier to review through interactive selection, source-aware dimensions, and multiple views.'
+  },
+  {
+    id: 'pizza-tt426-3d-g4argon',
+    title: 'Pizza TT426 3D · Gemini 4 Argon',
+    description: 'Built with Gemini 4 Argon using a detailed prompt and the same 2D equipment plan. Explore 57 records, switch between four visual themes and six camera views, adjust the wall cutaway, inspect animated menu screens, and export a PNG. Includes the anonymized English PDF plan. Heights and materials are illustrative; this is a preliminary visualization.',
+    tools: ['HTML', 'JavaScript', 'WebGL', 'RU / EN'],
+    link: 'https://pizza-tt426-3d-g4argon.pages.dev/',
+    variants: [
+      { label: 'Gemini 4 Argon', href: 'https://pizza-tt426-3d-g4argon.pages.dev/' },
+    ],
+    image: '/images/projects/pizza-plan-gemini.png',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    category: 'Interactive Demo',
+    role: 'Design & Development',
+    status: 'Interactive visualisation / Preliminary layout',
+    impact: 'Offers a second interpretation of the same plan, with visual themes, adjustable wall cutaways, and a dedicated menu-screen inspector.'
   },
   {
     id: 'ostatak',
