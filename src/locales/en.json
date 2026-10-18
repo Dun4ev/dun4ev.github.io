@@ -181,6 +181,22 @@
                 "status": "Live Demo / Synthetic Data",
                 "impact": "Demonstrates a document review workflow and provides a starting point for a paid pilot tailored to a client process."
             },
+            "vila-mirava": {
+                "title": "Vila Mirava",
+                "description": "A self-initiated SR/EN website concept for a fictional riverside villa with a pool. An immersive hero, interactive photo gallery, illustrative floor plan, and restrained motion use AI-generated imagery. Booking and payments are not enabled.",
+                "category": "Website Concept",
+                "role": "Design & Development",
+                "status": "Independent Concept",
+                "impact": "Explores a calm hospitality website with accessible galleries, dialogs, and responsive navigation."
+            },
+            "vila-borika": {
+                "title": "Vila Borika",
+                "description": "A self-initiated SR/EN website concept for a fictional timber mountain chalet. A split-screen hero, cream and terracotta palette, interactive gallery, and curved mobile menu create a distinct visual identity. Images are AI-generated; booking and payments are not enabled.",
+                "category": "Website Concept",
+                "role": "Design & Development",
+                "status": "Independent Concept",
+                "impact": "Explores a mountain-stay identity with responsive layouts, keyboard navigation, and reduced-motion support."
+            },
             "vila-tihora": {
                 "title": "Vila Tihora",
                 "description": "An independent website concept for a fictional countryside villa. It combines an editorial layout, responsive navigation, an interactive gallery, an illustrative map, and a demo enquiry form. The seven images were generated from text descriptions without reference photos; the form sends no data.",
