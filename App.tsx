@@ -227,19 +227,6 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 </ul>
               </section>
 
-              <section className="my-10" aria-labelledby="document-offers-title">
-                <h2 id="document-offers-title" className="mb-2 text-sm font-bold uppercase tracking-widest text-slate-200">{t('documentOffers.title')}</h2>
-                <p className="mb-4 text-sm text-slate-400">{t('documentOffers.description')}</p>
-                <ul className="divide-y divide-slate-700/50 border-y border-slate-700/50">
-                  {(['rfi', 'audit', 'intake'] as const).map(service => <li key={service}>
-                    <a href={`https://engineering.dun4ev.com/?lang=en#document-service-${service}`} className="group flex items-center justify-between gap-4 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300" target="_blank" rel="noreferrer">
-                      <span><span className="block font-medium text-slate-200 group-hover:text-teal-300">{t(`documentOffers.${service}.title`)}</span><span className="mt-1 block text-sm text-slate-400">{t(`documentOffers.${service}.description`)}</span><span className="mt-2 block text-sm font-medium text-teal-300">{t(`documentOffers.${service}.price`)}</span></span>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-teal-300" aria-hidden="true"/>
-                    </a>
-                  </li>)}
-                </ul><p className="mt-3 text-xs text-slate-400">{t('documentOffers.note')}</p>
-              </section>
-
               {/* Radar Chart Visualization */}
               <FadeIn delay={200}>
                 <DeferredRadar />

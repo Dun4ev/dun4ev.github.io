@@ -506,25 +506,5 @@
                 "text": "Submit the result for review. A manager accepts completed work or returns it for follow-up."
             }
         }
-    },
-    "documentOffers": {
-        "title": "Document workflow services",
-        "description": "For contractors and engineering offices using Word, Excel and document folders. Your staff reviews and approves the result.",
-        "rfi": {
-            "title": "Company-specific RFI / TQR setup",
-            "description": "One template and register; field rules, draft preparation and handover. Scope agreed after sample review.",
-            "price": "$300–600 · scoped implementation"
-        },
-        "audit": {
-            "title": "Register vs. document folder check",
-            "description": "Find missing entries, date conflicts and ambiguous matches with source references. Up to 500 register rows and 50 files.",
-            "price": "$50 · agreed package"
-        },
-        "intake": {
-            "title": "Technical request inbox pilot",
-            "description": "Explore upload, field review, register history and Word / Excel export around your forms. A proposed pilot, not a ready subscription.",
-            "price": "Pilot on request"
-        },
-        "note": "See full scope and request an email brief on Engineering (EN/SR). Start with a redacted example; no confidential attachments in the first inquiry."
     }
 }
