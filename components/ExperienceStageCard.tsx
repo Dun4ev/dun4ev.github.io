@@ -73,7 +73,7 @@ export const ExperienceStageCard: React.FC<Props> = ({ stage, jobs }) => {
                 </span>
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">
+              <p className="mt-3 text-base leading-relaxed text-slate-400">
                 {t(`${translationKey}.summary`)}
               </p>
 

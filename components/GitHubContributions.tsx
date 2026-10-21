@@ -30,14 +30,14 @@ const resolveDataUrl = () => {
   return `${normalizedBase}data/github-contributions.json`;
 };
 
-const formatMonth = (date: string) => {
-  return new Intl.DateTimeFormat('en', { month: 'short' }).format(new Date(date));
+const formatMonth = (date: string, language: string) => {
+  return new Intl.DateTimeFormat(language, { month: 'short' }).format(new Date(date));
 };
 
 const visibleWeekCount = 26;
 
 export const GitHubContributions: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState<ContributionData | null>(null);
   const [hasError, setHasError] = useState(false);
 
@@ -83,15 +83,19 @@ export const GitHubContributions: React.FC = () => {
 
     let previousMonth = '';
 
-    return visibleWeeks.map((week) => {
+    const labels = visibleWeeks.map((week) => {
       const firstDay = week.contributionDays[0]?.date || week.firstDay;
-      const month = formatMonth(firstDay);
+      const month = formatMonth(firstDay, i18n.resolvedLanguage || 'en');
       const label = month !== previousMonth ? month : '';
       previousMonth = month;
 
       return label;
     });
-  }, [visibleWeeks]);
+    // A partial first month must not collide with the next month label.
+    const nextMonth = labels.findIndex((label, index) => index > 0 && label);
+    if (nextMonth > 0 && nextMonth < 3) labels[0] = '';
+    return labels;
+  }, [visibleWeeks, i18n.resolvedLanguage]);
 
   const hasCalendar = Boolean(visibleWeeks.length);
 
@@ -131,7 +135,7 @@ export const GitHubContributions: React.FC = () => {
           <div className="w-full max-w-[360px]">
             <div className="mb-1.5 grid gap-[3px]" style={{ gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))` }}>
               {monthLabels.map((label, index) => (
-                <span key={`${label}-${index}`} className="h-4 text-[10px] leading-4 text-slate-500">
+                <span key={`${label}-${index}`} className="h-4 text-xs leading-4 text-slate-500">
                   {label}
                 </span>
               ))}
@@ -158,7 +162,7 @@ export const GitHubContributions: React.FC = () => {
               ))}
               <span>{t('githubActivity.more')}</span>
             </div>
-            <p className="mt-1.5 text-[11px] font-medium leading-4 text-slate-500">
+            <p className="mt-1.5 text-[13px] font-medium leading-5 text-slate-500">
               {t('githubActivity.visible_period')}
             </p>
           </div>

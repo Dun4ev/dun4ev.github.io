@@ -63,7 +63,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
               href={link}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+              className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-lg"
             >
               <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
               <span>
@@ -74,19 +74,19 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
               </span>
             </a>
           ) : (
-            <span className="text-base font-medium leading-tight text-slate-200">
+            <span className="text-lg font-medium leading-snug text-slate-200">
               {t(`projects.items.${project.id}.title`)}
             </span>
           )}
         </h3>
-        <p className="mt-2 text-sm leading-normal text-slate-400">
+        <p className="mt-2 text-base leading-relaxed text-slate-400">
           {t(`projects.items.${project.id}.description`)}
         </p>
-        <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+        <ul className="mt-2 flex flex-wrap" aria-label={t('projectsPage.card_tools')}>
           {project.tools.map((tech, index) => (
             <li key={tech} className="mr-1.5 mt-2">
               <div
-                className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 border border-teal-300/10 tech-tag-animate"
+                className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-[13px] font-medium leading-5 text-teal-300 border border-teal-300/10 tech-tag-animate"
                 style={{ animationDelay: `${index * 0.8}s` }}
               >
                 {tech}

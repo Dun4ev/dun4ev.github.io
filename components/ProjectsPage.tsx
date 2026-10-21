@@ -39,7 +39,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <Breadcrumbs current={t('projectsPage.title')} />
+        <Breadcrumbs current={t('navigation.projects')} />
 
         <section className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-teal-300">

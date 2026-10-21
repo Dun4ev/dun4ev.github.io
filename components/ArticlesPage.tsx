@@ -29,8 +29,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
         <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-amber-300/20 bg-amber-300/10 text-amber-300">
           <BookMarked className="h-5 w-5" />
         </div>
-        <div className="text-right text-xs font-semibold text-slate-500">
-          <div>{article.date}</div>
+        <div className="text-right text-[13px] font-semibold text-slate-500">
+          <div>{t(`articles.items.${article.id}.date`, { defaultValue: article.date })}</div>
           <div className="mt-1 inline-flex items-center gap-1">
             <Clock3 className="h-3 w-3" />
             {t(`articles.items.${article.id}.readTime`, { defaultValue: article.readTime })}
@@ -44,7 +44,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
           <h2 className="text-xl font-semibold leading-snug text-slate-100">
             {t(`articles.items.${article.id}.title`)}
           </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-400">
+          <p className="mt-3 text-base leading-7 text-slate-400">
             {t(`articles.items.${article.id}.description`)}
           </p>
         </div>
@@ -66,7 +66,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
           <Sparkles className="h-3.5 w-3.5" />
           {t('articlesPage.highlight_label')}
         </div>
-        <p className="text-sm leading-6 text-slate-300">{t(`articles.items.${article.id}.highlight`, { defaultValue: article.highlight })}</p>
+        <p className="text-base leading-7 text-slate-300">{t(`articles.items.${article.id}.highlight`, { defaultValue: article.highlight })}</p>
         {article.id === 'it-levels-l0-l11' && (
           <div className="mt-4 grid grid-cols-5 gap-2" aria-label={t('articlesPage.levels_label')}>
             {progressLabels.map((label) => (
@@ -83,7 +83,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, index }) => {
 
       <ul className="mt-5 flex flex-wrap gap-2" aria-label={t('articlesPage.tags_label')}>
         {article.tags.map((tag) => (
-          <li key={tag} className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">
+          <li key={tag} className="rounded-full bg-slate-800 px-3 py-1 text-[13px] font-medium text-slate-300">
             {tag}
           </li>
         ))}
@@ -111,7 +111,7 @@ export const ArticlesPage: React.FC<ArticlesPageProps> = ({ onNavigate }) => {
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <Breadcrumbs current={t('articlesPage.title')} />
+        <Breadcrumbs current={t('navigation.articles')} />
 
         <section className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-widest text-amber-300">

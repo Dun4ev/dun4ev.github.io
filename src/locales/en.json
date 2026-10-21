@@ -60,17 +60,17 @@
             "documents": "Documents\n(50k+ coordinated)",
             "updates": "Personally updated\n(350+)",
             "lifecycle": "Full lifecycle\n(design → operations)"
-        }
+        },
+        "title": "Experience at a Glance"
     },
     "about": {
-        "p1": "I am an energy infrastructure engineer with more than 20 years of experience in main gas pipeline, compressor station, industrial site facility, and underground gas storage projects.",
-        "p2": "For more than nine years, I worked on the design of pipeline systems and industrial facilities. My work then expanded to coordinating and overseeing the development of FEED and detailed design documentation, supporting construction and operations, preparing RFQs, coordinating with vendors, and managing change.",
-        "p3": "My strength is maintaining alignment among engineering decisions, documentation, and project participants’ actions. I support decision traceability, visibility into work status, and reliable information exchange among clients, design institutes, contractors, vendors, procurement, and operations.",
-        "p4": "On my own initiative, I systematically develop automation within my engineering and documentation workflows. I use Python, AI agents, and reusable agentic workflows to search and analyze documentation, prepare reports, track action items, and process technical data wherever confidentiality requirements permit. I preserve result traceability and the ability to perform engineering review: automation strengthens expertise but does not replace engineering judgment."
+        "p1": "I am an energy infrastructure engineer with 20 years of experience, from pipeline and industrial facility design to engineering coordination, construction support, and operational documentation.",
+        "p2": "I coordinated delivery of a compressor station and a 400 km main gas pipeline section. I worked with 30+ suppliers, as well as contractors and client teams. My focus is keeping technical decisions, documentation, deadlines, and follow-up actions aligned.",
+        "p3": "I also build Python tools for document processing, reporting, and action tracking. One practical result: distributing a batch of around 100 maintenance reports after review takes 5–10 seconds instead of 29 minutes. Engineering review remains a separate step."
     },
     "experience": {
         "title": "Work Experience",
-        "view_resume": "View Full Résumé",
+        "view_resume": "CV",
         "stages": {
             "toggle": "Show roles and full details",
             "collapse": "Hide roles and full details",
@@ -154,10 +154,16 @@
     },
     "skills": {
         "title": "Skills & Data",
-        "description": "My expertise lies at the intersection of <0>Engineering Coordination</0>, <1>Technical Documentation</1>, and <2>Data Automation</2>. The interactive graph below shows how these fields connect in my daily work — from RFQ and vendor documentation to issue tracking, reporting, and AI-assisted tools.",
+        "description": "I combine <0>Engineering Coordination</0>, <1>Technical Documentation</1>, and <2>Data Automation</2> in daily project work: RFQs, vendor reviews, reporting, and action tracking.",
         "software": "Engineering Software",
         "digital": "Digital Tech & Analytics",
-        "key_expertise": "Key Expertise"
+        "key_expertise": "Key Expertise",
+        "groups": {
+            "engineering": "Engineering & Design",
+            "data": "Data & Automation",
+            "management": "Project Coordination"
+        },
+        "core_title": "Core Competencies"
     },
     "projects": {
         "title": "Projects",
@@ -216,7 +222,9 @@
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
                 "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
-                "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work."
+                "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work.",
+                "category": "Internal Tool",
+                "status": "Source Code / No Public Demo"
             },
             "geofuse": {
                 "title": "GeoFuse",
@@ -228,22 +236,30 @@
             "auto-comment-sheets": {
                 "title": "TOiR Reporting Automation",
                 "description": "A Python tool for preparing technical reports, index folders, and transmittals. It fills Excel templates, groups project documentation, and creates ZIP archives.",
-                "impact": "Automates Excel template filling and document packaging for reports and transmittals."
+                "impact": "Automates Excel template filling and document packaging for reports and transmittals.",
+                "category": "Automation",
+                "status": "Production-ready"
             },
             "pipeline-analytics": {
                 "title": "TOiR Documentation Dispatcher",
                 "description": "A Python utility that distributes incoming project PDF reports into target directories, transliterates filenames, records operations in JSONL logs, and provides a Tkinter interface for monitoring the workflow.",
-                "impact": "Automates PDF routing and operation logging for engineering documentation flows."
+                "impact": "Automates PDF routing and operation logging for engineering documentation flows.",
+                "category": "Documentation",
+                "status": "Internal tool"
             },
             "portfolio-v2": {
                 "title": "AI-Powered PDF Search Engine",
                 "description": "A semantic search and question-answering system for PDF documents. It retrieves context from a local FAISS vector database and passes it to a language model using RAG (Retrieval-Augmented Generation). Answers depend on the retrieved document content.",
-                "impact": "Searches local technical PDFs and uses retrieved passages as context for answers."
+                "impact": "Searches local technical PDFs and uses retrieved passages as context for answers.",
+                "category": "AI / RAG",
+                "status": "Prototype"
             },
             "graf-html": {
                 "title": "Interactive Trend Visualization",
                 "description": "A Python/Dash tool for analyzing HVAC trend data exported from SCADA systems. It converts CSV and Excel measurements into interactive multi-signal charts, helping engineers compare equipment behavior, identify dependencies, and investigate anomalies.",
-                "impact": "Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts."
+                "impact": "Simplifies HVAC trend analysis and helps reveal relationships between system parameters without manually building charts.",
+                "category": "Data Visualization",
+                "status": "Reusable toolkit"
             },
             "bb-invest-website": {
                 "title": "BB INVEST Real Estate Website",
@@ -421,23 +437,40 @@
                 "readTime": "24 sec demo",
                 "highlight": "Vendor → EPC → AI analysis → stakeholder review → AI consolidation → EPC reply",
                 "image_alt": "Animation frame: AI analyzes the vendor documentation package before external review",
-                "open_label": "View animation"
+                "open_label": "View animation",
+                "date": "Sep 16, 2026"
             },
             "agent-incident-map": {
                 "title": "The OpenAI × Hugging Face Incident: An Agent Action Map",
-                "description": "An interactive forensic reconstruction of how isolated agents built a covert message board, coordinated reward-hacking research, and escalated into an attack on Hugging Face infrastructure."
+                "description": "An interactive forensic reconstruction of how isolated agents built a covert message board, coordinated reward-hacking research, and escalated into an attack on Hugging Face infrastructure.",
+                "category": "AI Safety & Agents",
+                "date": "Aug 29, 2026",
+                "readTime": "18 min read",
+                "highlight": "Seven days of coordination, spoofing, lateral movement, and the safeguards that failed"
             },
             "ai-architectural-presentation": {
                 "title": "From Idea to Concept Site in Hours: AI and Early Architectural Presentation",
-                "description": "How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website."
+                "description": "How AI can turn an early architectural idea into a presentable digital pitch with images, video, narrative structure, and a shareable website.",
+                "category": "AI & Architecture",
+                "date": "Apr 30, 2026",
+                "readTime": "3 min read",
+                "highlight": "Idea -> images -> video -> landing page -> publication"
             },
             "pdf-busywork-automation": {
                 "title": "How We Tamed `.pdf` and Saved Hours of Busywork",
-                "description": "A practical story about replacing manual PDF folder handling with a Python conveyor, structured logs, flexible paths, and operator-friendly automation."
+                "description": "A practical story about replacing manual PDF folder handling with a Python conveyor, structured logs, flexible paths, and operator-friendly automation.",
+                "category": "Automation",
+                "date": "Nov 12, 2025",
+                "readTime": "4 min read",
+                "highlight": "59 reports: from 25 minutes of focus to one controlled run"
             },
             "it-levels-l0-l11": {
                 "title": "IT levels, what L0-L11 levels are hiding in large companies",
-                "description": "A compact explanation of engineering career levels, responsibilities, impact, compensation ranges, and what usually signals readiness for the next step."
+                "description": "A compact explanation of engineering career levels, responsibilities, impact, compensation ranges, and what usually signals readiness for the next step.",
+                "category": "Career Frameworks",
+                "date": "Jul 23, 2025",
+                "readTime": "3 min read",
+                "highlight": "L0-L11 as a map of responsibility, influence, and impact"
             }
         }
     },
@@ -506,5 +539,10 @@
                 "text": "Submit the result for review. A manager accepts completed work or returns it for follow-up."
             }
         }
+    },
+    "navigation": {
+        "projects": "Projects",
+        "articles": "Articles",
+        "knowledge": "Knowledge Base"
     }
 }

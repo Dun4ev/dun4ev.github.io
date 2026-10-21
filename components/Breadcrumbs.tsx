@@ -18,9 +18,9 @@ export const Breadcrumbs = ({ current }: { current: string }) => {
     <LanguageSwitcher />
     </div>
     <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-400" aria-label={language === 'ru' ? 'Разделы сайта' : 'Site sections'}>
-      <a href={localizedHref('/projects', language)} className="hover:text-teal-300">{t('projectsPage.title')}</a>
-      <a href={localizedHref('/articles', language)} className="hover:text-amber-300">{t('articlesPage.title')}</a>
-      <a href={localizedHref('/knowledge-base', language)} className="hover:text-cyan-300">{t('knowledgePage.title')}</a>
+      <a href={localizedHref('/projects', language)} className="hover:text-teal-300">{t('navigation.projects')}</a>
+      <a href={localizedHref('/articles', language)} className="hover:text-amber-300">{t('navigation.articles')}</a>
+      <a href={localizedHref('/knowledge-base', language)} className="hover:text-cyan-300">{t('navigation.knowledge')}</a>
     </nav>
   </div>;
 };

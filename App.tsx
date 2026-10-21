@@ -204,29 +204,6 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 </div>
               </FadeIn>
 
-              <section className="my-10" aria-labelledby="directions-title">
-                <h2 id="directions-title" className="mb-2 text-sm font-bold uppercase tracking-widest text-slate-200">{t('directions.title')}</h2>
-                <p className="mb-4 text-sm text-slate-400">{t('directions.description')}</p>
-                <ul className="divide-y divide-slate-700/50 border-y border-slate-700/50">
-                  {(['studio', 'engineering', 'atelier'] as const).map((direction) => (
-                    <li key={direction}>
-                      <a
-                        href={`https://${direction}.dun4ev.com`}
-                        className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span>
-                          <span className="block font-medium text-slate-200 group-hover:text-teal-300">{t(`directions.${direction}.title`)}</span>
-                          <span className="mt-1 block text-sm text-slate-400">{t(`directions.${direction}.description`)}</span>
-                        </span>
-                        <ArrowUpRight className="h-4 w-4 shrink-0 text-teal-300" aria-hidden="true" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
               {/* Radar Chart Visualization */}
               <FadeIn delay={200}>
                 <DeferredRadar />
@@ -283,43 +260,6 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 <SkillCloud data={D3_DATA} />
               </FadeIn>
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FadeIn delay={300}>
-                  <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-teal-500/30 transition-colors">
-                    <h4 className="text-slate-200 font-semibold mb-2">{t('skills.software')}</h4>
-                    <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                      <li>AutoCAD</li>
-                      <li>SolidWorks</li>
-                      <li>Kompas 3D</li>
-                      <li>Microsoft Office Suite</li>
-                    </ul>
-                  </div>
-                </FadeIn>
-                <FadeIn delay={400}>
-                  <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-teal-500/30 transition-colors">
-                    <h4 className="text-slate-200 font-semibold mb-2">{t('skills.digital')}</h4>
-                    <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                      <li>Python (Data Science)</li>
-                      <li>Excel Power Query</li>
-                      <li>Prompt Engineering</li>
-                      <li>Big Data Visualization</li>
-                    </ul>
-                  </div>
-                </FadeIn>
-              </div> {/* Added missing closing div for the grid */}
-
-              <FadeIn delay={500}>
-                <div className="mt-8 p-6 bg-slate-800/30 rounded-lg border border-slate-700/50">
-                  <h4 className="text-slate-200 font-semibold mb-4 text-center">{t('skills.key_expertise')}</h4>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {['AI Automation', 'Industrial Engineering', 'Data Analytics', 'Technical Documentation', 'RFQ Coordination', 'Vendor Documentation', 'Issue Tracking', 'Planning & Reporting', 'Python', 'Django', 'Power Query', 'UGS', 'EPC Projects', 'PED/ATEX Compliance'].map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-teal-500/10 text-teal-300 border border-teal-500/20 rounded-full text-xs font-medium hover:bg-teal-500/20 transition-colors cursor-default">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </FadeIn>
             </section>
 
             {/* PROJECTS SECTION */}
@@ -327,6 +267,29 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
               <div className="sticky top-16 z-20 -mx-6 mb-4 w-[calc(100%+3rem)] md:w-[calc(100%+6rem)] bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">{t('projects.title')}</h2>
               </div>
+              <section className="mb-10" aria-labelledby="directions-title">
+                <h2 id="directions-title" className="mb-2 text-sm font-bold uppercase tracking-widest text-slate-200">{t('directions.title')}</h2>
+                <p className="mb-4 text-sm text-slate-400">{t('directions.description')}</p>
+                <ul className="divide-y divide-slate-700/50 border-y border-slate-700/50">
+                  {(['studio', 'engineering', 'atelier'] as const).map((direction) => (
+                    <li key={direction}>
+                      <a
+                        href={`https://${direction}.dun4ev.com`}
+                        className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>
+                          <span className="block font-medium text-slate-200 group-hover:text-teal-300">{t(`directions.${direction}.title`)}</span>
+                          <span className="mt-1 block text-sm text-slate-400">{t(`directions.${direction}.description`)}</span>
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 text-teal-300" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
               <FadeIn>
                 <GitHubContributions />
               </FadeIn>

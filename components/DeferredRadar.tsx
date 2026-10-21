@@ -16,7 +16,7 @@ export const DeferredRadar = () => {
     observer.observe(container.current);
     return () => observer.disconnect();
   }, []);
-  return <div ref={container} className="min-h-[396px]">
+  return <div ref={container} className="min-h-[396px] sm:min-h-[416px]">
     {visible && <Suspense fallback={null}><SkillRadar /></Suspense>}
   </div>;
 };

@@ -60,12 +60,12 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-4 flex flex-wrap items-center gap-2">
           {category && (
-            <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-3 py-1 text-xs font-medium text-teal-300">
+            <span className="rounded-full border border-teal-300/20 bg-teal-300/10 px-3 py-1 text-[13px] font-medium text-teal-300">
               {category}
             </span>
           )}
           {status && (
-            <span className="rounded-full border border-slate-700 px-3 py-1 text-xs font-medium text-slate-400">
+            <span className="rounded-full border border-slate-700 px-3 py-1 text-[13px] font-medium text-slate-400">
               {status}
             </span>
           )}
@@ -80,10 +80,10 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
           ) : title}
         </h2>
 
-        <p className="mt-3 text-sm leading-6 text-slate-400">{description}</p>
+        <p className="mt-3 text-base leading-7 text-slate-400">{description}</p>
 
         {impact && (
-          <p className="mt-4 border-l border-teal-300/30 pl-3 text-sm font-medium leading-6 text-slate-300">
+          <p className="mt-4 border-l border-teal-300/30 pl-3 text-base font-medium leading-7 text-slate-300">
             {impact}
           </p>
         )}
@@ -92,7 +92,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
           {project.tools.map((tool, index) => (
             <li
               key={tool}
-              className="flex items-center rounded-full border border-teal-300/20 bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 tech-tag-animate motion-reduce:animate-none"
+              className="flex items-center rounded-full border border-teal-300/20 bg-teal-400/10 px-3 py-1 text-[13px] font-medium leading-5 text-teal-300 tech-tag-animate motion-reduce:animate-none"
               style={{ animationDelay: `${index * 0.4}s` }}
             >
               {tool}

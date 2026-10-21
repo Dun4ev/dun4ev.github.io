@@ -547,6 +547,7 @@ export const D3_DATA: GraphData = {
     { id: "AutoCAD", group: 1, radius: 12 },
     { id: "SolidWorks", group: 1, radius: 12 },
     { id: "Kompas 3D", group: 1, radius: 10 },
+    { id: "Microsoft Office", group: 2, radius: 10 },
 
     // Management
     { id: "EPC Contracts", group: 3, radius: 15 },

@@ -58,23 +58,32 @@ export const SkillRadar: React.FC = () => {
   const renderMetricTick = ({ x, y, textAnchor = 'middle', payload }: RadarTickProps) => {
     const [label, detail] = payload.value.split('\n');
 
+    const wrap = (text: string, limit: number) => text.split(' ').reduce<string[]>((lines, word) => {
+      const last = lines.length - 1;
+      if (last >= 0 && `${lines[last]} ${word}`.length <= limit) lines[last] += ` ${word}`;
+      else lines.push(word);
+      return lines;
+    }, []);
+    const lines = [...wrap(label, isMobile ? 14 : 20), ...wrap(detail || '', isMobile ? 17 : 22)];
     return (
-      <text x={x} y={y} textAnchor={textAnchor} fill="rgb(var(--slate-400))" fontSize={11}>
-        <tspan x={x} dy="-0.35em">{label}</tspan>
-        <tspan x={x} dy="1.3em">{detail}</tspan>
+      <text x={x} y={y} textAnchor={textAnchor} fill="rgb(var(--slate-300))" fontSize={isMobile ? 12 : 13}>
+        {lines.map((line, index) => (
+          <tspan key={index} x={x} dy={index === 0 ? `${-(lines.length - 1) * 0.65}em` : '1.3em'}>{line}</tspan>
+        ))}
       </text>
     );
   };
 
   return (
     <div
-      className="-mx-6 mt-8 mb-12 h-[300px] w-[calc(100%+3rem)] cursor-pointer sm:mx-0 sm:w-full"
+      className="-mx-6 mt-8 mb-0 w-[calc(100%+3rem)] cursor-pointer sm:mx-0 sm:w-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h4 className="text-sm font-semibold text-slate-200 mb-4 uppercase tracking-wider text-center">Competency Overview</h4>
+      <h4 className="text-sm font-semibold text-slate-200 mb-4 uppercase tracking-wider text-center">{t('radar.title')}</h4>
+      <div className="h-[340px] sm:h-[360px]">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius={isMobile ? '68%' : '80%'} data={metrics}>
+        <RadarChart cx="50%" cy="50%" outerRadius={isMobile ? '48%' : '66%'} data={metrics}>
           <PolarGrid stroke="rgb(var(--slate-700))" className={radarClass} />
           <PolarAngleAxis
             dataKey="name"
@@ -92,6 +101,7 @@ export const SkillRadar: React.FC = () => {
           />
         </RadarChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 };
