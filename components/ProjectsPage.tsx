@@ -22,7 +22,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
     : activeFilter === 'work'
       ? PROJECTS.filter((project) => project.usedAtWork)
       : activeFilter === 'engineering'
-        ? PROJECTS.filter((project) => project.category !== 'Client Website' && project.category !== 'Website Concept')
+        ? PROJECTS.filter((project) => project.category !== 'Client Website' && project.category !== 'Website Concept' && project.category !== 'Browser Extension')
         : activeFilter === 'client'
           ? PROJECTS.filter((project) => project.category === 'Client Website')
           : activeFilter === 'interactive'

@@ -123,6 +123,20 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: 'tabverta',
+    title: 'Tabverta',
+    description: 'A published Chrome extension that replaces the new tab with a customizable dashboard: search, top-site shortcuts, city weather and a background map, market charts and optional RSS news. Includes dark and light themes, adjustable map visibility and blur, and English, Russian and Serbian interfaces. Settings stay in the browser profile; no Tabverta account is required.',
+    tools: ['JavaScript', 'Chrome Extensions', 'MapLibre', 'Open-Meteo', 'RSS'],
+    link: 'https://chromewebstore.google.com/detail/lbdlpjddmimegoodhdicokeemllppjdm',
+    image: '/images/projects/tabverta.webp',
+    imageWidth: 1280,
+    imageHeight: 800,
+    category: 'Browser Extension',
+    role: 'Design & Development',
+    status: 'Published on Chrome Web Store',
+    impact: 'Brings everyday information into one new tab while keeping the existing Chrome search provider.'
+  },
+  {
     id: 'action-register',
     title: 'Action Register',
     description: 'A bilingual web app for tracking team actions, deadlines and outcomes. Managers review progress and accept completed work; registrars maintain records; employees see their assigned tasks. Includes a table, a drag-and-drop board, comments and email-to-draft import.',

@@ -34,6 +34,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
   const category = t(`projects.items.${project.id}.category`, { defaultValue: project.category || '' });
   const status = t(`projects.items.${project.id}.status`, { defaultValue: project.status || '' });
   const isGitHubProject = link?.startsWith('https://github.com/');
+  const isChromeExtension = link?.startsWith('https://chromewebstore.google.com/');
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-slate-800 bg-slate-900/70 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300/50 hover:bg-slate-800/70 hover:shadow-2xl hover:shadow-teal-950/20">
@@ -115,7 +116,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
             >
               {isGitHubProject ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
-              {t(isGitHubProject ? 'projectsPage.view_source' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
+              {t(isGitHubProject ? 'projectsPage.view_source' : isChromeExtension ? 'projectsPage.install_extension' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
             </a>
             )}
             {project.caseStudy && <a href={localizedHref(project.caseStudy, i18n.resolvedLanguage === 'ru' ? 'ru' : 'en')} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-teal-300">{t('projects.read_case')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>}
