@@ -3,7 +3,7 @@ import { ArrowLeft, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Breadcrumbs } from './Breadcrumbs';
 import { localizedHref, type SiteLanguage } from '../src/routes';
-import { LABS, PROJECTS } from '../constants';
+import { BLACKBURN_FLIGHT, LABS, PROJECTS } from '../constants';
 import { LabCard } from './LabsPage';
 import { ProjectGridCard } from './ProjectGridCard';
 
@@ -74,6 +74,9 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
         </div>
 
         <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3" aria-label={t('projectsPage.grid_label')}>
+          {(activeFilter === 'all' || activeFilter === 'interactive') && (
+            <ProjectGridCard project={BLACKBURN_FLIGHT} actionLabel={t('projects.items.blackburn-flight.action')} />
+          )}
           {visibleProjects.map((project) => (
             <ProjectGridCard key={project.id} project={project} />
           ))}

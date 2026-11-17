@@ -121,6 +121,18 @@ export const EXPERIENCE_STAGES: ExperienceStage[] = [
   },
 ];
 
+export const BLACKBURN_FLIGHT: Project = {
+  id: 'blackburn-flight',
+  title: 'Blackburn Type D (1912)',
+  description: 'Inspect the wooden frame, then fly the monoplane from its open cockpit. Pass through four rings to see photographs of the original aircraft and follow its story.',
+  tools: ['Blender', 'Three.js', 'GPT-6.2 Astra'],
+  link: 'https://blackburn-flight.andreydunaev1.workers.dev/?fly=1',
+  image: '/images/projects/blackburn-flight.webp',
+  imageWidth: 960,
+  imageHeight: 540,
+  category: 'Interactive Demo',
+};
+
 export const PROJECTS: Project[] = [
   {
     id: 'tabverta',

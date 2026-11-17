@@ -22,9 +22,10 @@ const resolveImageSrc = (imagePath?: string) => {
 
 interface ProjectGridCardProps {
   project: Project;
+  actionLabel?: string;
 }
 
-export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => {
+export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project, actionLabel }) => {
   const { t, i18n } = useTranslation();
   const link = i18n.resolvedLanguage === 'ru' ? project.linkRu || project.link : project.link;
   const imageSrc = resolveImageSrc(project.image);
@@ -116,7 +117,7 @@ export const ProjectGridCard: React.FC<ProjectGridCardProps> = ({ project }) => 
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition-colors hover:text-teal-300"
             >
               {isGitHubProject ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
-              {t(isGitHubProject ? 'projectsPage.view_source' : isChromeExtension ? 'projectsPage.install_extension' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
+              {actionLabel ?? t(isGitHubProject ? 'projectsPage.view_source' : isChromeExtension ? 'projectsPage.install_extension' : project.caseStudy ? 'projects.try_demo' : 'projectsPage.view_live_site')}
             </a>
             )}
             {project.caseStudy && <a href={localizedHref(project.caseStudy, i18n.resolvedLanguage === 'ru' ? 'ru' : 'en')} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-teal-300">{t('projects.read_case')}<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>}
