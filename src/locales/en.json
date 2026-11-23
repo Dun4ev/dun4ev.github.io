@@ -30,8 +30,8 @@
         "firstName": "Andrej",
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
-        "subtitle": "Energy Infrastructure Engineer & Engineering Coordination and Project Delivery",
-        "description": "For more than 20 years, I have worked on the design and delivery of energy infrastructure projects. I combine engineering coordination, technical documentation, and vendor collaboration, using automation and AI to improve process transparency and reliability."
+        "subtitle": "Gas Infrastructure Engineer | Piping Design & Technical Review",
+        "description": "I design piping layouts and gas metering assemblies, review multidisciplinary drawings and build tools for engineering document checks."
     },
     "profile": {
         "title": "Engineering Profile"
@@ -54,19 +54,19 @@
     },
     "radar": {
         "metrics": {
-            "three_d": "3D design\n(up to 55% faster)",
-            "experience": "Engineering experience\n(20+ years)",
-            "design": "Design engineering\n(9+ years)",
-            "documents": "Documents\n(50k+ coordinated)",
-            "updates": "Personally updated\n(350+)",
-            "lifecycle": "Full lifecycle\n(design → operations)"
+            "three_d": "3D piping layouts\n(AutoCAD and SolidWorks)",
+            "experience": "Gas infrastructure\n(pipelines and stations)",
+            "design": "Design outputs\n(drawings and specifications)",
+            "documents": "Technical review\n(multidisciplinary packages)",
+            "updates": "Construction support\n(redlines and as-built)",
+            "lifecycle": "Document automation\n(Excel and Python)"
         },
-        "title": "Experience at a Glance"
+        "title": "Areas of practice (illustrative)"
     },
     "about": {
-        "p1": "I am an energy infrastructure engineer with 20 years of experience, from pipeline and industrial facility design to engineering coordination, construction support, and operational documentation.",
-        "p2": "I coordinated delivery of a compressor station and a 400 km main gas pipeline section. I worked with 30+ suppliers, as well as contractors and client teams. My focus is keeping technical decisions, documentation, deadlines, and follow-up actions aligned.",
-        "p3": "I also build Python tools for document processing, reporting, and action tracking. One practical result: distributing a batch of around 100 maintenance reports after review takes 5–10 seconds instead of 29 minutes. Engineering review remains a separate step."
+        "p1": "I have personally designed piping layouts and gas metering assemblies in AutoCAD and SolidWorks. My work covers gas pipelines, compressor and gas metering stations, and surface facilities for underground gas storage.",
+        "p2": "I review piping, mechanical and civil drawings alongside instrumentation and P&ID documents in the same project package. At IDC and Comita, I have coordinated technical interfaces across multiple design institutes, as well as with contractors, suppliers and clients.",
+        "p3": "I build Excel and Python tools to cross-check documents, track revisions and consolidate comments. At Comita, I developed a workflow for vendor documents, from intake and identifying missing items to issuing the response after final engineering review."
     },
     "experience": {
         "title": "Work Experience",
@@ -76,92 +76,76 @@
             "collapse": "Hide roles and full details",
             "delivery": {
                 "period": "2019 — Present",
-                "title": "Engineering Coordination and Project Delivery",
-                "summary": "Coordination of clients, design institutes, contractors, vendors, and internal teams. Management of FEED and detailed design documentation, construction and operations support, RFQ preparation, vendor documentation, reporting, and action tracking."
+                "title": "Technical Review and EPC Engineering",
+                "summary": "Review of multidisciplinary design packages, coordination across design institutes, construction support and automation of engineering documentation."
             },
             "coordination": {
                 "period": "2015 — 2017",
-                "title": "Project Coordination",
-                "summary": "Coordination support for a portfolio of major gas and infrastructure projects: planning, schedules, cost estimates, contractor coordination, meetings, and follow-up control."
+                "title": "Design and Survey Works",
+                "summary": "Planning and technical support for gas infrastructure design projects, including cost-estimate reviews and contractor deliverables."
             },
             "design": {
                 "period": "2006 — 2015",
-                "title": "Engineering Design",
-                "summary": "More than nine years of designing pipeline systems, compressor stations, valve stations, pig launcher and receiver facilities, and other industrial site facilities in AutoCAD and SolidWorks."
+                "title": "Piping and Pipeline Design",
+                "summary": "Piping layouts, gas metering assemblies, drawings, specifications and parametric libraries in AutoCAD and SolidWorks."
             }
         },
         "jobs": {
             "comita": {
-                "title": "Chief Engineering Expert (Planning, Monitoring & Reporting)",
+                "title": "Chief Engineering Expert in the Planning, Monitoring, and Reporting Group",
                 "description": [
-                    "Coordinate engineering activities, project monitoring, reporting, RFQ documentation, vendor communication, and follow-up control for energy infrastructure projects.",
-                    "Connect clients, design institutes, subcontractors, vendors, and internal teams through structured documentation, planning discipline, and reliable reporting.",
-                    "Prepare and coordinate RFQ packages, support technical clarifications, review vendor inputs, and monitor open issues through closure.",
-                    "Developed a Python/Django-based internal system for meeting protocols, issue tracking, action item control, task filtering by organization, discussion history, and automated XLSX reporting.",
-                    "Built tools for maintenance report processing, documentation package preparation, file sorting, Excel-template population, archive generation, and structured logging."
+                    "Review multidisciplinary drawing packages and contractor proposals. Coordinate technical interfaces with design institutes, suppliers, subcontractors and the client.",
+                    "Built a vendor documentation workflow for intake, preliminary review and revision tracking. It records received and missing items, prepares transmittals and consolidated comments, and supports issue of the response to the supplier after final engineering review.",
+                    "Built a searchable master document register (MDR) that checks documents against client DMS exports and links to the latest SharePoint revision folders across approximately 2,000-2,500 entries.",
+                    "Automated preparation and registration of technical queries, with links to the project knowledge base. Used the workflow to prepare, process and issue 38 TQRs as of November 2026.",
+                    "Automated distribution of reviewed maintenance reports using routing rules. In one observed batch of about 100 reports, distribution took 5-10 seconds, compared with roughly 29 minutes manually."
                 ]
             },
-            "idc-2": {
-                "title": "Chief Engineering Expert (Project Management)",
+            "idc": {
+                "title": "Chief Engineering Expert",
                 "description": [
-                    "Provided comprehensive technical support for project and operational documentation, including pre-commissioning for main gas pipelines and compressor stations.",
-                    "Reviewed subcontractor reports, maintained statistics on recurring maintenance issues, and automated comment sheet generation with Python.",
-                    "Developed Python-based graphical tools for big data trend analysis and equipment status monitoring; trained colleagues to use them.",
-                    "Created detailed equipment maintenance checklists based on manufacturer documentation.",
-                    "Prepared analytical data and technical conclusions for EPC contract documentation to resolve disputes.",
-                    "Produced ~120 visual analytical reports comparing design documentation with as-built conditions for claims and counterclaims.",
-                    "Updated ~350 as-built documents, including mechanical drawings, electrical diagrams, instrumentation, automation tables, and settings after identifying discrepancies."
-                ]
-            },
-            "idc-1": {
-                "title": "Chief Engineering Expert (Execution)",
-                "description": [
-                    "Coordinated realization of 400km main gas pipeline and compressor station construction.",
-                    "Oversaw finalization of FEED, Detailed Design, and As-built documentation.",
-                    "Managed coordination between design institutes (Saipem, Giprogazcentr, etc.), processing approximately 20,000 documents across disciplines.",
-                    "Implemented MDR/MDI procedures for automated data storage through indexing and data structuring.",
-                    "Coordinated RFQ processes, procurement packages, and vendor relations to ensure manufacturers understood project requirements.",
-                    "Participated in HAZOP reviews and ensured compliance with PED, ATEX, Ex, and CE standards (including equipment certification preparation)."
+                    "Project Management Department, Mar 2022 - Aug 2025. Project Implementation Department, Mar 2019 - Mar 2022.",
+                    "Coordinated FEED and detailed design across multiple design institutes for a compressor station and a 400 km main gas pipeline section, including PGD, PZI and PIO documentation.",
+                    "Reviewed piping, mechanical and civil drawings in multidisciplinary project packages, including instrumentation and P&ID documents. Compared vendor documents with procured and delivered equipment and coordinated corrections with design institutes.",
+                    "Prepared sketches and redlines to resolve site discrepancies. Personally revised design and as-built pipeline drawings for PIO in Vojvodina using survey data.",
+                    "Automated MDR/MDI checks, comment sheets and reporting with Excel VBA and Python. Prepared equipment certification dossiers and contributed to HAZOP reviews."
                 ]
             },
             "gazprom": {
-                "title": "Junior Project Coordinator",
+                "title": "Chief Specialist, Design and Survey Works",
                 "description": [
-                    "Coordinated a portfolio of 8+ major infrastructure projects valued from $30M to $23B.",
-                    "Improved budget forecast accuracy by 5-10% through validated cost estimates.",
-                    "Reduced project implementation delay risks by 5-10% through early identification of technical and organizational risks.",
-                    "Facilitated ~250 stakeholder meetings with a 93-95% action item completion rate based on protocol metrics."
+                    "Supported planning, schedule coordination, cost-estimate reviews and contractor reporting for gas infrastructure design work, including pipeline, compressor and pumping station projects.",
+                    "Maintained technical correspondence, tracked contractual deliverables and recorded meeting decisions and follow-up actions."
                 ]
             },
             "kuban": {
-                "title": "Lead Design Engineer",
+                "title": "Lead Design Engineer for Pipeline Systems",
                 "description": [
-                    "Participated in establishing a new core department for main pipeline design.",
-                    "Conducted technical expertise of design solutions for cost optimization.",
-                    "Provided technical support to customer inspectors."
+                    "Helped establish a pipeline design department and led a team of design engineers.",
+                    "Prepared design documentation, specifications and calculations. Reviewed engineering solutions and resolved technical questions with clients and inspectors."
                 ]
             },
             "yuzh-1": {
-                "title": "Lead Design Engineer",
+                "title": "Pipeline Systems Design",
                 "description": [
-                    "Worked on projects like 'South Stream' and 'Bovanenkovo — Ukhta'.",
-                    "Implemented 3D design solutions that increased productivity by 50% in terms of design preparation and approval time.",
-                    "Optimized design processes by integrating Excel, AutoCAD, and SolidWorks.",
-                    "Designed pig receiving/launching traps and valve stations in SolidWorks."
+                    "Lead Design Engineer for Pipeline Systems, Jul 2013 - Oct 2014. Design Engineer for Pipeline Systems (Category II), Oct 2008 - Jun 2013. Design Engineer for Pipeline Systems, Aug 2006 - Sep 2008.",
+                    "Personally designed piping layouts and gas metering assemblies in AutoCAD and SolidWorks, including pipe routing, valves, actuators and supports. Prepared drawings, specifications and civil design inputs.",
+                    "Built parametric libraries for piping and valve assemblies that linked diameter changes to component updates, support selection and specifications.",
+                    "Produced the SolidWorks piping layout, drawings and specifications for an unbuilt gas receiving terminal in Bulgaria."
                 ]
             }
         }
     },
     "skills": {
         "title": "Skills & Data",
-        "description": "I combine <0>Engineering Coordination</0>, <1>Technical Documentation</1>, and <2>Data Automation</2> in daily project work: RFQs, vendor reviews, reporting, and action tracking.",
+        "description": "My work combines <0>piping design</0>, <1>multidisciplinary technical review</1> and <2>document automation</2>. I use AutoCAD and SolidWorks for design, and Excel and Python for comparing documents, tracking revisions and checking completeness.",
         "software": "Engineering Software",
         "digital": "Digital Tech & Analytics",
         "key_expertise": "Key Expertise",
         "groups": {
             "engineering": "Engineering & Design",
             "data": "Data & Automation",
-            "management": "Project Coordination"
+            "management": "EPC and Technical Interfaces"
         },
         "core_title": "Core Competencies"
     },

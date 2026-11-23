@@ -17,99 +17,78 @@ export const SOCIAL_LINKS = {
 export const JOBS: Job[] = [
   {
     id: 'comita',
-    company: 'Comita Technics',
-    title: 'Chief Engineering Expert (Planning, Monitoring & Reporting)',
+    company: 'Comita Technics d.o.o.',
+    title: 'Chief Engineering Expert in the Planning, Monitoring, and Reporting Group',
     period: 'Aug 2025 — Present',
-    location: 'Serbia',
-    description: [
-      'Coordinate engineering activities, project monitoring, reporting, RFQ documentation, vendor communication, and follow-up control for energy infrastructure projects.',
-      'Connect clients, design institutes, subcontractors, vendors, and internal teams through structured documentation, planning discipline, and reliable reporting.',
-      'Prepare and coordinate RFQ packages, support technical clarifications, review vendor inputs, and monitor open issues through closure.',
-      'Developed a Python/Django-based internal system for meeting protocols, issue tracking, action item control, task filtering, discussion history, and automated XLSX reporting.',
-      'Built tools for maintenance report processing, documentation package preparation, file sorting, Excel-template population, archive generation, and structured logging.'
-    ],
-    technologies: ['Python', 'Django', 'RFQ Packages', 'Vendor Coordination', 'Issue Tracking', 'XLSX Reporting']
-  },
-  {
-    id: 'idc-2',
-    company: 'IDC d.o.o.',
-    title: 'Chief Engineering Expert (Project Management)',
-    period: 'Mar 2022 — Aug 2025',
     location: 'Belgrade, Serbia',
     description: [
-      'Provided comprehensive technical support for project and operational documentation, including pre-commissioning for main gas pipelines and compressor stations.',
-      'Reviewed subcontractor reports, monitored recurring maintenance issues, and automated comment sheet generation with Python.',
-      'Developed Python-based graphical tools for big data trend analysis and equipment status monitoring.',
-      'Created detailed equipment maintenance checklists based on manufacturer documentation.',
-      'Prepared analytical data and technical conclusions for EPC contract documentation to resolve disputes.',
-      'Produced ~120 visual analytical reports comparing design vs. as-built conditions for legal claims.',
-      'Updated ~350 as-built documents, including mechanical drawings, electrical diagrams, instrumentation, automation tables, and settings.'
+      'Review multidisciplinary drawing packages and contractor proposals. Coordinate technical interfaces with design institutes, suppliers, subcontractors and the client.',
+      'Built a vendor documentation workflow for intake, preliminary review and revision tracking. It records received and missing items, prepares transmittals and consolidated comments, and supports issue of the response to the supplier after final engineering review.',
+      'Built a searchable master document register (MDR) that checks documents against client DMS exports and links to the latest SharePoint revision folders across approximately 2,000-2,500 entries.',
+      'Automated preparation and registration of technical queries, with links to the project knowledge base. Used the workflow to prepare, process and issue 38 TQRs as of November 2026.',
+      'Automated distribution of reviewed maintenance reports using routing rules. In one observed batch of about 100 reports, distribution took 5-10 seconds, compared with roughly 29 minutes manually.',
     ],
-    technologies: ['Python', 'Big Data', 'EPC Contracts', 'As-built Docs', 'Checklist Automation']
+    technologies: ['Technical Review', 'Vendor Documentation', 'MDR', 'TQR', 'Python', 'Excel']
   },
   {
-    id: 'idc-1',
+    id: 'idc',
     company: 'IDC d.o.o.',
-    title: 'Chief Engineering Expert (Implementation)',
-    period: 'Mar 2019 — Mar 2022',
+    title: 'Chief Engineering Expert',
+    period: 'Mar 2019 — Aug 2025',
     location: 'Belgrade, Serbia',
     description: [
-      'Coordinated implementation of a 400km main gas pipeline and compressor station.',
-      'Oversaw FEED documentation and Detailed Design finalization.',
-      'Managed coordination among design institutes (Saipem, Giprogaztsentr, etc.), processing ~20,000 documents.',
-      'Implemented MDR/MDI procedures for automated data storage.',
-      'Coordinated RFQ processes, procurement packages, and vendor relations to align manufacturers with project requirements.',
-      'Participated in HAZOP reviews and ensured PED, ATEX, Ex, CE compliance.'
+      'Project Management Department, Mar 2022 - Aug 2025. Project Implementation Department, Mar 2019 - Mar 2022.',
+      'Coordinated FEED and detailed design across multiple design institutes for a compressor station and a 400 km main gas pipeline section, including PGD, PZI and PIO documentation.',
+      'Reviewed piping, mechanical and civil drawings in multidisciplinary project packages, including instrumentation and P&ID documents. Compared vendor documents with procured and delivered equipment and coordinated corrections with design institutes.',
+      'Prepared sketches and redlines to resolve site discrepancies. Personally revised design and as-built pipeline drawings for PIO in Vojvodina using survey data.',
+      'Automated MDR/MDI checks, comment sheets and reporting with Excel VBA and Python. Prepared equipment certification dossiers and contributed to HAZOP reviews.',
     ],
-    technologies: ['Project Coordination', 'FEED', 'RFQ', 'MDR/MDI', 'Vendor Management']
+    technologies: ['Piping and Civil Drawings', 'FEED', 'Redlines', 'PIO', 'MDR/MDI']
   },
   {
     id: 'gazprom',
-    company: 'OOO "Gazprom Invest"',
-    title: 'Junior Project Coordinator',
+    company: 'Gazprom Invest Ltd.',
+    title: 'Chief Specialist, Design and Survey Works',
     period: 'Sep 2015 — Sep 2017',
     location: 'St. Petersburg, Russia',
     description: [
-      'Coordinated a portfolio of 8+ large-scale gas infrastructure projects valued between $30M and $23B.',
-      'Boosted forecast accuracy by 5-10% through validated cost estimates.',
-      'Reduced potential timeline slippage by 5-10% through early risk identification.',
-      'Maintained ~250 stakeholder meetings with a 93-95% action item completion rate.'
+      'Supported planning, schedule coordination, cost-estimate reviews and contractor reporting for gas infrastructure design work, including pipeline, compressor and pumping station projects.',
+      'Maintained technical correspondence, tracked contractual deliverables and recorded meeting decisions and follow-up actions.',
     ],
-    technologies: ['Portfolio Management', 'Risk Assessment', 'Cost Estimation', 'Stakeholder Mgmt']
+    technologies: ['Gas Infrastructure', 'Design and Survey Works', 'Cost Estimate Review']
   },
   {
     id: 'kuban',
-    company: 'Kubanvodproekt OJSC',
-    title: 'Lead Design Engineer',
-    period: 'Oct 2014 — Aug 2015',
+    company: 'Kubanvodproekt JSC',
+    title: 'Lead Design Engineer for Pipeline Systems',
+    period: 'Oct 2014 — Jul 2015',
     location: 'Krasnodar, Russia',
     description: [
-      'Participated in creating a new trunk pipeline design department.',
-      'Performed technical expertise of design solutions to optimize costs.',
-      'Provided technical support to customer inspectors.'
+      'Helped establish a pipeline design department and led a team of design engineers.',
+      'Prepared design documentation, specifications and calculations. Reviewed engineering solutions and resolved technical questions with clients and inspectors.',
     ],
-    technologies: ['Trunk Pipelines', 'Design Optimization', 'Department Setup']
+    technologies: ['Pipeline Systems', 'Engineering Design', 'Design Review']
   },
   {
     id: 'yuzh-1',
-    company: 'YUZHNIIGIPROGAZ PJSC',
-    title: 'Lead Design Engineer',
+    company: 'YUZHNIIGIPROGAZ',
+    title: 'Pipeline Systems Design',
     period: 'Aug 2006 — Oct 2014',
     location: 'Donetsk, Ukraine',
     description: [
-      'Worked on "South Stream" and "Bovanenkovo–Ukhta" GTS.',
-      'Implemented 3D design solutions increasing productivity by 50%.',
-      'Optimized design processes by linking Excel and AutoCAD.',
-      'Designed intake terminals, pig launcher/receivers, and valve assemblies in SolidWorks.'
+      'Lead Design Engineer for Pipeline Systems, Jul 2013 - Oct 2014. Design Engineer for Pipeline Systems (Category II), Oct 2008 - Jun 2013. Design Engineer for Pipeline Systems, Aug 2006 - Sep 2008.',
+      'Personally designed piping layouts and gas metering assemblies in AutoCAD and SolidWorks, including pipe routing, valves, actuators and supports. Prepared drawings, specifications and civil design inputs.',
+      'Built parametric libraries for piping and valve assemblies that linked diameter changes to component updates, support selection and specifications.',
+      'Produced the SolidWorks piping layout, drawings and specifications for an unbuilt gas receiving terminal in Bulgaria.',
     ],
-    technologies: ['SolidWorks', 'AutoCAD', '3D Modeling', 'South Stream', 'Excel Automation']
+    technologies: ['AutoCAD', 'SolidWorks', 'Piping Layout', 'Parametric Libraries']
   }
 ];
 
 export const EXPERIENCE_STAGES: ExperienceStage[] = [
   {
     id: 'delivery',
-    jobIds: ['comita', 'idc-2', 'idc-1'],
+    jobIds: ['comita', 'idc'],
   },
   {
     id: 'coordination',
@@ -560,30 +539,30 @@ export const D3_DATA: GraphData = {
     { id: "FEED", group: 1, radius: 15 },
     { id: "Detailed Design", group: 1, radius: 15 },
     { id: "HAZOP", group: 1, radius: 12 },
-    { id: "Regulatory", group: 1, radius: 15 }, // PED, ATEX, CE
-    { id: "3D Modeling", group: 1, radius: 15 },
+    { id: "Equipment Certification", group: 1, radius: 15 }, // PED, ATEX, CE
+    { id: "Piping Layout and Design", group: 1, radius: 15 },
 
     // Tech / Tools
     { id: "Python", group: 2, radius: 18 },
-    { id: "Big Data", group: 2, radius: 15 },
+    { id: "Document Checks", group: 2, radius: 15 },
     { id: "Power Query", group: 2, radius: 15 },
-    { id: "Automation", group: 2, radius: 18 },
-    { id: "Prompt Eng", group: 2, radius: 15 },
+    { id: "Document Automation", group: 2, radius: 18 },
+    { id: "Revision Tracking", group: 2, radius: 15 },
     { id: "Django", group: 2, radius: 12 },
     { id: "AutoCAD", group: 1, radius: 12 },
     { id: "SolidWorks", group: 1, radius: 12 },
     { id: "Kompas 3D", group: 1, radius: 10 },
-    { id: "Microsoft Office", group: 2, radius: 10 },
+    { id: "Excel and VBA", group: 2, radius: 10 },
 
     // Management
     { id: "EPC Contracts", group: 3, radius: 15 },
     { id: "Stakeholder Mgmt", group: 3, radius: 15 },
     { id: "RFQ Packages", group: 3, radius: 14 },
-    { id: "Vendor Docs", group: 3, radius: 14 },
+    { id: "Vendor Documentation", group: 3, radius: 14 },
     { id: "Issue Tracking", group: 3, radius: 14 },
-    { id: "Planning & Reporting", group: 3, radius: 14 },
-    { id: "Risk Mgmt", group: 3, radius: 12 },
-    { id: "Doc Control", group: 3, radius: 12 }, // MDR/MDI
+    { id: "Engineering Interfaces", group: 3, radius: 14 },
+    { id: "Technical Queries", group: 3, radius: 12 },
+    { id: "MDR/MDI", group: 3, radius: 12 }, // MDR/MDI
     { id: "Cost Est.", group: 3, radius: 12 }
   ],
   links: [
@@ -593,43 +572,43 @@ export const D3_DATA: GraphData = {
     { source: "Engineering", target: "UGS", value: 3 },
     { source: "Engineering", target: "FEED", value: 4 },
     { source: "Engineering", target: "Detailed Design", value: 4 },
-    { source: "Engineering", target: "Regulatory", value: 3 },
-    { source: "Engineering", target: "3D Modeling", value: 4 },
+    { source: "Engineering", target: "Equipment Certification", value: 3 },
+    { source: "Engineering", target: "Piping Layout and Design", value: 4 },
     { source: "Engineering", target: "HAZOP", value: 3 },
 
     // 3D Modeling Tools
-    { source: "3D Modeling", target: "AutoCAD", value: 3 },
-    { source: "3D Modeling", target: "SolidWorks", value: 3 },
-    { source: "3D Modeling", target: "Kompas 3D", value: 2 },
+    { source: "Piping Layout and Design", target: "AutoCAD", value: 3 },
+    { source: "Piping Layout and Design", target: "SolidWorks", value: 3 },
+    { source: "Piping Layout and Design", target: "Kompas 3D", value: 2 },
 
     // Mgmt Center
     { source: "Project Mgmt", target: "Engineering", value: 5 },
     { source: "Project Mgmt", target: "EPC Contracts", value: 4 },
     { source: "Project Mgmt", target: "Stakeholder Mgmt", value: 4 },
     { source: "Project Mgmt", target: "RFQ Packages", value: 4 },
-    { source: "Project Mgmt", target: "Vendor Docs", value: 4 },
+    { source: "Project Mgmt", target: "Vendor Documentation", value: 4 },
     { source: "Project Mgmt", target: "Issue Tracking", value: 4 },
-    { source: "Project Mgmt", target: "Planning & Reporting", value: 4 },
-    { source: "Project Mgmt", target: "Risk Mgmt", value: 3 },
-    { source: "Project Mgmt", target: "Doc Control", value: 3 },
+    { source: "Project Mgmt", target: "Engineering Interfaces", value: 4 },
+    { source: "Project Mgmt", target: "Technical Queries", value: 3 },
+    { source: "Project Mgmt", target: "MDR/MDI", value: 3 },
     { source: "Project Mgmt", target: "Cost Est.", value: 3 },
 
     // Data Center
     { source: "Data & AI", target: "Python", value: 5 },
-    { source: "Data & AI", target: "Big Data", value: 4 },
+    { source: "Data & AI", target: "Document Checks", value: 4 },
     { source: "Data & AI", target: "Power Query", value: 4 },
-    { source: "Data & AI", target: "Automation", value: 5 },
-    { source: "Data & AI", target: "Prompt Eng", value: 4 },
+    { source: "Data & AI", target: "Document Automation", value: 5 },
+    { source: "Data & AI", target: "Revision Tracking", value: 4 },
     { source: "Data & AI", target: "Django", value: 3 },
 
     // Cross-Domain
-    { source: "Automation", target: "Doc Control", value: 4 }, // Python for docs
-    { source: "Automation", target: "Engineering", value: 3 }, // Checklists
-    { source: "Automation", target: "Issue Tracking", value: 3 },
-    { source: "Vendor Docs", target: "RFQ Packages", value: 3 },
-    { source: "Big Data", target: "Risk Mgmt", value: 3 }, // Analytics for risk
+    { source: "Document Automation", target: "MDR/MDI", value: 4 }, // Python for docs
+    { source: "Document Automation", target: "Engineering", value: 3 }, // Checklists
+    { source: "Document Automation", target: "Issue Tracking", value: 3 },
+    { source: "Vendor Documentation", target: "RFQ Packages", value: 3 },
+    { source: "Document Checks", target: "Technical Queries", value: 3 }, // Analytics for risk
     { source: "Data & AI", target: "Project Mgmt", value: 3 },
-    { source: "Regulatory", target: "Doc Control", value: 2 },
+    { source: "Equipment Certification", target: "MDR/MDI", value: 2 },
   ]
 };
 

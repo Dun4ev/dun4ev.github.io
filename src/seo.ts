@@ -4,14 +4,14 @@ export const SITE_URL = 'https://dun4ev.com';
 
 const descriptions = {
   en: {
-    '/': 'Andrej Dunaev: energy infrastructure engineer with 20+ years of experience. Engineering coordination, technical documentation, vendor collaboration and automation projects.',
+    '/': 'Andrej Dunaev: gas infrastructure engineer. Piping design, multidisciplinary drawing review and engineering document automation.',
     '/projects': 'Engineering automation tools, client websites and interactive demos by Andrej Dunaev. Project descriptions, screenshots, source repositories and published examples.',
     '/projects/action-register': 'Action Register by Andrej Dunaev: a bilingual team task workflow with manager review, registrar intake, a draggable board and email drafts. Explore the fictional-data demo.',
     '/articles': 'Articles and visual investigations by Andrej Dunaev on engineering automation, vendor documentation, AI coding agents and professional development.',
     '/knowledge-base': 'Visual guides, diagrams and practical notes on AI agents, engineering automation and documentation workflows, collected by Andrej Dunaev.',
   },
   ru: {
-    '/': 'Андрей Дунаев: инженер энергетической инфраструктуры с опытом более 20 лет. Инженерная координация, техническая документация, работа с поставщиками и автоматизация.',
+    '/': 'Андрей Дунаев: инженер газовой инфраструктуры. Проектирование трубопроводов, проверка технической документации и автоматизация.',
     '/projects': 'Инструменты инженерной автоматизации, клиентские сайты и интерактивные демо Андрея Дунаева. Описания проектов, скриншоты, исходный код и опубликованные примеры.',
     '/projects/action-register': 'Реестр поручений Андрея Дунаева: работа команды, приемка руководителем, регистрация писем, доска и история обновлений. Описание проекта и демонстрация на условных данных.',
     '/articles': 'Статьи и визуальные исследования Андрея Дунаева об инженерной автоматизации, документации поставщиков, AI-агентах и профессиональном развитии.',
@@ -27,13 +27,13 @@ export const getPageMetadata = (pathname: string, translate: (key: string) => st
       : page === '/knowledge-base' ? 'knowledgePage.title' : 'header.title';
   const authorName = translate('header.title');
   const title = page === '/'
-    ? language === 'en' ? 'Andrej Dunaev | Energy Infrastructure Engineer' : 'Андрей Дунаев | Инженер энергетической инфраструктуры'
+    ? language === 'en' ? 'Andrej Dunaev | Gas Infrastructure Engineer' : 'Андрей Дунаев | Инженер газовой инфраструктуры'
     : `${translate(titleKey)} | ${authorName}`;
   const canonical = `${SITE_URL}${localizedHref(page, language)}`;
   const person = {
     '@type': 'Person', '@id': `${SITE_URL}/#author`, name: 'Andrej Dunaev',
     alternateName: 'Андрей Дунаев', url: `${SITE_URL}/`,
-    jobTitle: 'Energy Infrastructure Engineer',
+    jobTitle: language === 'en' ? 'Gas Infrastructure Engineer' : 'Инженер газовой инфраструктуры',
     description: translate('about.p1'),
     sameAs: ['https://github.com/Dun4ev'],
   };
