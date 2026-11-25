@@ -30,8 +30,8 @@
         "firstName": "Andrej",
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
-        "subtitle": "Gas Infrastructure Engineer | Piping Design & Technical Review",
-        "description": "I design piping layouts and gas metering assemblies, review multidisciplinary drawings and build tools for engineering document checks."
+        "subtitle": "Mechanical Engineer | Design Review & Workflow Automation",
+        "description": "Piping and equipment design, construction support, and tools for recurring engineering checks."
     },
     "profile": {
         "title": "Engineering Profile"
@@ -64,9 +64,10 @@
         "title": "Areas of practice (illustrative)"
     },
     "about": {
-        "p1": "I have personally designed piping layouts and gas metering assemblies in AutoCAD and SolidWorks. My work covers gas pipelines, compressor and gas metering stations, and surface facilities for underground gas storage.",
-        "p2": "I review piping, mechanical and civil drawings alongside instrumentation and P&ID documents in the same project package. At IDC and Comita, I have coordinated technical interfaces across multiple design institutes, as well as with contractors, suppliers and clients.",
-        "p3": "I build Excel and Python tools to cross-check documents, track revisions and consolidate comments. At Comita, I developed a workflow for vendor documents, from intake and identifying missing items to issuing the response after final engineering review."
+        "p1": "I have designed piping and equipment layouts and supported the construction of gas transmission pipelines, compressor stations and surface facilities for underground gas storage. When equipment changes, I check whether the design assumptions still hold. On a pipeline project in Serbia, I checked elevations and clearances against survey data and worked with contractors and several design institutes to resolve discrepancies between drawings, delivered equipment and site conditions.",
+        "p2": "I look for recurring tasks in my own engineering work that are worth automating. Early in my career, I built parametric SolidWorks libraries for piping and valve assemblies. Changing a diameter updated the linked components and specifications. I used the models to produce drawings and material take-offs.",
+        "p3": "At Comita, I built a workflow that tracks vendor document revisions, flags missing deliverables and prepares review packages. I also use AI to compare supplier proposals with project requirements, then check quantities and specifications against the source documents.",
+        "p4": "I would like to bring this experience to the construction of data centres, nuclear power plants and hydropower facilities."
     },
     "experience": {
         "title": "Work Experience",
@@ -94,21 +95,22 @@
             "comita": {
                 "title": "Chief Engineering Expert in the Planning, Monitoring, and Reporting Group",
                 "description": [
-                    "Review multidisciplinary drawing packages and contractor proposals. Coordinate technical interfaces with design institutes, suppliers, subcontractors and the client.",
-                    "Built a vendor documentation workflow for intake, preliminary review and revision tracking. It records received and missing items, prepares transmittals and consolidated comments, and supports issue of the response to the supplier after final engineering review.",
-                    "Built a searchable master document register (MDR) that checks documents against client DMS exports and links to the latest SharePoint revision folders across approximately 2,000-2,500 entries.",
-                    "Automated preparation and registration of technical queries, with links to the project knowledge base. Used the workflow to prepare, process and issue 38 TQRs as of November 2026.",
-                    "Automated distribution of reviewed maintenance reports using routing rules. In one observed batch of about 100 reports, distribution took 5-10 seconds, compared with roughly 29 minutes manually."
+                    "Review multidisciplinary design packages and contractor proposals. Work with several design institutes, contractors and suppliers to resolve discrepancies across piping, civil, electrical and instrumentation drawings.",
+                    "Built a semi-automated workflow that tracks vendor document revisions, flags missing deliverables, consolidates comments and prepares transmittals. A team member checks and sends each outgoing package.",
+                    "Built a searchable master document register (MDR) with about 2,000-2,500 entries. It cross-checks files against the client’s register and directs engineers to the current revision on SharePoint.",
+                    "Automated the preparation of technical queries (TQRs) and linked them to project records in Obsidian. Used the workflow to prepare, track and issue 38 queries by November 2026.",
+                    "Automated distribution of reviewed maintenance reports. In one batch of about 100 reports, routing took 5-10 seconds compared with about 29 minutes manually."
                 ]
             },
             "idc": {
                 "title": "Chief Engineering Expert",
                 "description": [
                     "Project Management Department, Mar 2022 - Aug 2025. Project Implementation Department, Mar 2019 - Mar 2022.",
-                    "Coordinated FEED and detailed design across multiple design institutes for a compressor station and a 400 km main gas pipeline section, including PGD, PZI and PIO documentation.",
-                    "Reviewed piping, mechanical and civil drawings in multidisciplinary project packages, including instrumentation and P&ID documents. Compared vendor documents with procured and delivered equipment and coordinated corrections with design institutes.",
-                    "Prepared sketches and redlines to resolve site discrepancies. Personally revised design and as-built pipeline drawings for PIO in Vojvodina using survey data.",
-                    "Automated MDR/MDI checks, comment sheets and reporting with Excel VBA and Python. Prepared equipment certification dossiers and contributed to HAZOP reviews."
+                    "Reviewed piping, mechanical and civil drawings for consistency. Cross-checked P&IDs, instrumentation documents and vendor data against purchased and delivered equipment. Worked with designers to correct discrepancies.",
+                    "Revised about 350 design and as-built documents. In Vojvodina, checked pipeline as-built drawings (PIO) against survey data for levels and clearances. Prepared field sketches and redlines for foundation and utility discrepancies.",
+                    "Coordinated front-end engineering design (FEED) and detailed design for a compressor station and a 400 km gas pipeline section. Worked across design institutes and provided engineering support for gas metering and block valve stations.",
+                    "Coordinated requests for quotation (RFQs) and technical clarifications with more than 30 suppliers. Assembled equipment certification dossiers and supported commissioning documentation.",
+                    "Prepared about 120 illustrated technical reports comparing design documents with as-built conditions for the legal team's review of EPC claims and counterclaims."
                 ]
             },
             "gazprom": {
@@ -129,16 +131,16 @@
                 "title": "Pipeline Systems Design",
                 "description": [
                     "Lead Design Engineer for Pipeline Systems, Jul 2013 - Oct 2014. Design Engineer for Pipeline Systems (Category II), Oct 2008 - Jun 2013. Design Engineer for Pipeline Systems, Aug 2006 - Sep 2008.",
-                    "Personally designed piping layouts and gas metering assemblies in AutoCAD and SolidWorks, including pipe routing, valves, actuators and supports. Prepared drawings, specifications and civil design inputs.",
-                    "Built parametric libraries for piping and valve assemblies that linked diameter changes to component updates, support selection and specifications.",
-                    "Produced the SolidWorks piping layout, drawings and specifications for an unbuilt gas receiving terminal in Bulgaria."
+                    "Designed piping and equipment layouts in AutoCAD and SolidWorks. Routed pipework, selected valves and actuators, laid out supports and prepared design inputs for civil engineers.",
+                    "Built parametric SolidWorks libraries for piping and valve assemblies. Changing a diameter updated the linked components and specifications. Used the models to produce drawings and material take-offs.",
+                    "Produced the 3D piping model, drawings and specifications for a proposed gas receiving terminal in Bulgaria. Also provided site design support on construction projects in northern Russia."
                 ]
             }
         }
     },
     "skills": {
         "title": "Skills & Data",
-        "description": "My work combines <0>piping design</0>, <1>multidisciplinary technical review</1> and <2>document automation</2>. I use AutoCAD and SolidWorks for design, and Excel and Python for comparing documents, tracking revisions and checking completeness.",
+        "description": "My work combines <0>piping and equipment design</0>, <1>multidisciplinary design review and field engineering</1> and <2>workflow automation</2>. I use AutoCAD, SolidWorks and KOMPAS-3D for design, and SharePoint, Power Query, Excel VBA and Python for engineering documents and data checks.",
         "software": "Engineering Software",
         "digital": "Digital Tech & Analytics",
         "key_expertise": "Key Expertise",
