@@ -178,14 +178,32 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-slate-500 hover:text-teal-400 transition-colors hover:-translate-y-1 transform duration-300" aria-label="Email">
                   <Mail className="h-6 w-6" />
                 </a>
-                <a
-                  href={`tel:${SOCIAL_LINKS.phone}`}
-                  aria-label={t('header.call_phone', { number: SOCIAL_LINKS.phone })}
-                  className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded text-sm text-slate-400 transition-colors hover:text-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
+                <details
+                  className="relative text-slate-400"
+                  onPointerEnter={({ pointerType, currentTarget }) => {
+                    if (pointerType === 'mouse') currentTarget.open = true;
+                  }}
+                  onPointerLeave={({ pointerType, currentTarget }) => {
+                    if (pointerType === 'mouse' && !currentTarget.querySelector(':focus-visible')) currentTarget.open = false;
+                  }}
+                  onBlur={({ currentTarget, relatedTarget }) => {
+                    if (!currentTarget.contains(relatedTarget)) currentTarget.open = false;
+                  }}
                 >
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  {SOCIAL_LINKS.phone}
-                </a>
+                  <summary
+                    aria-label={t('header.phone_number')}
+                    className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded hover:text-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-300 [&::-webkit-details-marker]:hidden"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                  </summary>
+                  <a
+                    href={`tel:${SOCIAL_LINKS.phone}`}
+                    aria-label={t('header.call_phone', { number: SOCIAL_LINKS.phone })}
+                    className="absolute left-full top-0 inline-flex h-11 items-center whitespace-nowrap rounded text-sm hover:text-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-300"
+                  >
+                    {SOCIAL_LINKS.phone}
+                  </a>
+                </details>
               </div>
             </div>
           </header>

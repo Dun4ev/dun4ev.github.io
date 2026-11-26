@@ -30,6 +30,7 @@
         "firstName": "Andrej",
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
+        "phone_number": "Phone number",
         "call_phone": "Call {{number}}",
         "subtitle": "Mechanical Engineer | Design Review & Workflow Automation",
         "description": "Piping and equipment design, construction support, and tools for recurring engineering checks."
