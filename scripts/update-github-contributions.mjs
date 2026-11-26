@@ -9,17 +9,15 @@ if (!token) {
   throw new Error('GITHUB_TOKEN is required to update GitHub contributions.');
 }
 
-const to = new Date();
-const from = new Date(to);
-from.setUTCFullYear(from.getUTCFullYear() - 1);
+// GitHub's default collection uses the same calendar window as the profile.
 
 const query = `
-  query ContributionCalendar($userName: String!, $from: DateTime!, $to: DateTime!) {
+  query ContributionCalendar($userName: String!) {
     user(login: $userName) {
       login
       name
       url
-      contributionsCollection(from: $from, to: $to) {
+      contributionsCollection {
         contributionCalendar {
           totalContributions
           colors
@@ -48,8 +46,6 @@ const response = await fetch('https://api.github.com/graphql', {
     query,
     variables: {
       userName: username,
-      from: from.toISOString(),
-      to: to.toISOString(),
     },
   }),
 });

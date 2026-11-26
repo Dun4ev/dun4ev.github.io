@@ -7,6 +7,7 @@ const sitemap = await readFile('dist/sitemap.xml', 'utf8');
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
 assert.equal(new Set(urls).size, urls.length, 'Sitemap contains duplicate URLs.');
 assert.ok(urls.includes(`${origin}/`) && urls.includes(`${origin}/ru/`), 'Both home-page languages must be in the sitemap.');
+const calendar = JSON.parse(await readFile('dist/data/github-contributions.json', 'utf8'));
 const titles = new Set();
 const descriptions = new Set();
 let internalLinks = 0;
@@ -46,6 +47,11 @@ for (const url of urls) {
     }
   }
 
+  if (path === '/' || path === '/ru/') {
+    const times = [...html.matchAll(/<time\b[^>]*>/gi)].map((match) => attributes(match[0]).datetime);
+    assert.ok(calendar.generatedAt && times.includes(calendar.generatedAt), `${path}: pre-rendered calendar must match the published snapshot.`);
+  }
+
   for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     const data = JSON.parse(match[1]);
     assert.equal(data['@context'], 'https://schema.org', `${path}: invalid structured data context.`);
@@ -53,6 +59,7 @@ for (const url of urls) {
   }
   for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
     const { href } = attributes(match[0]);
+    assert.notEqual(href, '#', `${path}: empty link target.`);
     if (!href || /^(?:mailto:|tel:|https?:\/\/(?!dun4ev\.com(?:\/|$)))/.test(href)) continue;
     const target = new URL(href, url);
     if (target.origin !== origin) continue;

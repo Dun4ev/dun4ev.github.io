@@ -16,7 +16,7 @@
 - Статический сайт-портфолио без серверной части.
 - Стек: React 19, TypeScript 5.8, Vite 6, i18next, D3 и Recharts.
 - Пакетный менеджер: npm.
-- Деплой: GitHub Pages через `gh-pages`.
+- Деплой: GitHub Pages через GitHub Actions. Команда `npm run deploy` повторно публикует удаленную ветку `main`.
 - Актуальные версии и команды всегда проверяй по `package.json`.
 
 ## Структура

@@ -178,12 +178,14 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath = '/' }) => {
                 <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-slate-500 hover:text-teal-400 transition-colors hover:-translate-y-1 transform duration-300" aria-label="Email">
                   <Mail className="h-6 w-6" />
                 </a>
-                <div className="group flex items-center text-slate-500 text-sm gap-2 hover:text-teal-400 transition-colors cursor-default">
-                  <Phone className="h-4 w-4" />
-                  <span className="max-w-0 overflow-hidden opacity-0 whitespace-nowrap transition-all duration-300 group-hover:max-w-[200px] group-hover:opacity-100">
-                    {SOCIAL_LINKS.phone}
-                  </span>
-                </div>
+                <a
+                  href={`tel:${SOCIAL_LINKS.phone}`}
+                  aria-label={t('header.call_phone', { number: SOCIAL_LINKS.phone })}
+                  className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded text-sm text-slate-400 transition-colors hover:text-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  {SOCIAL_LINKS.phone}
+                </a>
               </div>
             </div>
           </header>

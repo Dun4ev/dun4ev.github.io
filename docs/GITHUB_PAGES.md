@@ -4,7 +4,7 @@
 
 - ✅ Настроен `vite.config.ts` с `base: '/'`
 - ✅ Добавлен скрипт `npm run deploy` в `package.json`
-- ✅ Установлен пакет `gh-pages`
+- Для ручного запуска используется GitHub CLI (`gh`) с доступом к Actions.
 - ✅ Создан GitHub Actions workflow (`.github/workflows/deploy.yml`)
 - ✅ Создан файл `.nojekyll` для корректной работы
 - ✅ Проверена production сборка
@@ -24,12 +24,14 @@
    git push
    ```
 
-3. **Готово!** Сайт будет доступен через 1-2 минуты по адресу:
+3. **Готово!** После успешного завершения workflow сайт будет доступен по адресу:
    ```
-   https://dun4ev.github.io/
+   https://dun4ev.com/
    ```
 
-### Вариант 2: Ручной деплой
+### Повторная публикация текущей версии из GitHub
+
+После входа в GitHub CLI эта команда запускает workflow для удаленной ветки `main`.
 
 ```bash
 npm run deploy
@@ -48,7 +50,7 @@ npm run deploy
 1. Настройте GitHub Pages в Settings → Pages → Source: **GitHub Actions**
 2. Запушьте код: `git push`
 3. Проверьте деплой во вкладке **Actions** на GitHub
-4. Откройте сайт: https://dun4ev.github.io/
+4. Откройте сайт: https://dun4ev.com/
 
 ---
 

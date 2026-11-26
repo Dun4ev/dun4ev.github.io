@@ -30,6 +30,7 @@
         "firstName": "Andrej",
         "lastName": "Dunaev",
         "targetLastName": "Dun4ev",
+        "call_phone": "Call {{number}}",
         "subtitle": "Mechanical Engineer | Design Review & Workflow Automation",
         "description": "Piping and equipment design, construction support, and tools for recurring engineering checks."
     },
@@ -221,10 +222,10 @@
             },
             "engineering-process-management-system": {
                 "title": "Meeting Protocol Tracker (MPT)",
-                "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.",
+                "description": "An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. Access to the application and its source code is restricted.",
                 "impact": "Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work.",
                 "category": "Internal Tool",
-                "status": "Source Code / No Public Demo"
+                "status": "Private repository"
             },
             "geofuse": {
                 "title": "GeoFuse",
@@ -335,16 +336,15 @@
     "githubActivity": {
         "eyebrow": "GitHub Activity",
         "total": "{{count}} contributions in the last year",
-        "pending": "GitHub activity will appear soon",
-        "description": "The public GitHub contribution calendar is updated automatically through GitHub Actions.",
-        "visible_period": "The graph shows the latest 6 months; the counter above is for the last year.",
-        "error": "Could not load the GitHub calendar. Check the data file after the workflow runs.",
-        "no_data": "Contribution data will appear after the first manual or scheduled Update GitHub Contributions workflow run.",
+        "visible_period": "The graph covers 26 weeks. The total follows the yearly calendar on GitHub.",
+        "no_data": "No calendar data available.",
         "view_profile": "View GitHub",
         "calendar_label": "GitHub contribution calendar",
-        "day_title": "{{count}} contributions on {{date}}",
         "less": "Less",
-        "more": "More"
+        "more": "More",
+        "updated": "Updated {{date}} UTC",
+        "day_title_one": "{{count}} contribution on {{date}}",
+        "day_title_other": "{{count}} contributions on {{date}}"
     },
     "labs": {
         "eyebrow": "Labs",
@@ -405,7 +405,7 @@
         "items": {
             "karpathy-agent-guide": {
                 "title": "Software Engineering Agent Guide",
-                "description": "An interactive infographic about working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and process improvement loops."
+                "description": "An interactive guide in Russian about working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and process improvement loops."
             }
         }
     },

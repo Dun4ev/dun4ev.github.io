@@ -11,6 +11,17 @@ interface ProjectsPageProps {
   onNavigate: (path: string) => void;
 }
 
+// Catalogue categories describe the format. Select engineering projects by their purpose.
+const engineeringProjectIds = new Set([
+  'pizza-tt426-3d',
+  'pizza-tt426-3d-g4argon',
+  'engineering-process-management-system',
+  'auto-comment-sheets',
+  'pipeline-analytics',
+  'graf-html',
+  'portfolio-v2',
+]);
+
 export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
   const { t, i18n } = useTranslation();
   const language: SiteLanguage = i18n.resolvedLanguage === 'ru' ? 'ru' : 'en';
@@ -22,7 +33,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
     : activeFilter === 'work'
       ? PROJECTS.filter((project) => project.usedAtWork)
       : activeFilter === 'engineering'
-        ? PROJECTS.filter((project) => project.category !== 'Client Website' && project.category !== 'Website Concept' && project.category !== 'Browser Extension')
+        ? PROJECTS.filter((project) => engineeringProjectIds.has(project.id))
         : activeFilter === 'client'
           ? PROJECTS.filter((project) => project.category === 'Client Website')
           : activeFilter === 'interactive'
@@ -30,11 +41,14 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate }) => {
             : [];
   const visibleLabs = activeFilter === 'all'
     ? LABS
-    : activeFilter === 'interactive'
-      ? LABS.filter((lab) => lab.category === 'Interactive Demo' || lab.category === 'Engineering Concept')
-      : activeFilter === 'presentations'
-        ? LABS.filter((lab) => lab.category === 'Business Presentation' || lab.category === 'Engineering Report')
-        : [];
+    : LABS.filter((lab) => {
+      switch (activeFilter) {
+        case 'engineering': return lab.category === 'Engineering Concept' || lab.category === 'Engineering Report';
+        case 'interactive': return lab.category === 'Interactive Demo' || lab.category === 'Engineering Concept';
+        case 'presentations': return lab.category === 'Business Presentation' || lab.category === 'Engineering Report';
+        default: return false;
+      }
+    });
 
   return (
     <main className="min-h-screen px-6 py-10 font-sans md:px-12 lg:px-24">

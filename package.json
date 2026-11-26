@@ -9,7 +9,7 @@
     "check:seo": "node scripts/check-seo.mjs",
     "update:github-contributions": "node scripts/update-github-contributions.mjs",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "gh workflow run deploy.yml --ref main"
   },
   "dependencies": {
     "d3": "^7.9.0",
@@ -25,7 +25,6 @@
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.6.1",
-    "gh-pages": "^6.3.0",
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",
     "typescript": "~5.8.2",

@@ -251,16 +251,15 @@ export const PROJECTS: Project[] = [
   {
     id: 'engineering-process-management-system',
     title: 'Meeting Protocol Tracker (MPT)',
-    description: 'An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. The repository contains the source code; no public application instance or operational data is available.',
+    description: 'An internal system for managing meeting protocols, engineering issues, and action items. It provides organization-based filtering, discussion history, responsibility and status tracking, and automated XLSX reporting. Access to the application and its source code is restricted.',
     tools: ['Python', 'Django', 'Issue Tracking', 'Action Items', 'XLSX Reporting'],
-    link: 'https://github.com/Dun4ev/Protocol',
     image: '/images/projects/meeting-protocol-tracker.optimized.webp',
     imageWidth: 1280,
     imageHeight: 631,
     category: 'Internal Tool',
     usedAtWork: true,
     role: 'Creator',
-    status: 'Source Code / No Public Demo',
+    status: 'Private repository',
     impact: 'Improves traceability of decisions and responsibilities while reducing missed actions and repetitive reporting work'
   },
   {
@@ -398,7 +397,7 @@ export const KNOWLEDGE_ITEMS: KnowledgeItem[] = [
   {
     id: 'karpathy-agent-guide',
     title: 'Software Engineering Agent Guide',
-    description: 'A visual guide to working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and follow-up improvement loops.',
+    description: 'A Russian-language visual guide to working with AI coding agents: task definition, planning, iterative delivery, quality checks, integration, and follow-up improvement loops.',
     category: 'AI Agents',
     format: 'Interactive HTML',
     href: '/knowledge-base/karpathy-agent-guide/index.html',

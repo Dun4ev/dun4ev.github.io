@@ -1,6 +1,5 @@
 import React from 'react';
 import { Job } from '../types';
-import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -17,27 +16,10 @@ export const ExperienceCard: React.FC<Props> = ({ job }) => {
         {job.period}
       </header>
       <div className="z-10 sm:col-span-8">
-        <h3 className="font-medium leading-snug text-slate-200">
-          <div>
-            <a
-              className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-              href="#"
-              aria-label={`${t(`experience.jobs.${job.id}.title`)} at ${job.company}`}
-            >
-              <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-              <span>
-                {t(`experience.jobs.${job.id}.title`)} ·{' '}
-                <span className="inline-block">
-                  {job.company}
-                  <ArrowUpRight className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 motion-reduce:transition-none ml-1" />
-                </span>
-              </span>
-            </a>
-          </div>
-          <div className="text-slate-500 text-xs font-normal mt-1">
-            {job.location}
-          </div>
+        <h3 className="text-base font-medium leading-snug text-slate-200">
+          {t(`experience.jobs.${job.id}.title`)} · {job.company}
         </h3>
+        <p className="mt-1 text-xs font-normal text-slate-500">{job.location}</p>
         <ul className="ml-4 mt-3 list-disc space-y-2.5 text-[0.9375rem] leading-relaxed text-slate-400">
           {t(`experience.jobs.${job.id}.description`, { returnObjects: true }) instanceof Array &&
             (t(`experience.jobs.${job.id}.description`, { returnObjects: true }) as string[]).map((desc, idx) => (
