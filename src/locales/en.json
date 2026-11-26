@@ -159,6 +159,11 @@
         "work_title": "Tools I use at work",
         "work_description": "Created for my engineering tasks and used in my work: meeting protocols, reporting, documentation, and trend analysis.",
         "items": {
+            "inside-the-line": {
+                "title": "Inside the Line",
+                "description": "An interactive engraving of an imagined gas facility. Follow a single pipe through 12 connected scenes, from the mountainside to engineering drawings and the hidden mechanisms that keep gas moving.",
+                "category": "Interactive engraving"
+            },
             "blackburn-flight": {
                 "title": "Blackburn Type D (1912)",
                 "description": "Inspect the wooden frame, then fly the monoplane from its open cockpit. Pass through four rings to see photographs of the original aircraft and follow its story.",

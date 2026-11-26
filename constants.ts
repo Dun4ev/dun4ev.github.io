@@ -115,6 +115,17 @@ export const BLACKBURN_FLIGHT: Project = {
 
 export const PROJECTS: Project[] = [
   {
+    id: 'inside-the-line',
+    title: 'Inside the Line',
+    description: 'An interactive engraving of an imagined gas facility. Follow a single pipe through 12 connected scenes, from the mountainside to engineering drawings and the hidden mechanisms that keep gas moving.',
+    tools: ['JavaScript', 'Canvas 2D'],
+    link: 'https://dun4ev.github.io/inside-the-line/',
+    image: '/images/projects/inside-the-line.webp',
+    imageWidth: 1152,
+    imageHeight: 720,
+    category: 'Interactive Demo',
+  },
+  {
     id: 'tabverta',
     title: 'Tabverta',
     description: 'A published Chrome extension that replaces the new tab with a customizable dashboard: search, top-site shortcuts, city weather and a background map, market charts and optional RSS news. Includes dark and light themes, adjustable map visibility and blur, and English, Russian and Serbian interfaces. Settings stay in the browser profile; no Tabverta account is required.',
